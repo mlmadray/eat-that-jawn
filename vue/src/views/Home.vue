@@ -1,3 +1,5 @@
+<!--this is where a user can like or dislike a restaurant --> 
+
 <template>
   <div class="home">
     <h1>Home</h1>
