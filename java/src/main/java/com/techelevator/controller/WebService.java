@@ -1,5 +1,7 @@
 package com.techelevator.controller;
 
+import java.util.Base64;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -25,7 +27,8 @@ public class WebService {
 	
 	public HttpEntity ApiEntity() {
 		HttpHeaders headers = new HttpHeaders();
-		headers.setBasicAuth("user-key", API_KEY);
+		String basicAuth = "Authorization: Basic"  + new String(Base64.getEncoder().encode(API_KEY.getBytes()));
+		headers.setBasicAuth(basicAuth);
 		HttpEntity entity = new HttpEntity(headers);
 		return entity;
 	}

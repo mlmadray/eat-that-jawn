@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.techelevator.dao.QuestionnaireDAO;
 import com.techelevator.dao.RestaurantReactionsDAO;
 import com.techelevator.dao.UserDAO;
+import com.techelevator.model.Questionnaire;
 import com.techelevator.model.Restaurant;
 
 @RestController
@@ -29,12 +31,22 @@ public class RestaurantController {
 	}
 	
 	//TODO: POST new questionnaire (PreferencesDAO)
+	@RequestMapping(value = "/questionnaire/{user_id}", method = RequestMethod.POST)
+	void createNewQuestionnaire(@PathVariable int user_id, @RequestBody Questionnaire ques) {
+		prefDAO.createNewQuestionnaire(user_id, ques);
+	}
 	
 	//TODO: PUT update questionnaire (PreferencesDAO)
+	@RequestMapping(value = "/questionnaire/{user_id}", method = RequestMethod.PUT)
+	void updateExistingQuestionnaire(@PathVariable int user_id, @RequestBody Questionnaire ques) {
+		prefDAO.updateQuestionnaire(user_id, ques);
+	}
 	
 	//TODO: GET questionnaire answers (PreferencesDAO)
-	//@RequestMapping(value = "/questionnaire", method = RequestMethod.GET)
-	//public String getQuestionnnaireByUser(user_id)
+	@RequestMapping(value = "/questionnaire/{user_id}", method = RequestMethod.GET)
+	public Questionnaire getQuestionnnaireByUser(@PathVariable int user_id) {
+		return prefDAO.getAnswers(user_id);
+	}
 	
 	//TODO: GET liked restaurants (ReactionsDAO)
 	@RequestMapping(value = "/restaurants/{user_id}", method = RequestMethod.GET)
