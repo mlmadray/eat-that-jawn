@@ -15,7 +15,8 @@ export default {
     },
 
     getCuisines() {
-        return axios.get(`/search?entity_id=287&entity_type=city&cuisines&apikey=${apiKey}`)
+       // return axios.get(`/search?entity_id=287&entity_type=city&cuisines&apikey=${apiKey}`)
+       return axios.get('/cuisines?city_id=287&apikey=${apiKey}')
     },
 
     getLiked(user_id) {

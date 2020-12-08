@@ -20,7 +20,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    cuisine_type: ''
+    cuisine_type: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

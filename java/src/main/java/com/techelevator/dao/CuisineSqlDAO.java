@@ -17,7 +17,7 @@ public class CuisineSqlDAO implements CuisineDAO {
 	@Override
 	public Cuisine getSingleCuisine(String name) {
 		Cuisine cuis = new Cuisine();
-		String sql = "SELECT zomato_cuisine_id FROM cuisine WHERE cuisine_type = ?;";
+		String sql = "SELECT zomato_cuisine_id, cuisine_type FROM cuisine WHERE cuisine_type = ?;";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, name);
 		if(results.next()) {
 			cuis = mapRowToCuisine(results);
