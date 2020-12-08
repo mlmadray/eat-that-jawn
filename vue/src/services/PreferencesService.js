@@ -10,5 +10,4 @@ getCuisineID(cuisine_type){
 }
 
 
-
 }

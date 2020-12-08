@@ -2,8 +2,9 @@
 <template>
 <div class = "questionnaire">
     <div class = "cuisine" v-for="cuisine in cuisines" v-bind:key="cuisine.cuisine_id">
-        <input type="checkbox" id="cuisine" v-bind:vaule="cuisine.name"/>
-        {{cuisine.name}}
+        <ul><li><input type="checkbox" id="cuisine" />
+        {{cuisine.cuisine_name}}
+    </li></ul>
     </div>
 </div>
 </template>
