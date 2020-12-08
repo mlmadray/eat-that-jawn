@@ -182,9 +182,15 @@ header {
   margin-bottom: 20px;
 }
 
+  input {
+  padding-left: 15px;
+  font-family: 'Montserrat';
+}
+
 ::placeholder {
   color: #c4c4c4;
-  padding-left: 15px;
+  font-family: 'Montserrat';
+  font-weight: bold;
 }
 
 #login-btn {

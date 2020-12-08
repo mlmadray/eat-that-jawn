@@ -1,6 +1,5 @@
 <!-- TODO Form for user information --> 
 <template>
-  
 </template>
 
 <script>
