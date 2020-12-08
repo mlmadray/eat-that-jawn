@@ -1,27 +1,40 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Restaurant {
 	private boolean isLiked;
+	@JsonProperty("id")
 	public String id;
+	@JsonProperty("name")
 	private String name;
+	@JsonProperty("url")
 	public String url;
+	@JsonProperty("location")
 	public Location location;
+	@JsonProperty("price_range")
 	public String price_range;
+	@JsonProperty("featured_image")
 	public String featured_image;
+	@JsonProperty("user_rating")
 	public UserRating user_rating;
+	@JsonProperty("has_online_delivery")
 	public String has_online_delivery;
+	@JsonProperty("is_delivering_now")
     public String is_delivering_now;
+	@JsonProperty("has_table_booking")
     public String has_table_booking;
 	//private String category;
+	@JsonProperty("all_reviews_count")
 	public String all_reviews_count;
+	@JsonProperty("cuisine")
 	private String cuisine;
 	//public List<AllReview> all_reviews; 
 	
 	
 	//CTOR
-	public Restaurant(String name, String category, String cuisine, int zip, double rating) {
+	public Restaurant(String id, String name, String url, String Location, String cuisine, int zip, double rating) {
 		this.name = name;
-		//this.category = category;
 		this.cuisine = cuisine;
 		
 	}

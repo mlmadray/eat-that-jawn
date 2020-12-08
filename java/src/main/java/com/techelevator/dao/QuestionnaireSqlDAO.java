@@ -39,14 +39,14 @@ public class QuestionnaireSqlDAO implements QuestionnaireDAO {
 	@Override
 	public void updateQuestionnaire(int userId, Questionnaire ques) {
 		jdbcTemplate.update("UPDATE questionnaire SET first_name = ?, city = ?, zip_code = ?, cuisine = ?, service_option = ? " +
-							"WHERE user_id = ?;", ques.getFirstName(), ques.getCity(), ques.getZipcode(), ques.getCuisine(), ques.getServiceOption(), userId);
+							"WHERE user_id = ?", ques.getFirstName(), ques.getCity(), ques.getZipcode(), ques.getCuisine(), ques.getServiceOption(), userId);
 	}
 	
 	private Questionnaire mapRowToQuestionnaire(SqlRowSet ques) {
 		Questionnaire questionnaire = new Questionnaire();
 		questionnaire.setFirstName(ques.getString("first_name"));
 		questionnaire.setCity(ques.getString("city"));
-		questionnaire.setZipcode(ques.getString("zip_code"));
+		questionnaire.setZipcode(ques.getInt("zip_code"));
 		questionnaire.setCuisine(ques.getString("cuisine"));
 		questionnaire.setServiceOption(ques.getString("service_option"));
 		return questionnaire;

@@ -4,7 +4,7 @@ public class Questionnaire {
 	
 	private String firstName;
 	private String city;
-	private String zipcode;
+	private int zipcode;
 	//private String category;
 	private String cuisine;
 	private String serviceOption;
@@ -21,10 +21,10 @@ public class Questionnaire {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public String getZipcode() {
+	public int getZipcode() {
 		return zipcode;
 	}
-	public void setZipcode(String zipcode) {
+	public void setZipcode(int zipcode) {
 		this.zipcode = zipcode;
 	}
 	public String getCuisine() {
