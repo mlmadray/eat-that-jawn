@@ -2,7 +2,8 @@
 <template>
 <div class = "questionnaire">
     <div class = "cuisine" v-for="cuisine in cuisines" v-bind:key="cuisine.cuisine_id">
-        <input type="checkbox" id="cuisine" v-bind:checked="this.$store.cuisine_type = cuisine.name">
+        <input type="checkbox" id="cuisine" v-bind:vaule="cuisine.name"/>
+        {{cuisine.name}}
     </div>
 </div>
 </template>
@@ -12,11 +13,15 @@ import restService from '../services/RestServices'
 
 export default {
     name: 'questionnaire-form',
+    props: ["cuisine_type"],
     data(){
         return{
         cuisines:[],
-        isLoading: true
+        
         };
+    },
+    computed: {
+        
     },
     created(){
         restService.getCuisines().then(response =>{

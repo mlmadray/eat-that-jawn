@@ -5,38 +5,38 @@ import axios from 'axios';
 
 const http = axios.create({
     // baseURL: "https://developers.zomato.com/api/v2.1/search?entity_id=287&entity_type=city"
-    webURL: "https://developers.zomato.com/api/v2.1"
+    baseURL: "https://developers.zomato.com/api/v2.1"
 });
 
 export default {
 
     getRestByCuisineId(cuisineId) {
-        return axios.get(`/search?entity_id=287&entity_type=city&cuisines=${cuisineId}&apikey=${apiKey}`)
+        return http.get(`/search?entity_id=287&entity_type=city&cuisines=${cuisineId}&apikey=${apiKey}`)
     },
 
     getCuisines() {
        // return axios.get(`/search?entity_id=287&entity_type=city&cuisines&apikey=${apiKey}`)
-       return axios.get('/cuisines?city_id=287&apikey=${apiKey}')
+       return http.get(`/cuisines?city_id=287&apikey=${apiKey}`)
     },
 
     getLiked(user_id) {
-        return axios.get(`/restaurants/${user_id}`);
+        return http.get(`/restaurants/${user_id}`);
     },
 
     getAnswers(user_id) {
-        return axios.get(`/questionnaire/${user_id}`);
+        return http.get(`/questionnaire/${user_id}`);
     },
 
     updateAnswers(user_id) {
-        return axios.put(`/questionnaire/${user_id}`);
+        return http.put(`/questionnaire/${user_id}`);
     },
 
     addAnswers(user_id) {
-        return axios.post(`/questionnaire/${user_id}`);
+        return http.post(`/questionnaire/${user_id}`);
     },
     
     getRestaurants() {
-        return axios.get('/restaurants');
+        return http.get('/restaurants');
     }
 
     // deleteLiked(user_id) {
