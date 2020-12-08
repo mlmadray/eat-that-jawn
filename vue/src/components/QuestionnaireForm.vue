@@ -9,8 +9,9 @@
 
 <script>
 import restService from '../services/RestServices'
+
 export default {
-    name: questionnaire-form,
+    name: 'questionnaire-form',
     data(){
         return{
         cuisines:[],

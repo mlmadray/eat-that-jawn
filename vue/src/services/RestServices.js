@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const http = axios.create({
     // baseURL: "https://developers.zomato.com/api/v2.1/search?entity_id=287&entity_type=city"
-    baseURL: "https://developers.zomato.com/api/v2.1"
+    webURL: "https://developers.zomato.com/api/v2.1"
 });
 
 export default {
