@@ -2,7 +2,7 @@ package com.techelevator.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Location {
+public class ResLocation {
 	@JsonProperty("title")
 	private String address;
 	@JsonProperty("city_name")
@@ -10,7 +10,7 @@ public class Location {
 	@JsonProperty("city_id")
 	private int zipcode;
 	
-	public Location(String address, String city, int zip) {
+	public ResLocation(String address, String city, int zip) {
 		this.address = address;
 		this.city = city;
 		this.zipcode = zip;

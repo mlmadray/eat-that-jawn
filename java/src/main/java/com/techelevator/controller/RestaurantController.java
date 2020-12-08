@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 import com.techelevator.dao.QuestionnaireDAO;
 import com.techelevator.dao.RestaurantReactionsDAO;
 import com.techelevator.dao.UserDAO;
-import com.techelevator.model.Location;
+import com.techelevator.model.ResLocation;
 import com.techelevator.model.Questionnaire;
 import com.techelevator.model.Restaurant;
 
@@ -70,9 +70,9 @@ public class RestaurantController {
 		//return webService.getAllRestaurants();
 	}
 	@RequestMapping(value = "/location")
-	public Location getLocation() {
-		Location location = restTemplate.getForObject("https://developers.zomato.com/api/v2.1/locations?query=PHILADELPHIA&apikey=cc747fb03ab46627bb5969ca001acc2a", Location.class);
-		return location;
+	public ResLocation getLocation() {
+		ResLocation resLocation = restTemplate.getForObject("https://developers.zomato.com/api/v2.1/locations?query=PHILADELPHIA&apikey=cc747fb03ab46627bb5969ca001acc2a", ResLocation.class);
+		return resLocation;
 	}
 	
 }

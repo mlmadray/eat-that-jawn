@@ -11,7 +11,7 @@ public class Restaurant {
 	@JsonProperty("url")
 	public String url;
 	@JsonProperty("location")
-	public Location location;
+	public ResLocation resLocation;
 	@JsonProperty("price_range")
 	public String price_range;
 	@JsonProperty("featured_image")
@@ -19,14 +19,14 @@ public class Restaurant {
 	@JsonProperty("user_rating")
 	public UserRating user_rating;
 	@JsonProperty("has_online_delivery")
-	public String has_online_delivery;
+	public boolean has_online_delivery;
 	@JsonProperty("is_delivering_now")
-    public String is_delivering_now;
+    public boolean is_delivering_now;
 	@JsonProperty("has_table_booking")
-    public String has_table_booking;
+    public boolean has_table_booking;
 	//private String category;
 	@JsonProperty("all_reviews_count")
-	public String all_reviews_count;
+	public int all_reviews_count;
 	@JsonProperty("cuisine")
 	private String cuisine;
 	//public List<AllReview> all_reviews; 
