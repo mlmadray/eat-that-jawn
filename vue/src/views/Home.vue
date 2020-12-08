@@ -12,3 +12,10 @@ export default {
   name: "home"
 };
 </script>
+
+<style>
+
+.home {
+  background-image:
+}
+</style>
