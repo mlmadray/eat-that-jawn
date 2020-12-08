@@ -15,7 +15,4 @@ export default {
 
 <style>
 
-.home {
-  background-image:
-}
 </style>
