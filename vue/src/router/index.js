@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
+import Liked from '../views/Liked.vue'
+import Questionnaire from '../views/Questionnaire.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -53,6 +55,22 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "/liked",
+      name: "liked",
+      component: Liked,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/questionnaire",
+      name: "questionnaire",
+      component: Questionnaire,
+      meta: {
+        requiresAuth: false
+      }
+    }    
   ]
 })
 
