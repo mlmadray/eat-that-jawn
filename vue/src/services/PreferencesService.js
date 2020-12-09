@@ -13,18 +13,6 @@ getLiked(username) {
   return axios.get(`/restaurants/${username}`);
 },
 
-getAnswers(username) {
-  return axios.get(`/questionnaire/${username}`);
-},
-
-updateAnswers(username) {
-  return axios.put(`/questionnaire/${username}`);
-},
-
-addAnswers(username, questionnaire) {
-  return axios.post(`/questionnaire/${username}`,questionnaire);
-},
-
 getAllNeighborhoods(){
   return axios.get(`/questionnaire/neighborhood`);
 },

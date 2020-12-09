@@ -11,15 +11,22 @@
       <h1>Home</h1>
       <p>You must be authenticated to see this</p>
       <router-link v-bind:to="{ name: 'login' }">Login</router-link>
+      
     </div>
   </body>
 </template>
 
 <script>
+import MatchedRestaurants from '../components/MatchedRestaurants.vue';
 export default {
   name: "home",
+  components:{
+    
+  }
 };
 </script>
 
 <style>
+
 </style>
+    

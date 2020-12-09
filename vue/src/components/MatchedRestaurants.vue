@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import preferenceService from '../services/PreferencesService';
+//import preferenceService from '../services/PreferencesService';
 import restService from '../services/RestServices';
 export default {
   name: 'matched-restaurants',
@@ -19,17 +19,15 @@ export default {
     };
   },
     
-    props: ["cuisine_type"],
+    props: ["Answers"],
     methods: {
 
   },
   created(){
-    preferenceService.getCuisineID(this.$store.state.cuisine_type).then( response =>{
-        this.cuisine_ids = response.data;
+    restService.getRestaurants(this.$store.state.Answers.neighborhood, this.$store.state.Answers.cuisine, this.$store.state.Answers.category)
+    .then(response =>{
+      this.restaurants = response.data
     });
-    restService.getRestByCuisineId(this.cuisine_ids).then(response =>{
-        this.restaurants = response.data;
-    })
   }
 }
 </script>

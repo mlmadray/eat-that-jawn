@@ -22,7 +22,7 @@
             v-for="neighborhood in neighborhoods"
             v-bind:key="neighborhood.localitySubzoneId"
           >
-            {{ neighborhood.localitySubzoneName }}
+          {{neighborhood.localitySubzoneName }}
           </option>
         </select>
 
@@ -86,7 +86,9 @@ export default {
       this.$store.commit("SET_ANSWER", this.Questionnaire);
     },
   },
-  computed: {},
+  computed: {
+    
+  },
   created() {
     preferenceService.getAllCuisine().then((response) => {
       this.cuisines = response.data;
