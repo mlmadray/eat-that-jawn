@@ -1,4 +1,4 @@
-const { valueOf } = require("core-js/fn/_");
+
 const apiKey = '565aaf5d257ecac2fb2db7425a942cc0';
 
 import axios from 'axios';
