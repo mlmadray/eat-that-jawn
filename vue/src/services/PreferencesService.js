@@ -26,15 +26,15 @@ addAnswers(user_id) {
 },
 
 getAllNeighborhoods(){
-  return axios.get(`/questionnaire/neighborhoods`);
+  return axios.get(`/questionnaire/neighborhood`);
 },
 
 getAllCategories(){
-  return axios.get(`/questionnaire/categories`);
+  return axios.get(`/questionnaire/category`);
 },
 
 getAllServiceOptions(){
-  return axios.get(`/questionnaire/serviceOptions`);
+  return axios.get(`/questionnaire/serviceoption`);
 }
 
 }

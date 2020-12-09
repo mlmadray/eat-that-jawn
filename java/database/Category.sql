@@ -18,5 +18,5 @@ INSERT INTO category (zomato_category_id, category_name) VALUES (11,'Pubs & Bars
 INSERT INTO category (zomato_category_id, category_name) VALUES (14,'Clubs & Lounges');
 
 
-Rollback;
 commit;
+rollback;

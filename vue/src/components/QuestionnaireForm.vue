@@ -19,9 +19,9 @@
         <option>Neighborhood</option>
         <option
           v-for="neighborhood in neighorhoods"
-          v-bind:key="neighborhood.locality_subzone_id"
+          v-bind:key="neighborhood.localitySubzoneId"
         >
-          {{ neighborhood.locality_subzone_name }}
+          {{ neighborhood.localitySubzoneName }}
         </option>
       </select>
 
@@ -88,13 +88,13 @@ export default {
       this.cuisines = response.data;
     }),
       preferenceService.getAllNeighborhoods().then((response) => {
-        this.neighorhood = response.data;
+        this.neighorhoods = response.data;
       }),
       preferenceService.getAllCategories().then((response) => {
-        this.category = response.data;
+        this.categories = response.data;
       }),
       preferenceService.getAllServiceOptions().then((response) => {
-        this.service_option = response.data;
+        this.serviceOptions = response.data;
       });
   },
 };
