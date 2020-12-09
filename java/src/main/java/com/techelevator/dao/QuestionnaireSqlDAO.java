@@ -21,7 +21,7 @@ public class QuestionnaireSqlDAO implements QuestionnaireDAO {
 	@Override
 	public Questionnaire getAnswers(int userId) {
 		Questionnaire questionnaire = new Questionnaire();
-		String sql = "SELECT first_name, city, zip_code, cuisine, service_option " +
+		String sql = "SELECT first_name, city, neighborhood, cuisine, service_option " +
 					"FROM questionnaire WHERE user_id = ?;";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
 		if(results.next()) {
@@ -32,21 +32,21 @@ public class QuestionnaireSqlDAO implements QuestionnaireDAO {
 
 	@Override
 	public void createNewQuestionnaire(int userId, Questionnaire ques) {
-		jdbcTemplate.update("INSERT INTO questionnaire (first_name, city, zip_code, cuisine, service_option, user_id) " +
-							"VALUES (?, ?, ?, ?, ?, ?);", ques.getFirstName(), ques.getCity(), ques.getZipcode(), ques.getCuisine(), ques.getServiceOption(), userId); 
+		jdbcTemplate.update("INSERT INTO questionnaire (first_name, city, neighborhood, cuisine, service_option, user_id) " +
+							"VALUES (?, ?, ?, ?, ?, ?);", ques.getFirstName(), ques.getCity(), ques.getNeighborhood(), ques.getCuisine(), ques.getServiceOption(), userId); 
 	}
 
 	@Override
 	public void updateQuestionnaire(int userId, Questionnaire ques) {
-		jdbcTemplate.update("UPDATE questionnaire SET first_name = ?, city = ?, zip_code = ?, cuisine = ?, service_option = ? " +
-							"WHERE user_id = ?", ques.getFirstName(), ques.getCity(), ques.getZipcode(), ques.getCuisine(), ques.getServiceOption(), userId);
+		jdbcTemplate.update("UPDATE questionnaire SET first_name = ?, city = ?, neighborhood = ?, cuisine = ?, service_option = ? " +
+							"WHERE user_id = ?", ques.getFirstName(), ques.getCity(), ques.getNeighborhood(), ques.getCuisine(), ques.getServiceOption(), userId);
 	}
 	
 	private Questionnaire mapRowToQuestionnaire(SqlRowSet ques) {
 		Questionnaire questionnaire = new Questionnaire();
 		questionnaire.setFirstName(ques.getString("first_name"));
 		questionnaire.setCity(ques.getString("city"));
-		questionnaire.setZipcode(ques.getInt("zip_code"));
+		questionnaire.setNeighborhood(ques.getString("neighborhood"));
 		questionnaire.setCuisine(ques.getString("cuisine"));
 		questionnaire.setServiceOption(ques.getString("service_option"));
 		return questionnaire;

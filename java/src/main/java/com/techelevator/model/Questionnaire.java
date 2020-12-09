@@ -4,7 +4,8 @@ public class Questionnaire {
 	
 	private String firstName;
 	private String city;
-	private int zipcode;
+	private String neighborhood;
+	//private int zipcode;
 	//private String category;
 	private String cuisine;
 	private String serviceOption;
@@ -21,11 +22,17 @@ public class Questionnaire {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public int getZipcode() {
-		return zipcode;
+//	public int getZipcode() {
+//		return zipcode;
+//	}
+//	public void setZipcode(int zipcode) {
+//		this.zipcode = zipcode;
+//	}
+	public String getNeighborhood() {
+		return neighborhood;
 	}
-	public void setZipcode(int zipcode) {
-		this.zipcode = zipcode;
+	public void setNeighborhood(String neighborhood) {
+		this.neighborhood = neighborhood;
 	}
 	public String getCuisine() {
 		return cuisine;
