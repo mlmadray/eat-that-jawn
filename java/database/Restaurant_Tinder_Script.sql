@@ -14,6 +14,7 @@ CREATE TABLE liked_restaurants (
         
 CREATE TABLE user_reaction (
         user_liked SERIAL,
+        username varchar(50) NOT NULL,
         user_id int NOT NULL,
         liked_id int NOT NULL,
         CONSTRAINT pk_user_liked PRIMARY KEY(user_liked)

@@ -2,32 +2,15 @@ package com.techelevator.model;
 
 public class Questionnaire {
 	
-	private String firstName;
-	private String city;
+	
 	private String neighborhood;
-	//private int zipcode;
-	//private String category;
+	private String category;
 	private String cuisine;
 	private String serviceOption;
+	private int user_id;
 	
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-//	public int getZipcode() {
-//		return zipcode;
-//	}
-//	public void setZipcode(int zipcode) {
-//		this.zipcode = zipcode;
-//	}
+	
+
 	public String getNeighborhood() {
 		return neighborhood;
 	}
@@ -45,6 +28,18 @@ public class Questionnaire {
 	}
 	public void setServiceOption(String serviceOption) {
 		this.serviceOption = serviceOption;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public int getUserId() {
+		return user_id;
+	}
+	public void setUserId(int user_id) {
+		this.user_id = user_id;
 	}
 
 }

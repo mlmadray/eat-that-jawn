@@ -13,30 +13,32 @@
         alt="Eat That Jawn?"
       />
     </header>
+    <form class ="questionnaireForm" v-on:submit.prevent="saveForm" >
     <div id="questionnaire" class="text-center">
       <h1 class="welcome">FILTER RESULTS</h1>
-      <select id="statusFilter">
-        <option>Neighborhood</option>
+      <select id="statusFilter" v-model="Questionnaire.neighborhood">
+        <option value = '' disabled selected>Neighborhood</option>
         <option
           v-for="neighborhood in neighorhoods"
           v-bind:key="neighborhood.localitySubzoneId"
-        >
+           > 
           {{ neighborhood.localitySubzoneName }}
         </option>
       </select>
 
-      <select id="statusFilter">
-        <option>Cuisine</option>
+      <select id="statusFilter" v-model="Questionnaire.cuisine">
+        <option value = '' disabled selected>Cuisine</option>
         <option
           v-for="cuisine in cuisines"
           v-bind:key="cuisine.zomatoCuisineId"
+          
         >
           {{ cuisine.cuisineType }}
         </option>
       </select>
 
-      <select id="statusFilter">
-        <option>Category</option>
+      <select id="statusFilter" v-model="Questionnaire.category">
+        <option value = '' disabled selected>Category</option>
         <option
           v-for="category in categories"
           v-bind:key="category.zomatoCategoryId"
@@ -44,8 +46,8 @@
           {{ category.categoryName }}
         </option>
       </select>
-      <select id="statusFilter">
-        <option>Service Options</option>
+      <select id="statusFilter" v-model="Questionnaire.serviceOption">
+        <option value = '' disabled selected>Service Options</option>
         <option
           v-for="service_option in serviceOptions"
           v-bind:key="service_option.zomatoCategoryId"
@@ -57,6 +59,7 @@
         <button type="submit" id="submit-btn">Submit</button>
       </div>
     </div>
+    </form>
   </body>
 </template>
 
@@ -64,23 +67,25 @@
 import preferenceService from "../services/PreferencesService";
 export default {
   name: "questionnaire-form",
-  props: ["cuisine_type"],
+  props: ["Answers"],
   data() {
     return {
       cuisines: [],
       neighborhoods: [],
       categories: [],
       serviceOptions: [],
-      Answers: {
+      Questionnaire: {
         neighborhood: "",
         cuisine: "",
         category: "",
-        service_option: "",
-      },
+        serviceOption: "",
+      }
     };
   },
   methods: {
-    saveCuisine() {},
+    saveForm(){
+      preferenceService.addAnswers($store.state.user.username,this.Questionnaire);
+    }
   },
   computed: {},
   created() {

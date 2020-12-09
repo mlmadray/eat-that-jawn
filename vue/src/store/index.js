@@ -20,7 +20,12 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    cuisine_type: []
+    Answers: {
+      neighborhood: "",
+      cuisine: "",
+      category: "",
+      service_option: "",
+    },
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -41,6 +46,9 @@ export default new Vuex.Store({
     },
     SET_CUISINE(cuisine){
       this.cuisine_type.push(cuisine)
+    },
+    SET_ANSWER(answer){
+      this.Answers = answer;
     }
   }
 })
