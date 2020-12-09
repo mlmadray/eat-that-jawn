@@ -21,12 +21,10 @@ CREATE TABLE user_reaction (
         
 CREATE TABLE questionnaire (
         preference_id SERIAL,
-        first_name varchar(50),
-        city varchar(40),
-        zip_code int,
-        category varchar(20),
-        cuisine varchar(20),
-        service_option varchar(10),
+        neighborhood varchar(50),
+        category varchar(50),
+        cuisine varchar(50),
+        service_option varchar(50),
         user_id int,
         CONSTRAINT pk_preference_id PRIMARY KEY(preference_id)
         );
