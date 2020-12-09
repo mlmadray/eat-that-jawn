@@ -1,6 +1,6 @@
 <!-- TODO Form for user information --> 
 <template>
-<body>
+  <body>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
@@ -14,68 +14,90 @@
       />
     </header>
     <div id="questionnaire" class="text-center">
-            <h1 class="welcome">FILTER RESULTS</h1>
-              <select id="statusFilter">
-              <option>Neighborhood</option>
-              <option>South Philly</option>
-              <option>Fishtown</option>
-            </select>
-            
-            <select id="statusFilter" >
-                <option>Cuisine</option>
-                <option v-for="cuisine in cuisines" v-bind:key="cuisine.zomatoCuisineId">{{cuisine.cuisineType}}</option>
-            </select>
-            
-            
-            <select id="statusFilter">
-              <option>Category</option>
-              <option>South Philly</option>
-              <option>Fishtown</option>
-            </select>
-            <select id="statusFilter">
-              <option>Service Options</option>
-              <option>South Philly</option>
-              <option>Fishtown</option>
-            </select>
-            <div>
-            <button type="submit" id="submit-btn">Submit</button>
-            </div>
+      <h1 class="welcome">FILTER RESULTS</h1>
+      <select id="statusFilter">
+        <option>Neighborhood</option>
+        <option
+          v-for="neighborhood in neighorhoods"
+          v-bind:key="neighborhood.locality_subzone_id"
+        >
+          {{ neighborhood.locality_subzone_name }}
+        </option>
+      </select>
+
+      <select id="statusFilter">
+        <option>Cuisine</option>
+        <option
+          v-for="cuisine in cuisines"
+          v-bind:key="cuisine.zomatoCuisineId"
+        >
+          {{ cuisine.cuisineType }}
+        </option>
+      </select>
+
+      <select id="statusFilter">
+        <option>Category</option>
+        <option
+          v-for="category in categories"
+          v-bind:key="category.zomatoCategoryId"
+        >
+          {{ category.categoryName }}
+        </option>
+      </select>
+      <select id="statusFilter">
+        <option>Service Options</option>
+        <option
+          v-for="service_option in serviceOptions"
+          v-bind:key="service_option.zomatoCategoryId"
+        >
+          {{ service_option.categoryName }}
+        </option>
+      </select>
+      <div>
+        <button type="submit" id="submit-btn">Submit</button>
+      </div>
     </div>
-</body>
+  </body>
 </template>
 
 <script>
-
-import preferenceService from '../services/PreferencesService'
+import preferenceService from "../services/PreferencesService";
 export default {
-    name: 'questionnaire-form',
-    props: ["cuisine_type"],
-    data(){
-        return{
-        cuisines:[],
-        Anwers: {
-            neighborhood: '',
-            cuisine: '',
-            category: '',
-            service_option: ''
-        }
-        
-        };
-    },
-    methods: {
-         saveCuisine(){
-
-         } 
-       },
-    computed:{
-    
-       },
-    created(){
-        preferenceService.getAllCuisine().then(response =>{
-               this.cuisines = response.data;
-           })
-    }
-}
+  name: "questionnaire-form",
+  props: ["cuisine_type"],
+  data() {
+    return {
+      cuisines: [],
+      neighborhoods: [],
+      categories: [],
+      serviceOptions: [],
+      Answers: {
+        neighborhood: "",
+        cuisine: "",
+        category: "",
+        service_option: "",
+      },
+    };
+  },
+  methods: {
+    saveCuisine() {},
+  },
+  computed: {},
+  created() {
+    preferenceService.getAllCuisine().then((response) => {
+      this.cuisines = response.data;
+    }),
+      preferenceService.getAllNeighborhoods().then((response) => {
+        this.neighorhood = response.data;
+      }),
+      preferenceService.getAllCategories().then((response) => {
+        this.category = response.data;
+      }),
+      preferenceService.getAllServiceOptions().then((response) => {
+        this.service_option = response.data;
+      });
+  },
+};
 </script>
 
 <style>
