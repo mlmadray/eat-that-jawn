@@ -13,52 +13,51 @@
         alt="Eat That Jawn?"
       />
     </header>
-    <form class ="questionnaireForm" v-on:submit.prevent="saveForm" >
-    <div id="questionnaire" class="text-center">
-      <h1 class="welcome">FILTER RESULTS</h1>
-      <select id="statusFilter" v-model="Questionnaire.neighborhood">
-        <option value = '' disabled selected>Neighborhood</option>
-        <option
-          v-for="neighborhood in neighorhoods"
-          v-bind:key="neighborhood.localitySubzoneId"
-           > 
-          {{ neighborhood.localitySubzoneName }}
-        </option>
-      </select>
+    <form class="questionnaireForm" v-on:submit.prevent="saveForm">
+      <div id="questionnaire" class="text-center">
+        <h1 class="welcome">FILTER RESULTS</h1>
+        <select id="statusFilter" v-model="Questionnaire.neighborhood">
+          <option value="" disabled selected>Neighborhood</option>
+          <option
+            v-for="neighborhood in neighborhoods"
+            v-bind:key="neighborhood.localitySubzoneId"
+          >
+            {{ neighborhood.localitySubzoneName }}
+          </option>
+        </select>
 
-      <select id="statusFilter" v-model="Questionnaire.cuisine">
-        <option value = '' disabled selected>Cuisine</option>
-        <option
-          v-for="cuisine in cuisines"
-          v-bind:key="cuisine.zomatoCuisineId"
-          
-        >
-          {{ cuisine.cuisineType }}
-        </option>
-      </select>
+        <select id="statusFilter" v-model="Questionnaire.cuisine">
+          <option value="" disabled selected>Cuisine</option>
+          <option
+            v-for="cuisine in cuisines"
+            v-bind:key="cuisine.zomatoCuisineId"
+          >
+            {{ cuisine.cuisineType }}
+          </option>
+        </select>
 
-      <select id="statusFilter" v-model="Questionnaire.category">
-        <option value = '' disabled selected>Category</option>
-        <option
-          v-for="category in categories"
-          v-bind:key="category.zomatoCategoryId"
-        >
-          {{ category.categoryName }}
-        </option>
-      </select>
-      <select id="statusFilter" v-model="Questionnaire.serviceOption">
-        <option value = '' disabled selected>Service Options</option>
-        <option
-          v-for="service_option in serviceOptions"
-          v-bind:key="service_option.zomatoCategoryId"
-        >
-          {{ service_option.categoryName }}
-        </option>
-      </select>
-      <div>
-        <button type="submit" id="submit-btn">Submit</button>
+        <select id="statusFilter" v-model="Questionnaire.category">
+          <option value="" disabled selected>Category</option>
+          <option
+            v-for="category in categories"
+            v-bind:key="category.zomatoCategoryId"
+          >
+            {{ category.categoryName }}
+          </option>
+        </select>
+        <select id="statusFilter" v-model="Questionnaire.serviceOption">
+          <option value="" disabled selected>Service Options</option>
+          <option
+            v-for="service_option in serviceOptions"
+            v-bind:key="service_option.zomatoCategoryId"
+          >
+            {{ service_option.categoryName }}
+          </option>
+        </select>
+        <div>
+          <button type="submit" id="submit-btn">Submit</button>
+        </div>
       </div>
-    </div>
     </form>
   </body>
 </template>
@@ -79,13 +78,13 @@ export default {
         cuisine: "",
         category: "",
         serviceOption: "",
-      }
+      },
     };
   },
   methods: {
-    saveForm(){
-      preferenceService.addAnswers($store.state.user.username,this.Questionnaire);
-    }
+    saveForm() {
+      this.$store.commit("SET_ANSWER", this.Questionnaire);
+    },
   },
   computed: {},
   created() {
@@ -93,7 +92,7 @@ export default {
       this.cuisines = response.data;
     }),
       preferenceService.getAllNeighborhoods().then((response) => {
-        this.neighorhoods = response.data;
+        this.neighborhoods = response.data;
       }),
       preferenceService.getAllCategories().then((response) => {
         this.categories = response.data;

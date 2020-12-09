@@ -13,6 +13,8 @@ export default {
     getRestByCuisineId(cuisineId) {
         return http.get(`/search?entity_id=287&entity_type=city&cuisines=${cuisineId}&apikey=${apiKey}`)
     },
+
+    
     /*
     getCuisines() {
         // return axios.get(`/search?entity_id=287&entity_type=city&cuisines&apikey=${apiKey}`)
@@ -27,8 +29,9 @@ export default {
    getCategories(){
        return http.get('/categories')
    },
-    getRestaurants() {
-        return http.get('/restaurants');
+   
+    getRestaurants(neighborhood, cuisineId, categoryId) {
+        return http.get(`/search?entity_id=${neighborhood}&entity_type=subzone&cuisines=${cuisineId}&category=${categoryId}&apikey=${apiKey}`);
     }
 
     // deleteLiked(user_id) {
