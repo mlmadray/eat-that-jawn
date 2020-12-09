@@ -18,23 +18,14 @@ export default {
         // return axios.get(`/search?entity_id=287&entity_type=city&cuisines&apikey=${apiKey}`)
         return http.get(`/cuisines?city_id=287&apikey=${apiKey}`)
     },
-
-    getLiked(user_id) {
-        return http.get(`/restaurants/${user_id}`);
+    /*
+    getNeighborhoods(){
+        return http.get()
     },
-
-    getAnswers(user_id) {
-        return http.get(`/questionnaire/${user_id}`);
-    },
-
-    updateAnswers(user_id) {
-        return http.put(`/questionnaire/${user_id}`);
-    },
-
-    addAnswers(user_id) {
-        return http.post(`/questionnaire/${user_id}`);
-    },
-
+    */
+   getCategories(){
+       return http.get('/categories')
+   }
     getRestaurants() {
         return http.get('/restaurants');
     }

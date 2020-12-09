@@ -38,6 +38,9 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SET_CUISINE(cuisine){
+      this.cuisine_type.push(cuisine)
     }
   }
 })
