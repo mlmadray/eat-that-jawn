@@ -8,7 +8,6 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Service;
 
 import com.techelevator.model.Questionnaire;
-import com.techelevator.model.Restaurant;
 
 @Service
 public class QuestionnaireSqlDAO implements QuestionnaireDAO {
