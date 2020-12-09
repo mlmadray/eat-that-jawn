@@ -15,8 +15,8 @@ export default {
     },
 
     getCuisines() {
-       // return axios.get(`/search?entity_id=287&entity_type=city&cuisines&apikey=${apiKey}`)
-       return http.get(`/cuisines?city_id=287&apikey=${apiKey}`)
+        // return axios.get(`/search?entity_id=287&entity_type=city&cuisines&apikey=${apiKey}`)
+        return http.get(`/cuisines?city_id=287&apikey=${apiKey}`)
     },
 
     getLiked(user_id) {
@@ -34,7 +34,7 @@ export default {
     addAnswers(user_id) {
         return http.post(`/questionnaire/${user_id}`);
     },
-    
+
     getRestaurants() {
         return http.get('/restaurants');
     }
@@ -42,7 +42,7 @@ export default {
     // deleteLiked(user_id) {
     //     return axios.delete(`/restaurants/${user_id}`);
     // },
-    
+
     // getHours() {
     //   return axios.get('/restaurants/timings');
     // }
@@ -52,7 +52,7 @@ export default {
     // }
 
     /* match paths with java application*/
- 
+
     // GET Restaurants (By Category) /categories/category_name ***NOT SEARCH
     // GET Restaurants (By Neighborhood) /search/locality
     // GET Restaurants (By Cuisine) /search/cuisines

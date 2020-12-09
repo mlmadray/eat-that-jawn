@@ -124,6 +124,7 @@ header {
   border-radius: 20px;
   margin-bottom: 50px;
   margin-top: 80px;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
 .signUp {
@@ -141,7 +142,7 @@ header {
   margin: auto;
   margin-bottom: 20px;
   padding-top: 10px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
 #confirmPassword {
@@ -150,7 +151,8 @@ header {
   height: 41px;
   left: 49px;
   top: 330px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  border: 0;
   border-radius: 20px;
   display: block;
   margin: auto;
@@ -167,8 +169,9 @@ header {
   color: #ffffff;
   font-weight: bold;
   font-family: "Montserrat";
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 0;
   border-radius: 20px;
   display: block;
   margin: auto;
@@ -178,7 +181,7 @@ header {
 #registered {
   background: #ffffff;
   text-shadow: 0px 4px 0px 0px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
   text-align: center;
   border-radius: 15px;
   width: 160px;

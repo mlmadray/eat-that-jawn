@@ -122,11 +122,16 @@ body {
 }
 
 header {
-  background: rgb(1,1,1);
-  background: radial-gradient(circle, rgba(1,1,1,1) 0%, rgba(0,0,0,0.8603816526610644) 59%);
+  background: rgb(1, 1, 1);
+  background: radial-gradient(
+    circle,
+    rgba(1, 1, 1, 1) 0%,
+    rgba(0, 0, 0, 0.8603816526610644) 59%
+  );
   border-radius: 20px;
   margin-bottom: 50px;
   margin-top: 80px;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
 #etj-round-and-text {
@@ -153,7 +158,7 @@ header {
   margin: auto;
   margin-bottom: 20px;
   padding-top: 10px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
 #username {
@@ -162,7 +167,8 @@ header {
   height: 41px;
   left: 49px;
   top: 330px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  border: 0;
   border-radius: 20px;
   display: block;
   margin: auto;
@@ -175,21 +181,22 @@ header {
   height: 41px;
   left: 49px;
   top: 330px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  border: 0;
   border-radius: 20px;
   display: block;
   margin: auto;
   margin-bottom: 20px;
 }
 
-  input {
+input {
   padding-left: 15px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
 }
 
 ::placeholder {
   color: #c4c4c4;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-weight: bold;
 }
 
@@ -203,8 +210,9 @@ header {
   color: #ffffff;
   font-weight: bold;
   font-family: "Montserrat";
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 0;
   border-radius: 20px;
   display: block;
   margin: auto;
@@ -215,7 +223,7 @@ header {
   grid-area: forgot-pass;
   background: #ffffff;
   text-shadow: 0px 4px 0px 0px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
   text-align: center;
   border-radius: 15px;
   width: 144px;
@@ -233,7 +241,7 @@ header {
   grid-area: sign-up;
   background: #ffffff;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
   text-align: center;
   border-radius: 15px;
   width: 249px;
