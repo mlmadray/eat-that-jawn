@@ -7,7 +7,6 @@ import Register from '../views/Register.vue'
 import Liked from '../views/Liked.vue'
 import Questionnaire from '../views/Questionnaire.vue'
 import store from '../store/index'
-import Dummy from '../views/Dummy.vue'
 
 Vue.use(Router)
 
@@ -73,13 +72,15 @@ const router = new Router({
       }
     },
     {
-      path: "/cuisine/:cuisine_type",
-      name: "cuisine_type",
-      component: Dummy,
+      path: "/questionnaire/cuisine",
+      name: "questionnaire-cuisine",
+      component: Questionnaire,
       meta: {
         requiresAuth: false
       }
-    }  
+    },
+    
+     
   ]
 })
 

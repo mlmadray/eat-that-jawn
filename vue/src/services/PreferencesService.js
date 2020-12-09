@@ -8,6 +8,9 @@ export default {
 getCuisineID(cuisine_type){
     return http.get(`/cuisine/${cuisine_type}`);
 },
+getAllCuisine(){
+  return http.get(`/questionnaire/cuisine`);
+},
 getLiked(user_id) {
   return http.get(`/restaurants/${user_id}`);
 },

@@ -20,11 +20,13 @@
               <option>South Philly</option>
               <option>Fishtown</option>
             </select>
-            <select id="statusFilter">
-              <option>Cuisine</option>
-              <option>South Philly</option>
-              <option>Fishtown</option>
+            
+            <select id="statusFilter" >
+                <option>Cuisine</option>
+                <option v-for="cuisine in cuisines" v-bind:key="cuisine.zomatoCuisineId">{{cuisine.cuisineType}}</option>
             </select>
+            
+            
             <select id="statusFilter">
               <option>Category</option>
               <option>South Philly</option>
@@ -38,84 +40,40 @@
             <div>
             <button type="submit" id="submit-btn">Submit</button>
             </div>
-        <!-- <form class="form-question" @submit.prevent="questionnaire">
-            <div>
-            <label for="neighborhood" class="sr-only"></label>
-            <input
-            type="text"
-            id="neighborhood"
-            class="form-control"
-            placeholder="Neighborhood"
-            />
-            </div>
-            v-model="results.neighborhood"
-            <div>
-            <label for="cuisine" class="sr-only"></label>
-            <input
-                type="text"
-                id="cuisine"
-                class="form-control"
-                placeholder="Cuisine"
-            />
-            v-model="results.cuisine"
-            </div>
-            <div>
-            <label for="category" class="sr-only"></label>
-            <input
-                type="text"
-                id="category"
-                class="form-control"
-                placeholder="Category"
-            />
-            v-model="results.category"
-            </div>
-            <div>
-            <label for="service-options" class="sr-only"></label>
-            <input
-                type="text"
-                id="service-options"
-                class="form-control"
-                placeholder="Service Options"
-            />
-            v-model="results.service_option"
-            </div>
-            
-            <div class = "cuisine" v-for="cuisine in cuisines" v-bind:key="cuisine.cuisine_id" >
-                <ul>
-                    <li><input type="checkbox" id="cuisine" />
-                        {{cuisine.cuisine_name}}
-                    </li>
-                </ul>
-            </div>
-        </form> -->
     </div>
 </body>
 </template>
 
 <script>
-import restService from '../services/RestServices'
 
+import preferenceService from '../services/PreferencesService'
 export default {
     name: 'questionnaire-form',
     props: ["cuisine_type"],
     data(){
         return{
         cuisines:[],
+        Anwers: {
+            neighborhood: '',
+            cuisine: '',
+            category: '',
+            service_option: ''
+        }
         
         };
     },
     methods: {
-       selectCuisine(){
-           restService.getCuisines().then(response =>{
-            this.cuisines = response.data;
-           });
-       }
-    },
+         saveCuisine(){
+
+         } 
+       },
+    computed:{
+    
+       },
     created(){
-        restService.getCuisines().then(response =>{
-            this.cuisines = response.data;
-            //this.isLoading = false;
-        })
+        preferenceService.getAllCuisine().then(response =>{
+               this.cuisines = response.data;
+           })
     }
 }
 </script>

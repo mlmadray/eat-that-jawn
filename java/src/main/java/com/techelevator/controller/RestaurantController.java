@@ -16,6 +16,7 @@ import com.techelevator.dao.QuestionnaireDAO;
 import com.techelevator.dao.RestaurantReactionsDAO;
 import com.techelevator.dao.UserDAO;
 import com.techelevator.model.ResLocation;
+import com.techelevator.model.Cuisine;
 import com.techelevator.model.Questionnaire;
 import com.techelevator.model.Restaurant;
 
@@ -43,6 +44,11 @@ public class RestaurantController {
 	@RequestMapping(value = "/cuisine/{cuisine_type}", method = RequestMethod.GET)
 	public int getCuisineId(@PathVariable String cuisine_type) {
 		return cuisineDAO.getSingleCuisine(cuisine_type).getZomatoCuisineId();
+	}
+	
+	@RequestMapping(value = "/questionnaire/cuisine", method = RequestMethod.GET)
+	public List<Cuisine> getAllCuisine() {
+		return cuisineDAO.getAllCuisine();
 	}
 	
 	@RequestMapping(value = "/questionnaire/{user_id}", method = RequestMethod.POST)

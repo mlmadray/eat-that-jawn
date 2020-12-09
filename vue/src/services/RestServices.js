@@ -13,11 +13,12 @@ export default {
     getRestByCuisineId(cuisineId) {
         return http.get(`/search?entity_id=287&entity_type=city&cuisines=${cuisineId}&apikey=${apiKey}`)
     },
-
+    /*
     getCuisines() {
         // return axios.get(`/search?entity_id=287&entity_type=city&cuisines&apikey=${apiKey}`)
         return http.get(`/cuisines?city_id=287&apikey=${apiKey}`)
     },
+    */
     /*
     getNeighborhoods(){
         return http.get()
