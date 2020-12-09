@@ -14,8 +14,31 @@
       />
     </header>
     <div id="questionnaire" class="text-center">
-        <form class="form-question" @submit.prevent="questionnaire">
             <h1 class="welcome">FILTER RESULTS</h1>
+              <select id="statusFilter">
+              <option>Neighborhood</option>
+              <option>South Philly</option>
+              <option>Fishtown</option>
+            </select>
+            <select id="statusFilter">
+              <option>Cuisine</option>
+              <option>South Philly</option>
+              <option>Fishtown</option>
+            </select>
+            <select id="statusFilter">
+              <option>Category</option>
+              <option>South Philly</option>
+              <option>Fishtown</option>
+            </select>
+            <select id="statusFilter">
+              <option>Service Options</option>
+              <option>South Philly</option>
+              <option>Fishtown</option>
+            </select>
+            <div>
+            <button type="submit" id="submit-btn">Submit</button>
+            </div>
+        <!-- <form class="form-question" @submit.prevent="questionnaire">
             <div>
             <label for="neighborhood" class="sr-only"></label>
             <input
@@ -25,7 +48,7 @@
             placeholder="Neighborhood"
             />
             </div>
-            <!-- v-model="results.neighborhood" -->
+            v-model="results.neighborhood"
             <div>
             <label for="cuisine" class="sr-only"></label>
             <input
@@ -34,7 +57,7 @@
                 class="form-control"
                 placeholder="Cuisine"
             />
-            <!-- v-model="results.cuisine" -->
+            v-model="results.cuisine"
             </div>
             <div>
             <label for="category" class="sr-only"></label>
@@ -44,7 +67,7 @@
                 class="form-control"
                 placeholder="Category"
             />
-            <!-- v-model="results.category" -->
+            v-model="results.category"
             </div>
             <div>
             <label for="service-options" class="sr-only"></label>
@@ -54,7 +77,7 @@
                 class="form-control"
                 placeholder="Service Options"
             />
-            <!-- v-model="results.service_option" -->
+            v-model="results.service_option"
             </div>
             
             <div class = "cuisine" v-for="cuisine in cuisines" v-bind:key="cuisine.cuisine_id" >
@@ -64,10 +87,7 @@
                     </li>
                 </ul>
             </div>
-            <div>
-            <button type="submit" id="submit-btn">Submit</button>
-            </div>
-        </form>
+        </form> -->
     </div>
 </body>
 </template>
@@ -217,6 +237,19 @@ body {
   display: block;
   margin: auto;
   margin-bottom: 15px;
+}
+
+#statusFilter {
+  width: 279px;
+  height: 41px;
+  left: 49px;
+  top: 330px;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  border: 0;
+  border-radius: 20px;
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
 }
 
 /********************* TABLET *********************/

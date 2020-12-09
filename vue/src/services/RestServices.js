@@ -25,7 +25,7 @@ export default {
     */
    getCategories(){
        return http.get('/categories')
-   }
+   },
     getRestaurants() {
         return http.get('/restaurants');
     }
