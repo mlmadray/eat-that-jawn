@@ -12,10 +12,15 @@
         src="../assets/img/etj-round-and-text.png"
         alt="Eat That Jawn?"
       />
+      <img
+        id="ETJ-76ers"
+        src="../assets/img/ETJ-76ers-blue-white.png"
+        alt="Eat That Jawn?"
+      />
     </header>
     <form class="questionnaireForm" v-on:submit.prevent="saveForm">
       <div id="questionnaire" class="text-center">
-        <h1 class="welcome">FILTER RESULTS</h1>
+        <h1 class="filter-results">Filter Results Below</h1>
         <select id="statusFilter" v-model="Questionnaire.neighborhood">
           <option value="" disabled selected>Neighborhood</option>
           <option
@@ -104,10 +109,10 @@ export default {
       }),
       preferenceService.getAllCategories().then((response) => {
         this.categories = response.data;
-      })
-      // preferenceService.getAllServiceOptions().then((response) => {
-      //   this.serviceOptions = response.data;
-      // });
+      });
+    // preferenceService.getAllServiceOptions().then((response) => {
+    //   this.serviceOptions = response.data;
+    // });
   },
 };
 </script>
@@ -134,17 +139,21 @@ body {
   display: block;
   margin: auto;
   padding-top: 40px;
-  padding-bottom: 40px;
+  padding-bottom: 30px;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
-.welcome {
-  background: #09ae37;
-  width: 170px;
+#ETJ-76ers {
+  display: none;
+}
+
+.filter-results {
+  background: black;
+  width: 270px;
   height: 32px;
   left: 103px;
   top: 264px;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 18px;
   font-weight: bold;
   color: #ffffff;
@@ -158,48 +167,19 @@ body {
 
 #neighborhood {
   grid-area: neighborhood;
-  width: 279px;
-  height: 41px;
-  left: 49px;
-  top: 330px;
-  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
-  border: 0;
-  border-radius: 20px;
-  display: block;
-  margin: auto;
-  margin-bottom: 20px;
 }
 
 #cuisine {
   grid-area: cuisine;
-  width: 279px;
-  height: 41px;
-  left: 49px;
-  top: 330px;
-  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
-  border: 0;
-  border-radius: 20px;
-  display: block;
-  margin: auto;
-  margin-bottom: 20px;
 }
 
 #category {
   grid-area: category;
-  width: 279px;
-  height: 41px;
-  left: 49px;
-  top: 330px;
-  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
-  border: 0;
-  border-radius: 20px;
-  display: block;
-  margin: auto;
-  margin-bottom: 20px;
 }
 
-#service-options {
-  grid-area: service-options;
+#neighborhood,
+#cuisine,
+#category {
   width: 279px;
   height: 41px;
   left: 49px;
@@ -210,6 +190,8 @@ body {
   display: block;
   margin: auto;
   margin-bottom: 20px;
+  background-color: #a5acaf;
+  font-weight: bold;
 }
 
 #submit-btn {
@@ -229,6 +211,12 @@ body {
   display: block;
   margin: auto;
   margin-bottom: 15px;
+  cursor: pointer;
+}
+
+#submit-btn:hover {
+  background-color: black;
+  border: #09ae37 solid 5px;
 }
 
 #statusFilter {
@@ -242,6 +230,10 @@ body {
   display: block;
   margin: auto;
   margin-bottom: 20px;
+  background-color: #a5acaf;
+  font-family: "Montserrat";
+  font-weight: bold;
+  padding: 10px;
 }
 
 /********************* TABLET *********************/
@@ -263,6 +255,44 @@ body {
     margin: auto;
     margin-top: 80px;
     margin-bottom: 80px;
+    background: none;
+    background-color: #ed174c;
+  }
+
+  #etj-round-and-text {
+    display: none;
+  }
+
+  #ETJ-76ers {
+    display: block;
+    width: 85%;
+    display: block;
+    margin: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .filter-results {
+    background-color: #006bb6;
+  }
+
+  #neighborhood,
+  #cuisine,
+  #category {
+    background-color: white;
+  }
+
+  #statusFilter {
+    background-color: white;
+  }
+
+  #submit-btn {
+    background-color: #ed174c;
+  }
+
+  #submit-btn:hover {
+    background-color: #006bb6;
+    border: #ed174c solid 5px;
   }
 }
 </style>

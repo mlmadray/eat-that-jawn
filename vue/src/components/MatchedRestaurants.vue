@@ -1,12 +1,26 @@
 <!-- TODO: filter restuarants based off matching preferences-->
 <template>
-  <div>
-    <ul class="restaurant" v-for="restaurant in restaurants" v-bind:key="restaurant.name">
-      <li>
-        {{ restaurant.restaurant.name }}
-      </li>
-    </ul>
-  </div>
+  <body class="matched">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <header>
+      <img src="../assets/img/etj-round.png" alt="Eat That Jawn?" />
+    </header>
+    <div>
+      <ul
+        class="restaurant"
+        v-for="restaurant in restaurants"
+        v-bind:key="restaurant.name"
+      >
+        <li>
+          {{ restaurant.restaurant.name }}
+        </li>
+      </ul>
+    </div>
+  </body>
 </template>
 
 <script>
@@ -26,7 +40,7 @@ export default {
       .getRestaurants(
         this.$store.state.Answers.neighborhood,
         this.$store.state.Answers.cuisine,
-        this.$store.state.Answers.category,
+        this.$store.state.Answers.category
         // this.$store.state.Answers.serviceOption
       )
       .then((response) => {
@@ -37,4 +51,7 @@ export default {
 </script>
 
 <style>
+.matched {
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.49) 100%);
+}
 </style>

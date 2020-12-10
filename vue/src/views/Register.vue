@@ -11,10 +11,15 @@
         src="../assets/img/etj-round-and-text.png"
         alt="Eat That Jawn?"
       />
+      <img
+        id="ETJ-76ers"
+        src="../assets/img/ETJ-76ers-blue-white.png"
+        alt="Eat That Jawn?"
+      />
     </header>
     <div id="register" class="text-center">
+      <h1 class="sign-up">Sign Up</h1>
       <form class="form-register" @submit.prevent="register">
-        <h1 class="signUp">SIGN UP</h1>
         <div class="alert alert-danger" role="alert" v-if="registrationErrors">
           {{ registrationErrorMsg }}
         </div>
@@ -47,7 +52,7 @@
         />
         <button
           class="btn btn-lg btn-primary btn-block"
-          id="create-account"
+          id="create-account-btn"
           type="submit"
         >
           Create Account
@@ -118,23 +123,31 @@ body {
   font-family: "Montserrat";
 }
 
-header {
-  background: rgb(1,1,1);
-  background: radial-gradient(circle, rgba(1,1,1,1) 0%, rgba(0,0,0,0.8603816526610644) 59%);
+/* header {
+  background: rgb(1, 1, 1);
+  background: radial-gradient(
+    circle,
+    rgba(1, 1, 1, 1) 0%,
+    rgba(0, 0, 0, 0.8603816526610644) 59%
+  );
   border-radius: 20px;
   margin-bottom: 50px;
   margin-top: 80px;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+} */
+
+#ETJ-76ers {
+  display: none;
 }
 
-.signUp {
-  background: #09ae37;
+.sign-up {
+  background: black;
   width: 170px;
-  height: 43px;
+  height: 32px;
   left: 103px;
   top: 264px;
-  border-radius: 20px;
-  font-size: 24px;
+  border-radius: 10px;
+  font-size: 18px;
   font-weight: bold;
   color: #ffffff;
   text-align: center;
@@ -147,6 +160,11 @@ header {
 
 #confirmPassword {
   grid-area: password;
+}
+
+#username,
+#password,
+#confirmPassword {
   width: 279px;
   height: 41px;
   left: 49px;
@@ -157,9 +175,11 @@ header {
   display: block;
   margin: auto;
   margin-bottom: 20px;
+  background-color: #a5acaf;
+  font-weight: bold;
 }
 
-#create-account {
+#create-account-btn {
   grid-area: login-btn;
   width: 279px;
   height: 41px;
@@ -176,6 +196,12 @@ header {
   display: block;
   margin: auto;
   margin-bottom: 15px;
+  cursor: pointer;
+}
+
+#create-account-btn:hover {
+  background-color: black;
+  border: #09ae37 solid 5px;
 }
 
 #registered {
@@ -193,5 +219,45 @@ header {
   display: block;
   margin: auto;
   margin-bottom: 10px;
+}
+
+/********************* DESKTOP *********************/
+@media (min-width: 1024px) {
+  header {
+    background: none;
+    background-color: #ed174c;
+  }
+
+  #etj-round-and-text {
+    display: none;
+  }
+
+  #ETJ-76ers {
+    display: block;
+    width: 85%;
+    display: block;
+    margin: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .sign-up {
+    background-color: #006BB6;
+  }
+
+  #username,
+  #password,
+  #confirmPassword {
+    background-color: white;
+  }
+
+  #create-account-btn {
+    background-color: #ed174c;
+  }
+
+  #create-account-btn:hover {
+    background-color: #006bb6;
+    border: #ed174c solid 5px;
+  }
 }
 </style>

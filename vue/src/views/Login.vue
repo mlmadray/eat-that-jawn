@@ -11,10 +11,15 @@
         src="../assets/img/etj-round-and-text.png"
         alt="Eat That Jawn?"
       />
+      <img
+        id="ETJ-76ers"
+        src="../assets/img/ETJ-76ers-blue-white.png"
+        alt="Eat That Jawn?"
+      />
     </header>
     <div id="login" class="text-center">
+      <h1 class="welcome">Welcome</h1>
       <form class="form-signin" @submit.prevent="login">
-        <h1 class="welcome">WELCOME</h1>
         <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
           Invalid username and password!
         </div>
@@ -104,7 +109,7 @@ export default {
 
 <style>
 body {
-  background-image: url("https://previews.123rf.com/images/netsign33/netsign331708/netsign33170800021/83803250-philadelphia-monochrome-vector-map-very-large-and-detailed-outline-version-on-white-background-black.jpg");
+  background-image: url("~@/assets/img/philly-map.png");
   background-position: center top;
   background-attachment: fixed;
   font-family: "Montserrat";
@@ -129,8 +134,8 @@ header {
     rgba(0, 0, 0, 0.8603816526610644) 59%
   );
   border-radius: 20px;
-  margin-bottom: 50px;
-  margin-top: 80px;
+  margin-bottom: 10px;
+  margin-top: 60px;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
@@ -140,17 +145,22 @@ header {
   display: block;
   margin: auto;
   padding-top: 40px;
-  padding-bottom: 40px;
+  padding-bottom: 30px;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+}
+
+#ETJ-76ers {
+  display: none;
 }
 
 .welcome {
-  background: #09ae37;
+  background: black;
   width: 170px;
-  height: 43px;
+  height: 32px;
   left: 103px;
   top: 264px;
-  border-radius: 20px;
-  font-size: 24px;
+  border-radius: 10px;
+  font-size: 18px;
   font-weight: bold;
   color: #ffffff;
   text-align: center;
@@ -161,8 +171,8 @@ header {
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
-#username {
-  grid-area: username;
+#username,
+#password {
   width: 279px;
   height: 41px;
   left: 49px;
@@ -173,20 +183,16 @@ header {
   display: block;
   margin: auto;
   margin-bottom: 20px;
+  background-color: #a5acaf;
+  font-weight: bold;
+}
+
+#username {
+  grid-area: username;
 }
 
 #password {
   grid-area: password;
-  width: 279px;
-  height: 41px;
-  left: 49px;
-  top: 330px;
-  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
-  border: 0;
-  border-radius: 20px;
-  display: block;
-  margin: auto;
-  margin-bottom: 20px;
 }
 
 input {
@@ -195,9 +201,9 @@ input {
 }
 
 ::placeholder {
-  color: #c4c4c4;
+  color: black;
   font-family: "Montserrat";
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 #login-btn {
@@ -217,6 +223,12 @@ input {
   display: block;
   margin: auto;
   margin-bottom: 15px;
+  cursor: pointer;
+}
+
+#login-btn:hover {
+  background-color: black;
+  border: #09ae37 solid 5px;
 }
 
 #forgot-pass {
@@ -266,12 +278,50 @@ input {
 
 /********************* DESKTOP *********************/
 @media (min-width: 1024px) {
+  body {
+    background-image: url("~@/assets/img/Philly-Downtown.jpg");
+    background-position: center;
+  }
+
   header {
     width: 75%;
     display: block;
     margin: auto;
     margin-top: 80px;
     margin-bottom: 80px;
+    background: none;
+    background-color: #ed174c;
+  }
+
+  #etj-round-and-text {
+    display: none;
+  }
+
+  #ETJ-76ers {
+    display: block;
+    width: 85%;
+    display: block;
+    margin: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .welcome {
+    background-color: #006bb6;
+  }
+
+  #username,
+  #password {
+    background-color: white;
+  }
+
+  #login-btn {
+    background-color: #ed174c;
+  }
+
+  #login-btn:hover {
+    background-color: #006bb6;
+    border: #ed174c solid 5px;
   }
 }
 </style>
