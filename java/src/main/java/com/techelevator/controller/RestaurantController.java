@@ -13,37 +13,37 @@ import org.springframework.web.client.RestTemplate;
 
 import com.techelevator.dao.CategoryDAO;
 import com.techelevator.dao.CuisineDAO;
+import com.techelevator.dao.FavoritesDAO;
 import com.techelevator.dao.NeighborhoodDAO;
-import com.techelevator.dao.QuestionnaireDAO;
 import com.techelevator.dao.ServiceOptionDAO;
 import com.techelevator.dao.UserDAO;
 import com.techelevator.model.Category;
 import com.techelevator.model.Cuisine;
+import com.techelevator.model.Favorites;
 import com.techelevator.model.Neighborhood;
-import com.techelevator.model.Questionnaire;
 
 @RestController
 @CrossOrigin
 
 public class RestaurantController {
 	private UserDAO userDAO;
-	private QuestionnaireDAO prefDAO;
 	private CuisineDAO cuisineDAO;
 	private NeighborhoodDAO neighborhoodDAO;
 	private CategoryDAO categoryDAO;
 	private ServiceOptionDAO serviceOptionDAO;
+	private FavoritesDAO favoritesDAO;
 	
-	private String BASE_URL = "https://developers.zomato.com/api/v2.1/search?entity_id=287&entity_type=city&apikey=cc747fb03ab46627bb5969ca001acc2a";
-	private RestTemplate restTemplate = new RestTemplate();
-	private static String API_KEY = "cc747fb03ab46627bb5969ca001acc2a";
+//	private String BASE_URL = "https://developers.zomato.com/api/v2.1/search?entity_id=287&entity_type=city&apikey=cc747fb03ab46627bb5969ca001acc2a";
+//	private RestTemplate restTemplate = new RestTemplate();
+//	private static String API_KEY = "cc747fb03ab46627bb5969ca001acc2a";
 	
-	public RestaurantController(UserDAO userDAO, QuestionnaireDAO prefDAO, CuisineDAO cuisineDAO, NeighborhoodDAO neighborhoodDAO, CategoryDAO categoryDAO, ServiceOptionDAO serviceOptionDAO) {
-		this.prefDAO = prefDAO;
+	public RestaurantController(UserDAO userDAO, CuisineDAO cuisineDAO, NeighborhoodDAO neighborhoodDAO, CategoryDAO categoryDAO, ServiceOptionDAO serviceOptionDAO, FavoritesDAO favoritesDAO) {
 		this.userDAO = userDAO;
 		this.cuisineDAO = cuisineDAO;
 		this.neighborhoodDAO = neighborhoodDAO;
 		this.categoryDAO = categoryDAO;
 		this.serviceOptionDAO = serviceOptionDAO;
+		this.favoritesDAO = favoritesDAO;
 	}
 	
 	//MAKE SURE TO ADD USER ID BACK INTO THE VALUE AND AUTHENTICATE
@@ -68,19 +68,14 @@ public class RestaurantController {
 		return serviceOptionDAO.getAllServiceOptions();
 	}
 	
-	@RequestMapping(value = "/questionnaire/{user_id}", method = RequestMethod.POST)
-	void createNewQuestionnaire(@PathVariable int user_id, @RequestBody Questionnaire ques) {
-		prefDAO.createNewQuestionnaire(user_id, ques);
+	@RequestMapping(value = "/favorites/{userId}", method = RequestMethod.GET)
+	public List<Favorites> getAllFavoritesByUserId(@PathVariable int userId) {
+		return favoritesDAO.getAllByUserId(userId);
 	}
 	
-	@RequestMapping(value = "/questionnaire/{user_id}", method = RequestMethod.PUT)
-	void updateExistingQuestionnaire(@PathVariable int user_id, @RequestBody Questionnaire ques) {
-		prefDAO.updateQuestionnaire(user_id, ques);
-	}
-	
-	@RequestMapping(value = "/questionnaire/{user_id}", method = RequestMethod.GET)
-	public Questionnaire getQuestionnnaireByUser(@PathVariable int user_id) {
-		return prefDAO.getAnswers(user_id);
+	@RequestMapping(value = "/favorites/{userId}", method = RequestMethod.POST)
+	public void addFavorite(@RequestBody Favorites fave) {
+		favoritesDAO.addFavorite(fave);
 	}
 	
 }

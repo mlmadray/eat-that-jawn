@@ -4,38 +4,17 @@ DROP TABLE IF EXISTS user_reaction;
 DROP TABLE IF EXISTS liked_restaurants;
 DROP TABLE IF EXISTS questionnaire;
 
-
-CREATE TABLE liked_restaurants (
-        id SERIAL,
-        isLiked BOOLEAN NOT NULL DEFAULT false,
-        restaurant_name varchar(40) NOT NULL,
-        CONSTRAINT pk_liked_restaurants PRIMARY KEY(id)
-        );
         
-CREATE TABLE user_reaction (
-        user_liked SERIAL,
-        username varchar(50) NOT NULL,
+CREATE TABLE favorites (
+        favorites_id SERIAL,
         user_id int NOT NULL,
-        liked_id int NOT NULL,
-        CONSTRAINT pk_user_liked PRIMARY KEY(user_liked)
+        restaurant_id int NOT NULL,
+        restaurant_name varchar(50) NOT NULL,
+        CONSTRAINT pk_favorites_favorites_id PRIMARY KEY(favorites_id)
         );
         
-CREATE TABLE questionnaire (
-        preference_id SERIAL,
-        neighborhood varchar(50),
-        category varchar(50),
-        cuisine varchar(50),
-        service_option varchar(50),
-        user_id int,
-        CONSTRAINT pk_preference_id PRIMARY KEY(preference_id)
-        );
+ALTER TABLE favorites 
+        ADD CONSTRAINT fk_favorites_user_id FOREIGN KEY (user_id) REFERENCES users(user_id);
 
-ALTER TABLE questionnaire 
-        ADD CONSTRAINT fk_user_user_id FOREIGN KEY (user_id) REFERENCES users(user_id);
-ALTER TABLE user_reaction 
-        ADD CONSTRAINT fk_user_reaction_user_id FOREIGN KEY (user_id) REFERENCES users(user_id);
-ALTER TABLE user_reaction 
-        ADD CONSTRAINT fk_user_reaction_liked_id FOREIGN KEY (liked_id)
-        REFERENCES liked_restaurants(id);
 ROLLBACK;
 COMMIT; 
