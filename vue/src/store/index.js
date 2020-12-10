@@ -26,6 +26,7 @@ export default new Vuex.Store({
       category: "",
       // serviceOption: ""
     },
+    matchedRestaurants: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

@@ -9,17 +9,23 @@
     <header>
       <img src="../assets/img/etj-round.png" alt="Eat That Jawn?" />
     </header>
-    <div>
-      <ul
-        class="restaurant"
-        v-for="restaurant in restaurants"
-        v-bind:key="restaurant.name"
-      >
-        <li>
-          {{ restaurant.restaurant.name }}
-        </li>
-      </ul>
-    </div>
+    <button v-on:click="like">Like</button>
+    <button v-on:click="dislike">Dislike</button>
+    <transition-group name="matches_list" tag="p" >
+        <div class = "matches" 
+          v-for="restaurant in restaurants"
+          v-bind:key="restaurant.restaurant.id"
+          v-show="restaurant === restaurants[index]"
+          >
+            <p class="restaurant">{{restaurant.restaurant.name }}</p>
+          
+            <p class="image">{{restaurant.restaurant.featured_image}}</p>
+          
+            <p class="rating">Average Rating: {{restaurant.restaurant.user_rating.aggregate_rating}}</p>
+          
+            <p class="price">Price: {{restaurant.restaurant.price_range}}</p>
+      </div>
+   </transition-group>
   </body>
 </template>
 
@@ -31,10 +37,38 @@ export default {
   data() {
     return {
       cuisine_ids: [],
-      restaurants: [{ restaurant: {} }],
+      restaurants: [
+                  { 
+                    restaurant: {
+                      id: '',
+                      name: '',
+                      featured_image: '',
+                      user_rating:{
+                        aggregate_rating: ''
+                      },
+                      price_range: ''
+                    },  
+                  }
+                  ],
+      index: 19,
+      
+      liked_restaurants: [],
+      
     };
   },
-
+   methods: {
+    like: function () {
+        
+        this.restaurants.splice(this.index, 1)
+        this.index = this.index - 1
+        //mutation
+      
+    },
+    dislike: function () {
+      this.restaurants.splice(this.index, 1)
+      this.index = this.index - 1
+    },
+  },
   created() {
     restService
       .getRestaurants(
@@ -52,6 +86,17 @@ export default {
 
 <style>
 .matched {
-  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.49) 100%);
+  background: white;
+}
+.matches {
+  display: inline-block;
+  margin-right: 10px;
+}
+.matches_list-enter-active, .matches_list-leave-active {
+  transition: all 1s;
+}
+.matches_list-enter, .matches_list-leave-to  {
+  opacity: 0;
+  transform: translateY(30px);
 }
 </style>
