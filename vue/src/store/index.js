@@ -24,7 +24,7 @@ export default new Vuex.Store({
       neighborhood: "",
       cuisine: "",
       category: "",
-      serviceOption: ""
+      // serviceOption: ""
     },
   },
   mutations: {
@@ -48,8 +48,8 @@ export default new Vuex.Store({
     SET_ANSWER (state, Answers) {
         state.Answers.neighborhood = Answers.neighborhood,
         state.Answers.cuisine = Answers.cuisine,
-        state.Answers.category = Answers.category,
-        state.Answers.serviceOption = Answers.serviceOption
+        state.Answers.category = Answers.category
+        // state.Answers.serviceOption = Answers.serviceOption
       }
     
   }
