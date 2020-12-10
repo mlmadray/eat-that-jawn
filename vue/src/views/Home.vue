@@ -11,8 +11,9 @@
       <h1>Home</h1>
       <p>You must be authenticated to see this</p>
       <router-link v-bind:to="{ name: 'login' }">Login</router-link>
-      
+          <matched-restaurants />
     </div>
+
   </body>
 </template>
 
@@ -20,8 +21,9 @@
 import MatchedRestaurants from '../components/MatchedRestaurants.vue';
 export default {
   name: "home",
-  components:{
-    
+  components:
+    {
+      MatchedRestaurants
   }
 };
 </script>
