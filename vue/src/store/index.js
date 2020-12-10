@@ -20,12 +20,12 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    Answers: [{
-      // neighborhood: "",
-      // cuisine: "",
-      // category: "",
-      // service_option: ""
-    }],
+    Answers: {
+      neighborhood: "",
+      cuisine: "",
+      category: "",
+      serviceOption: ""
+    },
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -45,13 +45,12 @@ export default new Vuex.Store({
       axios.defaults.headers.common = {};
     },
 
-    SET_ANSWER (state, answer) {
-      state.Answers.push({
-        neighborhood: answer.neighborhood,
-        cuisine: answer.cuisine,
-        category: answer.category,
-        service_option: answer.service_option
-      });
-    }
+    SET_ANSWER (state, Answers) {
+        state.Answers.neighborhood = Answers.neighborhood,
+        state.Answers.cuisine = Answers.cuisine,
+        state.Answers.category = Answers.category,
+        state.Answers.serviceOption = Answers.serviceOption
+      }
+    
   }
 })

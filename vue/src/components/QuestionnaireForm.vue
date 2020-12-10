@@ -21,8 +21,9 @@
           <option
             v-for="neighborhood in neighborhoods"
             v-bind:key="neighborhood.localitySubzoneId"
+            v-bind:value="neighborhood.localitySubzoneId"
           >
-          {{neighborhood.localitySubzoneName }}
+            {{ neighborhood.localitySubzoneName }}
           </option>
         </select>
 
@@ -31,6 +32,7 @@
           <option
             v-for="cuisine in cuisines"
             v-bind:key="cuisine.zomatoCuisineId"
+            v-bind:value="cuisine.zomatoCuisineId"
           >
             {{ cuisine.cuisineType }}
           </option>
@@ -41,6 +43,7 @@
           <option
             v-for="category in categories"
             v-bind:key="category.zomatoCategoryId"
+            v-bind:value="category.zomatoCategoryId"
           >
             {{ category.categoryName }}
           </option>
@@ -50,6 +53,7 @@
           <option
             v-for="service_option in serviceOptions"
             v-bind:key="service_option.zomatoCategoryId"
+            v-bind:value="service_option.zomatoCategoryId"
           >
             {{ service_option.categoryName }}
           </option>
@@ -66,7 +70,6 @@
 import preferenceService from "../services/PreferencesService";
 export default {
   name: "questionnaire-form",
-  props: ["Answers"],
   data() {
     return {
       cuisines: [],
@@ -83,11 +86,16 @@ export default {
   },
   methods: {
     saveForm() {
+      console.log(this.Questionnaire);
+
       this.$store.commit("SET_ANSWER", this.Questionnaire);
+      console.log(this.$store);
     },
   },
   computed: {
-    
+    neighborhoodId() {
+      return this.neighorhood.localitySubzoneId;
+    },
   },
   created() {
     preferenceService.getAllCuisine().then((response) => {

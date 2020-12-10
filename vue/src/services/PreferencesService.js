@@ -9,8 +9,20 @@ getCuisineID(cuisine_type){
 getAllCuisine(){
   return axios.get(`/questionnaire/cuisine`);
 },
-getLiked(username) {
-  return axios.get(`/restaurants/${username}`);
+getLiked(user_id) {
+  return axios.get(`/restaurants/${user_id}`);
+},
+
+getAnswers(user_id) {
+  return axios.get(`/questionnaire/${user_id}`);
+},
+
+updateAnswers(user_id) {
+  return axios.put(`/questionnaire/${user_id}`);
+},
+
+addAnswers(user_id) {
+  return axios.post(`/questionnaire/${user_id}`);
 },
 
 getAllNeighborhoods(){

@@ -24,7 +24,7 @@ export default {
 
   },
   created(){
-    restService.getRestaurants(this.$store.state.Answers.neighborhood, this.$store.state.Answers.cuisine, this.$store.state.Answers.category)
+    restService.getRestaurants(this.$store.state.Answers.neighborhood, this.$store.state.Answers.cuisine, this.$store.state.Answers.category, this.$store.state.Answers.serviceOption)
     .then(response =>{
       this.restaurants = response.data
     });

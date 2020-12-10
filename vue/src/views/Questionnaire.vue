@@ -15,6 +15,9 @@ import QuestionnaireForm from "../components/QuestionnaireForm.vue";
 
 export default {
   components: { QuestionnaireForm },
+  methods: {
+    
+  },
   data() {
     return {
      
