@@ -105,9 +105,6 @@ export default {
       preferenceService.getAllCategories().then((response) => {
         this.categories = response.data;
       });
-    // preferenceService.getAllServiceOptions().then((response) => {
-    //   this.serviceOptions = response.data;
-    // });
   },
 };
 </script>
@@ -137,8 +134,16 @@ body {
   padding-bottom: 30px;
 }
 
+header {
+  background-color: #ed174c;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  margin-top: 80px;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+}
+
 .filter-results {
-  background: black;
+  background-color: #006bb6;
   width: 270px;
   height: 32px;
   left: 103px;
@@ -190,7 +195,7 @@ body {
   height: 41px;
   left: 49px;
   top: 462px;
-  background: #09ae37;
+  background-color: #ed174c;
   color: #ffffff;
   font-weight: bold;
   font-family: "Montserrat";
@@ -205,8 +210,8 @@ body {
 }
 
 #submit-btn:hover {
-  background-color: black;
-  border: #09ae37 solid 5px;
+  background-color: #ed147c;
+  border: #006bb6 solid 5px;
 }
 
 #statusFilter {
@@ -228,47 +233,51 @@ body {
 
 /********************* TABLET *********************/
 @media (min-width: 768px) {
+  body {
+    background-position: 49% 70%;
+  }
+
   header {
     width: 75%;
     display: block;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 180px;
     margin-bottom: 80px;
   }
 }
 
 /********************* DESKTOP *********************/
 @media (min-width: 1024px) {
+
+  header {
+    width: 50%;
+  }
+
   #header-image {
-    display: block;
-    width: 85%;
     display: block;
     margin: auto;
     padding-top: 40px;
     padding-bottom: 40px;
   }
 
-  .filter-results {
-    background-color: #006bb6;
+    .filter-results {
+    width: 250px;
+    font-size: 24px;
+    padding-bottom: 8px;
   }
 
   #neighborhood,
   #cuisine,
   #category {
-    background-color: white;
-  }
-
-  #statusFilter {
-    background-color: white;
+    width: 350px;
+    height: 45px;
+    font-size: 16px;
   }
 
   #submit-btn {
-    background-color: #ed174c;
-  }
-
-  #submit-btn:hover {
-    background-color: #006bb6;
-    border: #ed174c solid 5px;
+    width: 300px;
+    height: 45px;
+    font-size: 18px;
   }
 }
 </style>

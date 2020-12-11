@@ -23,23 +23,30 @@
   font-size: 16px;
   font-weight: bold;
   color: #ffffff;
-  text-align: center;
   padding: 5px 10px 5px 10px;
   text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
   text-decoration: none;
-  display: flex;
-  width: 50px;
+  width: 3em;
 }
 
 #logout-nav {
-  padding-right: 10px;
-  
+  width: 4em;
+  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+  margin-left: 180px;
 }
 
-#home-nav:hover, #logout-nav:hover {
-  background-color: #ed147c;
-  border: #006bb6 solid 5px;
+#home-nav:hover, 
+#logout-nav:hover {
+  background-color: #006bb6;
+  border: #ed147c solid 5px;
+}
+
+/********************* TABLET *********************/
+@media (min-width: 768px) {
+#logout-nav {
+  margin-left: 0px;
+}
 }
 
 /********************* DESKTOP *********************/
@@ -49,7 +56,6 @@
   #logout-nav {
     font-size: 20px;
     width: 80px;
-    padding-left: 25px;
 
   }
 }

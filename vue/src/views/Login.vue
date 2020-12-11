@@ -105,7 +105,7 @@ export default {
 <style>
 body {
   background-image: url("~@/assets/img/Philly-Downtown.jpg");
-  background-position: center;
+  background-position: 49% 58%;
   background-attachment: fixed;
   font-family: "Montserrat";
   display: grid;
@@ -122,10 +122,10 @@ body {
 }
 
 header {
-  background-color: #ed174c; 
+  background-color: #ed174c;
   border-radius: 20px;
-  margin-bottom: 10px;
-  margin-top: 60px;
+  margin-bottom: 40px;
+  margin-top: 80px;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
@@ -136,7 +136,6 @@ header {
   margin: auto;
   padding-top: 40px;
   padding-bottom: 30px;
-
 }
 
 .welcome {
@@ -212,8 +211,8 @@ input {
 }
 
 #login-btn:hover {
-  background-color: black;
-  border: #09ae37 solid 5px;
+  background-color: #ed147c;
+  border: #006bb6 solid 5px;
 }
 
 #forgot-pass {
@@ -252,32 +251,63 @@ input {
 
 /********************* TABLET *********************/
 @media (min-width: 768px) {
+  body {
+    background-position: 49% 70%;
+  }
+
   header {
     width: 75%;
     display: block;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 180px;
     margin-bottom: 80px;
   }
 }
 
 /********************* DESKTOP *********************/
 @media (min-width: 1024px) {
+  header {
+    width: 50%;
+  }
+
+  #header-image {
+    display: block;
+    margin: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .welcome {
+    width: 250px;
+    font-size: 24px;
+    padding-bottom: 8px;
+  }
 
   #username,
   #password {
     width: 350px;
+    height: 45px;
+    font-size: 16px;
   }
-  
+
   #login-btn {
     width: 300px;
     height: 45px;
     font-size: 18px;
   }
 
-  #login-btn:hover {
-    background-color: #006bb6;
-    border: #ed174c solid 5px;
+  #forgot-pass {
+    width: 180px;
+    font-size: 16px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  #sign-up {
+    width: 300px;
+    font-size: 16px;
+    padding-top: 3px;
+    padding-bottom: 3px;
   }
 }
 </style>
