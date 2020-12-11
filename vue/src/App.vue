@@ -32,6 +32,11 @@
   width: 50px;
 }
 
+#logout-nav {
+  padding-right: 10px;
+  
+}
+
 #home-nav:hover, #logout-nav:hover {
   background-color: #ed147c;
   border: #006bb6 solid 5px;

@@ -9,8 +9,8 @@
     <header>
       <img src="../assets/img/etj-round.png" alt="Eat That Jawn?" />
     </header>
-    <button v-on:click="like">Like</button>
-    <button v-on:click="dislike">Dislike</button>
+    <button class="like-btn" v-on:click="like">Like</button>
+    <button class="dislike-btn" v-on:click="dislike">Dislike</button>
     <transition-group name="matches_list" tag="p" >
         <div class = "matches" 
           v-for="restaurant in restaurants"
@@ -115,5 +115,13 @@ export default {
 .matches_list-enter, .matches_list-leave-to  {
   opacity: 0;
   transform: translateY(30px);
+}
+
+.like-btn {
+  background-image:
+}
+
+.dislike-btn {
+
 }
 </style>
