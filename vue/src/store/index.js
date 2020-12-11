@@ -43,7 +43,7 @@ export default new Vuex.Store({
       localStorage.removeItem('user');
       state.token = '';
       state.user = {};
-      axios.defaults.headers.common = {};
+      axios.defaults.headers.common = {}; 
     },
 
     SET_ANSWER (state, Answers) {

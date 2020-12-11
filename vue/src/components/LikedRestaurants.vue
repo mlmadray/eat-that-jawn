@@ -5,8 +5,10 @@
           v-for="restaurant in details"
           v-bind:key="restaurant.id"          
           >
+          <router-link v-bind:to="{name: 'restaurant', params:{id: restaurant.id}}">
             <p class="image">{{restaurant.featured_image}}</p>
             <p class="restaurant" >{{restaurant.name }}</p>
+          </router-link>
       </div>
       </div>
 </template>
@@ -23,23 +25,22 @@ export default {
             details: []
         }
     },
-    computed: {
+    methods: {
         getDetails() {
-            this.favorites.forEach((favorite => {
-                restService.getFavoritesDetails(favorite.restaurantId)
-    .then( (response) => {
-    this.details.push(response.data)})
-        }))
+               this.favorites.forEach(fav => {
+                 restService.getFavoritesDetails(fav.restaurantId)
+                .then( (response) => {
+                    this.details.push(response.data)})
+               })
+        }
     },
-created() {
-    preferenceService.getFavorites(this.$store.state.user.id)
-    .then( (response) => {
-    this.favorites = response.data;
-    }),
-    restService.getFavoritesDetails(this.favorites.restaurantId)
-    .then( (response) => {
-    this.details = response.data})
-} 
+    created() {
+        preferenceService.getFavorites(this.$store.state.user.id)
+        .then( (response) => {
+            this.favorites = response.data;
+            this.getDetails()
+        })
+    } 
 }
 </script>
 

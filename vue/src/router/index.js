@@ -64,6 +64,14 @@ const router = new Router({
       }
     },
     {
+      path: "/liked/:id",
+      name: "restaurant",
+      component: Restaurant,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
       path: "/questionnaire",
       name: "questionnaire",
       component: Questionnaire,

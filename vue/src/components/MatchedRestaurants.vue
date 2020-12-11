@@ -85,7 +85,7 @@ export default {
         this.index = this.index - 1;
         PreferencesService.addFavorite(this.$store.state.user.id, this.liked_restaurants)
         .catch((error) => {
-          if(response.status === 500) {
+          if(error.status === 500) {
             alert(error.message)
           }
         });
