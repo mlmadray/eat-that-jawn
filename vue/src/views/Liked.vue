@@ -1,12 +1,12 @@
 <!-- show only liked restaurants --> 
 <template>
-  <matched-restaurants/>
+  <liked-restaurants/>
 </template>
 
 <script>
-import MatchedRestaurants from '../components/MatchedRestaurants.vue'
+import LikedRestaurants from '../components/LikedRestaurants.vue'
 export default {
-  components: { MatchedRestaurants },
+  components: { LikedRestaurants },
 
 }
 </script>

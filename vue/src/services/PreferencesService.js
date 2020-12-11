@@ -20,5 +20,10 @@ getAllServiceOptions(){
 
 addFavorite(user_id, favRestaurant) {
   return axios.post(`/favorites/${user_id}`, favRestaurant);
+},
+
+getFavorites(user_id) {
+  return axios.get(`/favorites/${user_id}`);
 }
+
 }

@@ -70,17 +70,7 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
-    },
-    {
-      path: "/questionnaire/cuisine",
-      name: "questionnaire-cuisine",
-      component: Questionnaire,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    
-     
+    }
   ]
 })
 

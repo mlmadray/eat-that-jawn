@@ -9,5 +9,8 @@ const http = axios.create({
 export default {
     getRestaurants(neighborhood, cuisineId, categoryId) {
         return http.get(`/search?entity_id=${neighborhood}&entity_type=subzone&cuisines=${cuisineId}&category=${categoryId}&apikey=${apiKey}`);
+    },
+    getFavoritesDetails(restaurantId) {
+        return http.get(`/restaurant?res_id=${restaurantId}&apikey=${apiKey}`);
     }
 }
