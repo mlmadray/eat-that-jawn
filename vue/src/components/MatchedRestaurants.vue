@@ -15,21 +15,24 @@
         <div class = "matches" 
           v-for="restaurant in restaurants"
           v-bind:key="restaurant.restaurant.id"
-          v-show="restaurant === restaurants[index]"
+          v-show="restaurant === restaurants[index]"          
           >
-            <p class="restaurant">{{restaurant.restaurant.name }}</p>
+            <p class="restaurant" >{{restaurant.restaurant.name }}</p>
           
             <p class="image">{{restaurant.restaurant.featured_image}}</p>
           
             <p class="rating">Average Rating: {{restaurant.restaurant.user_rating.aggregate_rating}}</p>
           
             <p class="price">Price: {{restaurant.restaurant.price_range}}</p>
+
+
       </div>
    </transition-group>
   </body>
 </template>
 
 <script>
+import PreferencesService from '../services/PreferencesService';
 //import preferenceService from '../services/PreferencesService';
 import restService from "../services/RestServices";
 export default {
@@ -52,22 +55,36 @@ export default {
                   ],
       index: 19,
       
-      liked_restaurants: [],
+      liked_restaurants: {
+        restaurantId: "",
+        restaurantName: "",
+        userId: this.$store.state.user.id
+      },
       
     };
   },
    methods: {
     like: function () {
         
-        this.restaurants.splice(this.index, 1)
-        this.index = this.index - 1
-        //mutation
-      
+        this.liked_restaurants.restaurantId = this.restaurants[this.index].restaurant.id;
+        this.liked_restaurants.restaurantName = this.restaurants[this.index].restaurant.name;
+        this.restaurants.splice(this.index, 1);
+        this.index = this.index - 1;
+        PreferencesService.addFavorite(this.$store.state.user.id, this.liked_restaurants)
+        .catch((error) => {
+          if(response.status === 500) {
+            alert(error.message)
+          }
+        });
     },
     dislike: function () {
       this.restaurants.splice(this.index, 1)
       this.index = this.index - 1
     },
+
+    saveFavorite() {
+      PreferencesService.addFavorite(this.$store.state.user.user_id, this.liked_restaurants)
+    }
   },
   created() {
     restService

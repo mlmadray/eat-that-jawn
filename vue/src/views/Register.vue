@@ -7,12 +7,7 @@
     />
     <header>
       <img
-        id="etj-round-and-text"
-        src="../assets/img/etj-round-and-text.png"
-        alt="Eat That Jawn?"
-      />
-      <img
-        id="ETJ-76ers"
+        id="header-img"
         src="../assets/img/ETJ-76ers-blue-white.png"
         alt="Eat That Jawn?"
       />
@@ -123,21 +118,12 @@ body {
   font-family: "Montserrat";
 }
 
-/* header {
-  background: rgb(1, 1, 1);
-  background: radial-gradient(
-    circle,
-    rgba(1, 1, 1, 1) 0%,
-    rgba(0, 0, 0, 0.8603816526610644) 59%
-  );
+header {
+  background-color: #ed174c;
   border-radius: 20px;
   margin-bottom: 50px;
   margin-top: 80px;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
-} */
-
-#ETJ-76ers {
-  display: none;
 }
 
 .sign-up {
@@ -223,15 +209,6 @@ body {
 
 /********************* DESKTOP *********************/
 @media (min-width: 1024px) {
-  header {
-    background: none;
-    background-color: #ed174c;
-  }
-
-  #etj-round-and-text {
-    display: none;
-  }
-
   #ETJ-76ers {
     display: block;
     width: 85%;

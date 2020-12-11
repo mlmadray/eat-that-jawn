@@ -8,12 +8,7 @@
     />
     <header>
       <img
-        id="etj-round-and-text"
-        src="../assets/img/etj-round-and-text.png"
-        alt="Eat That Jawn?"
-      />
-      <img
-        id="ETJ-76ers"
+        id="header-image"
         src="../assets/img/ETJ-76ers-blue-white.png"
         alt="Eat That Jawn?"
       />
@@ -133,18 +128,13 @@ body {
   gap: 15px;
 }
 
-#etj-round-and-text {
+#header-image {
   grid-area: etj-round-and-text;
   width: 85%;
   display: block;
   margin: auto;
   padding-top: 40px;
   padding-bottom: 30px;
-  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
-}
-
-#ETJ-76ers {
-  display: none;
 }
 
 .filter-results {
@@ -249,21 +239,7 @@ body {
 
 /********************* DESKTOP *********************/
 @media (min-width: 1024px) {
-  header {
-    width: 75%;
-    display: block;
-    margin: auto;
-    margin-top: 80px;
-    margin-bottom: 80px;
-    background: none;
-    background-color: #ed174c;
-  }
-
-  #etj-round-and-text {
-    display: none;
-  }
-
-  #ETJ-76ers {
+  #header-image {
     display: block;
     width: 85%;
     display: block;

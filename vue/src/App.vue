@@ -18,7 +18,7 @@
 <style>
 #home-nav,
 #logout-nav {
-  background: #09ae37;
+  background-color: #006bb6;
   border-radius: 20px;
   font-size: 16px;
   font-weight: bold;
@@ -32,31 +32,20 @@
   width: 50px;
 }
 
-#home-nav:hover {
-  background-color: black;
-  border: #09ae37 solid 5px;
-}
-
-#logout-nav:hover {
-  background-color: black;
-  border: #09ae37 solid 5px;
+#home-nav:hover, #logout-nav:hover {
+  background-color: #ed147c;
+  border: #006bb6 solid 5px;
 }
 
 /********************* DESKTOP *********************/
 @media (min-width: 1024px) {
+
   #home-nav,
   #logout-nav {
-    background-color: #006bb6;
-  }
+    font-size: 20px;
+    width: 80px;
+    padding-left: 25px;
 
-  #home-nav:hover {
-    background-color: #006bb6;
-    border: #ed174c solid 2px;
-  }
-
-  #logout-nav:hover {
-    background-color: #006bb6;
-    border: #ed174c solid 2px;
   }
 }
 </style>
