@@ -8,6 +8,7 @@ import Liked from '../views/Liked.vue'
 import Questionnaire from '../views/Questionnaire.vue'
 import store from '../store/index'
 import Restaurant from '../views/Restaurant.vue'
+import ForgotPassword from '../views/ForgotPassword.vue'
 
 Vue.use(Router)
 
@@ -44,6 +45,14 @@ const router = new Router({
       path: "/logout",
       name: "logout",
       component: Logout,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/forgotpassword",
+      name: "forgot-password",
+      component: ForgotPassword,
       meta: {
         requiresAuth: false
       }

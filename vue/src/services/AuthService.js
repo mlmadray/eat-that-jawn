@@ -8,5 +8,9 @@ export default {
 
   register(user) {
     return axios.post('/register', user)
+  },
+
+  resetPassword(user) {
+    return axios.put('/forgotpassword', user)
   }
 }
