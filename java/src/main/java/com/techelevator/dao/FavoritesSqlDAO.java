@@ -32,9 +32,19 @@ public class FavoritesSqlDAO implements FavoritesDAO {
 
 	@Override
 	public void addFavorite(Favorites fave) {
-		String sql = "INSERT INTO favorites (user_id, restaurant_id, restaurant_name) " +
-					"VALUES (?, ?, ?);";
+		if(!exists(fave)) {
+		String sql = "INSERT INTO favorites (user_id, restaurant_id, restaurant_name)" + 
+						" VALUES (?, ?, ?);";
 		jdbcTemplate.update(sql, fave.getUserId(), fave.getRestaurantId(), fave.getRestaurantName());
+		}
+	}
+	
+	@Override
+	public boolean exists(Favorites fav) {
+		String sql = "SELECT COUNT(*) FROM favorites " +
+				"WHERE (user_id = ?) AND (restaurant_id = ?);";
+		int count = jdbcTemplate.queryForObject(sql, new Object[] {fav.getUserId(), fav.getRestaurantId()}, Integer.class);
+		return count > 0;
 	}
 	
 	private Favorites mapRowToFavorites(SqlRowSet result) {
