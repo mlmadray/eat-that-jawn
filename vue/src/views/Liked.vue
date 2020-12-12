@@ -1,6 +1,8 @@
 <!-- show only liked restaurants --> 
 <template>
 <div>
+  <router-link id="home-nav" v-bind:to="{ name: 'home' }">Back to Matching</router-link>&nbsp;
+  <router-link id="logout-nav" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
   <!-- <restaurant-details/> -->
   <liked-restaurants/>
 </div>

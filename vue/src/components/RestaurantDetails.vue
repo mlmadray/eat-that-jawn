@@ -1,9 +1,12 @@
 <template>
   <div>
     <div class="details">
+      <!-- <router-link id="home-nav" v-bind:to="{ name: 'home' }">Back to Matching</router-link>&nbsp;
+      <router-link id="logout-nav" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+      <router-link id="fav-nav" v-bind:to="{ name: 'liked' }">My Favorites</router-link> -->
       <h3 class="restaurant">{{ details.name }}</h3>
       <img
-        class="featureimg"
+        class="featured-image"
         v-if="details.featured_image != ''"
         v-bind:src="details.featured_image"
       />

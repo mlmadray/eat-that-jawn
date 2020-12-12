@@ -8,8 +8,8 @@
     />
     <div id="app">
       <div id="nav">
-        <router-link id="home-nav" v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;&nbsp;
-        <router-link id="logout-nav" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+        <!-- <router-link id="home-nav" v-bind:to="{ name: 'home' }">Home</router-link>&nbsp; -->
+        <!-- <router-link id="logout-nav" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> -->
       </div>
       <router-view />
     </div>

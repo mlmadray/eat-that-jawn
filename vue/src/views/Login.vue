@@ -12,6 +12,7 @@
         alt="Eat That Jawn?"
       />
     </header>
+   
     <div id="login" class="text-center">
       <h1 class="welcome">Welcome</h1>
       <form class="form-signin" @submit.prevent="login">
@@ -233,6 +234,10 @@ input {
   margin-bottom: 10px;
 }
 
+#forgot-pass:hover {
+  border: black solid 5px;
+}
+
 .alert {
   width: 400px;
   height: 30px;
@@ -267,6 +272,10 @@ input {
   font-size: 14px;
   display: block;
   margin: auto;
+}
+
+#sign-up:hover {
+  border: black solid 5px;
 }
 
 /********************* TABLET *********************/

@@ -6,14 +6,15 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
     />
+    <span>
+      <router-link id="logout-nav" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+    </span>
+    <span>
+      <router-link id="fav-nav" v-bind:to="{ name: 'liked' }">My Favorites</router-link>
+    </span>
     <header id="etj-round-sixers">
       <img src="../assets/img/etj-round-sixers.png" alt="Eat That Jawn?" />
     </header>
-    <span>
-      <router-link id="fav-nav" v-bind:to="{ name: 'liked' }"
-        >My Favorites</router-link
-      >
-    </span>
     <div>
       <button class="like-btn" v-on:click="like">💙</button>
       <button class="dislike-btn" v-on:click="dislike">👎</button>
@@ -25,19 +26,20 @@
         v-bind:key="restaurant.restaurant.id"
         v-show="restaurant === restaurants[index]"
       >
-        <p class="rest-name">{{ restaurant.restaurant.name }}</p>
+        
         <img
-          class="featureimg"
-          v-if="restaurant.featured_image != ''"
-          v-bind:src="restaurant.featured_image"
-        />
-        <img v-else src="../assets/img/etj-round-sixers.png" />
-
+            class="featured-image"
+            v-if="restaurant.featured_image != ''"
+            v-bind:src="restaurant.featured_image"
+          />
+          <img v-else src="../assets/img/etj-round-sixers.png" />
+        
+        <p class="rest-name">{{ restaurant.restaurant.name }}</p>
         <!-- <p class="rating">Average Rating: {{restaurant.restaurant.user_rating.aggregate_rating}}</p> -->
         <p
           class="rating"
           v-if="
-            restaurant.restaurant.user_rating.aggregate_rating > 0 &&
+            restaurant.restaurant.user_rating.aggregate_rating >= 0 &&
             restaurant.restaurant.user_rating.aggregate_rating <= 1.5
           "
         >
@@ -180,6 +182,7 @@ export default {
   grid-template-columns: 1fr;
   grid-template-areas:
     "etj-round-sixers"
+    "logout-nav"
     "fav-nav"
     "featured-image"
     "rest-name"
@@ -189,11 +192,17 @@ export default {
     "like-btn";
 }
 
+#logout-nav {
+  grid-area: logout-nav;
+  
+}
+
 #etj-round-sixers {
   grid-area: etj-round-sixers;
   display: flex;
   background: none;
   box-shadow: none;
+  
 }
 
 #fav-nav {
@@ -269,6 +278,7 @@ export default {
   padding: 2px;
   padding-bottom: 6px;
   text-align: center;
+  margin-top: 0;
 }
 
 .price {

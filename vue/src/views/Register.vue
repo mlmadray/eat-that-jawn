@@ -227,6 +227,10 @@ header {
   margin-bottom: 10px;
 }
 
+#registered:hover {
+  border: black solid 5px;
+}
+
 /********************* TABLET *********************/
 @media (min-width: 768px) {
 
