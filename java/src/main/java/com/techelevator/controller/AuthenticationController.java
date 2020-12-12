@@ -62,7 +62,16 @@ public class AuthenticationController {
             userDAO.create(newUser.getUsername(),newUser.getPassword(), newUser.getRole());
         }
     }
-
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(value = "/forgotpassword", method = RequestMethod.PUT)
+    public void updatePassword(@RequestBody RegisterUserDTO changePassword) {
+    	try {
+    		User user = userDAO.findByUsername(changePassword.getUsername());
+    		userDAO.update(user.getUsername(), changePassword.getPassword());
+    	} catch (UsernameNotFoundException e) {
+    		
+    	}
+    }
     /**
      * Object to return as body in JWT Authentication.
      */
