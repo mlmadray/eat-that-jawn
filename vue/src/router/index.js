@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import Liked from '../views/Liked.vue'
 import Questionnaire from '../views/Questionnaire.vue'
 import store from '../store/index'
+import Restaurant from '../views/Restaurant.vue'
 
 Vue.use(Router)
 

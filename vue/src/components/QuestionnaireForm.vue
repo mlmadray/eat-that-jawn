@@ -116,11 +116,10 @@ body {
   grid-template-columns: 1fr;
   grid-template-areas:
     "etj-round-and-text"
-    "welcome"
+    "filter-results"
     "neighborhood"
     "cuisine"
     "category"
-    "service-options"
     "submit-btn";
   gap: 15px;
 }
@@ -143,6 +142,7 @@ header {
 }
 
 .filter-results {
+  grid-area: filter-results;
   background-color: #006bb6;
   width: 270px;
   height: 32px;
@@ -153,7 +153,6 @@ header {
   font-weight: bold;
   color: #ffffff;
   text-align: center;
-  grid-area: welcome;
   margin: auto;
   margin-bottom: 20px;
   padding-top: 10px;
@@ -185,7 +184,6 @@ header {
   display: block;
   margin: auto;
   margin-bottom: 20px;
-  background-color: #a5acaf;
   font-weight: bold;
 }
 
@@ -225,11 +223,11 @@ header {
   display: block;
   margin: auto;
   margin-bottom: 20px;
-  background-color: #a5acaf;
   font-family: "Montserrat";
   font-weight: bold;
   padding: 10px;
 }
+
 
 /********************* TABLET *********************/
 @media (min-width: 768px) {

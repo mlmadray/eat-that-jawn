@@ -233,6 +233,26 @@ input {
   margin-bottom: 10px;
 }
 
+.alert {
+  width: 400px;
+  height: 30px;
+  left: 49px;
+  top: 462px;
+  background-color: #ed174c;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: "Montserrat";
+  text-align: center;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: block;
+  margin: auto;
+  margin-bottom: 15px;
+  cursor: pointer;
+  padding-top: 10px;
+}
+
 #sign-up {
   grid-area: sign-up;
   background: #ffffff;

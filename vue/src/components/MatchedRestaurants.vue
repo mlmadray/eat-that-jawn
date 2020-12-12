@@ -1,35 +1,37 @@
 <!-- TODO: filter restuarants based off matching preferences-->
 <template>
-  <body class="matched">
+  <body class="matchedBody">
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
     />
+    <header id="etj-round-sixers">
+      <img src="../assets/img/etj-round-sixers.png" alt="Eat That Jawn?" />
+    </header>
     <span>
     <router-link id="fav-nav" v-bind:to="{ name: 'liked' }">My Favorites</router-link>
     </span>
-    <header class="favHead">
-      <img src="../assets/img/etj-round-sixers.png" alt="Eat That Jawn?" />
-    </header>
-    <button class="like-btn" v-on:click="like">❤</button>
+    <div>
+    <button class="like-btn" v-on:click="like">💙</button>
     <button class="dislike-btn" v-on:click="dislike">👎</button>
+    </div>
     <transition-group name="matches_list" tag="p" >
-        <div class = "matches" 
+        <div class = "matchesDetails" 
           v-for="restaurant in restaurants"
           v-bind:key="restaurant.restaurant.id"
           v-show="restaurant === restaurants[index]"          
           >
-            <p class="restaurant" >{{restaurant.restaurant.name }}</p>
+            <p class="rest-name" >{{restaurant.restaurant.name }}</p>
           
-            <p class="image">{{restaurant.restaurant.featured_image}}</p>
+            <p class="featured-image">{{restaurant.restaurant.featured_image}}</p>
           
             <!-- <p class="rating">Average Rating: {{restaurant.restaurant.user_rating.aggregate_rating}}</p> -->
             <p class="rating" v-if="restaurant.restaurant.user_rating.aggregate_rating > 0 && restaurant.restaurant.user_rating.aggregate_rating <= 1.5">⭐</p>
-            <p class="rating" v-if="restaurant.restaurant.user_rating.aggregate_rating > 1 && restaurant.restaurant.user_rating.aggregate_rating <= 2.5">⭐⭐</p>
-            <p class="rating" v-if="restaurant.restaurant.user_rating.aggregate_rating > 2 && restaurant.restaurant.user_rating.aggregate_rating <= 3.5">⭐⭐⭐</p>
-            <p class="rating" v-if="restaurant.restaurant.user_rating.aggregate_rating >= 4 && restaurant.restaurant.user_rating.aggregate_rating <= 4.5">⭐⭐⭐⭐</p>
-            <p class="rating" v-if="restaurant.restaurant.user_rating.aggregate_rating = 5">⭐⭐⭐⭐⭐</p>
+            <p class="rating" v-if="restaurant.restaurant.user_rating.aggregate_rating > 1.5 && restaurant.restaurant.user_rating.aggregate_rating <= 2.5">⭐⭐</p>
+            <p class="rating" v-if="restaurant.restaurant.user_rating.aggregate_rating > 2.5 && restaurant.restaurant.user_rating.aggregate_rating <= 3.5">⭐⭐⭐</p>
+            <p class="rating" v-if="restaurant.restaurant.user_rating.aggregate_rating > 3.5 && restaurant.restaurant.user_rating.aggregate_rating <= 4.5">⭐⭐⭐⭐</p>
+            <p class="rating" v-if="restaurant.restaurant.user_rating.aggregate_rating >= 4.6">⭐⭐⭐⭐⭐</p>
 
             <!-- <p class="price">Price: {{restaurant.restaurant.price_range}}</p> -->
             <p class="price" v-if="restaurant.restaurant.price_range === 1">$</p>
@@ -115,16 +117,32 @@ export default {
 </script>
 
 <style>
-.matched {
-  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.49) 100%);
+.matchedBody {
+  /* background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.49) 100%); */
   font-family: 'Montserrat';
   font-weight: bold;
   color: white;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-areas:
+    "etj-round-sixers" 
+    "fav-nav"
+    "featured-image"
+    "rest-name"
+    "rating"
+    "price"
+    "dislike-btn" 
+    "like-btn"
+}
+
+#etj-round-sixers {
+  grid-area: etj-round-sixers;
+  display: flex;
+  background: none;
+  box-shadow: none;
 }
 
 #fav-nav {
+  grid-area: fav-nav;
   background-color: #006bb6;
   border-radius: 20px;
   font-size: 16px;
@@ -136,16 +154,9 @@ export default {
   text-decoration: none;
   width: 7em;
   text-align: center;
+  display: flex;
 }
 
-.favHead {
-  background: none;
-}
-
-.matches {
-  display: inline-block;
-  margin-right: 10px;
-}
 .matches_list-enter-active, .matches_list-leave-active {
   transition: all 1s;
 }
@@ -154,37 +165,68 @@ export default {
   transform: translateY(30px);
 }
 
-.like-btn {
-  font-size: 80px;
-  color: #006bb6;
-  background: none;
-  border: none;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
-
-.like-btn:hover {
-  color: #ed147c;
+.featured-image {
+  grid-area: featured-image;
 }
 
 .dislike-btn {
-  font-size: 80px;
+  grid-area: dislike-btn;
+  font-size: 60px;
   background: none;
   border: none;
-  width: 40px;
-  height: 40px;
   cursor: pointer;
+
 }
 
-.rating {
-  color: white;
-  font-weight: 100;
-  font-size: 40px;
+.like-btn {
+  grid-area: like-btn;
+  font-size: 60px;
+  background: none;
+  border: none;
+  cursor: pointer;
   
 }
 
+.rest-name {
+  grid-area: rest-name;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: #ed174c;
+  border-radius: 20px;
+  width: auto;
+  height: auto;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: center;  
+}
+
+.rating {
+  grid-area: rating;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #ed174c;
+  border-radius: 20px;
+  width: auto;
+  height: auto;
+  padding: 2px;
+  padding-bottom: 6px;
+  text-align: center;  
+}
+
 .price {
-  font-size: 30px;
+  grid-area: price;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #ed174c;
+  border-radius: 20px;
+  width: auto;
+  height: auto;
+  padding: 2px;
+  padding-top: 4px;
+  padding-bottom: 6px;
+  text-align: center;
 }
 </style>

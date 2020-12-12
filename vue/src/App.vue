@@ -1,5 +1,6 @@
 <template>
   <body>
+    <link rel='icon' href="<%= BASE_URL %>favicon.ico">
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
@@ -24,8 +25,8 @@
   font-weight: bold;
   color: #ffffff;
   padding: 5px 10px 5px 10px;
-  text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
   text-decoration: none;
   width: 3em;
 }
