@@ -16,12 +16,13 @@
     <form class="questionnaireForm" v-on:submit.prevent="saveForm">
       <div id="questionnaire" class="text-center">
         <h1 class="filter-results">Filter Results Below</h1>
-        <select id="statusFilter" v-model="Questionnaire.neighborhood">
+        <select id="statusFilter" v-model="Questionnaire.neighborhood" required>
           <option value="" disabled selected>Neighborhood</option>
           <option
             v-for="neighborhood in neighborhoods"
             v-bind:key="neighborhood.localitySubzoneId"
             v-bind:value="neighborhood.localitySubzoneId"
+            min=""
           >
             {{ neighborhood.localitySubzoneName }}
           </option>
@@ -124,6 +125,14 @@ body {
   gap: 15px;
 }
 
+header {
+  background-color: #ed174c;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  margin-top: 80px;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+}
+
 #header-image {
   grid-area: etj-round-and-text;
   width: 85%;
@@ -131,14 +140,6 @@ body {
   margin: auto;
   padding-top: 40px;
   padding-bottom: 30px;
-}
-
-header {
-  background-color: #ed174c;
-  border-radius: 20px;
-  margin-bottom: 40px;
-  margin-top: 80px;
-  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
 .filter-results {

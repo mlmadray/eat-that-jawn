@@ -34,7 +34,7 @@
 #logout-nav {
   width: 4em;
   box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
-  margin-left: 180px;
+
 }
 
 #home-nav:hover, 

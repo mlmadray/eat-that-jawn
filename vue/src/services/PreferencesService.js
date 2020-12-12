@@ -14,10 +14,6 @@ getAllCategories(){
   return axios.get(`/questionnaire/category`);
 },
 
-getAllServiceOptions(){
-  return axios.get(`/questionnaire/serviceoption`);
-},
-
 addFavorite(user_id, favRestaurant) {
   return axios.post(`/favorites/${user_id}`, favRestaurant);
 },

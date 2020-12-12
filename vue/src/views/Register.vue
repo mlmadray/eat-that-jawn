@@ -224,11 +224,11 @@ header {
   line-height: 17px;
   display: block;
   margin: auto;
-  margin-bottom: 10px;
+
 }
 
 #registered:hover {
-  border: black solid 5px;
+  border: #006bb6 solid 5px;
 }
 
 /********************* TABLET *********************/

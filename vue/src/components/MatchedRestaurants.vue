@@ -6,18 +6,9 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
     />
-    <span>
+    <div class="navs">
       <router-link id="logout-nav" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-    </span>
-    <span>
       <router-link id="fav-nav" v-bind:to="{ name: 'liked' }">My Favorites</router-link>
-    </span>
-    <header id="etj-round-sixers">
-      <img src="../assets/img/etj-round-sixers.png" alt="Eat That Jawn?" />
-    </header>
-    <div>
-      <button class="like-btn" v-on:click="like">💙</button>
-      <button class="dislike-btn" v-on:click="dislike">👎</button>
     </div>
     <transition-group name="matches_list" tag="p">
       <div
@@ -25,14 +16,17 @@
         v-for="restaurant in restaurants"
         v-bind:key="restaurant.restaurant.id"
         v-show="restaurant === restaurants[index]"
-      >
-        
+      >        
         <img
             class="featured-image"
             v-if="restaurant.restaurant.featured_image != ''"
             v-bind:src="restaurant.restaurant.featured_image"
           />
-          <img v-else src="../assets/img/etj-round-sixers.png" />
+          <img v-else src="../assets/img/sorry-no-image.png" />
+    <div class="decisions">
+      <button class="like-btn" v-on:click="like">💙</button>
+      <button class="dislike-btn" v-on:click="dislike">👎</button>
+    </div>
         
         <p class="rest-name">{{ restaurant.restaurant.name }}</p>
         <!-- <p class="rating">Average Rating: {{restaurant.restaurant.user_rating.aggregate_rating}}</p> -->
@@ -93,6 +87,9 @@
         <p class="price" v-else>$$$$$</p>
       </div>
     </transition-group>
+    <footer id="etj-round-sixers">
+      <img src="../assets/img/etj-round-sixers.png" alt="Eat That Jawn?" />
+    </footer>
   </body>
 </template>
 
@@ -174,6 +171,17 @@ export default {
 </script>
 
 <style>
+
+.matches_list-enter-active,
+.matches_list-leave-active {
+  transition: all 1s;
+}
+.matches_list-enter,
+.matches_list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
 .matchedBody {
   /* background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.49) 100%); */
   font-family: "Montserrat";
@@ -181,28 +189,24 @@ export default {
   color: white;
   grid-template-columns: 1fr;
   grid-template-areas:
-    "etj-round-sixers"
-    "logout-nav"
-    "fav-nav"
+    "navs"
     "featured-image"
+    "decisions"
     "rest-name"
     "rating"
     "price"
-    "dislike-btn"
-    "like-btn";
+    "etj-round-sixers";
+}
+
+.navs {
+  grid-area: navs;
+  display: flex;
+  margin-bottom: 80px;
+  justify-content: space-between;
 }
 
 #logout-nav {
   grid-area: logout-nav;
-  
-}
-
-#etj-round-sixers {
-  grid-area: etj-round-sixers;
-  display: flex;
-  background: none;
-  box-shadow: none;
-  
 }
 
 #fav-nav {
@@ -218,26 +222,26 @@ export default {
   text-decoration: none;
   width: 7em;
   text-align: center;
-  display: flex;
-}
-
-.matches_list-enter-active,
-.matches_list-leave-active {
-  transition: all 1s;
-}
-.matches_list-enter,
-.matches_list-leave-to {
-  opacity: 0;
-  transform: translateY(30px);
+  margin-left: 120px;
 }
 
 .featured-image {
   grid-area: featured-image;
-  width: 75%;
+  width: 95%;
+  height: 95%;
+  border-radius: 15px; 
+  border: #006bb6 ridge 6px;  
+  margin: 0;
 }
 
+.decisions {
+  grid-area: decisions;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
 .dislike-btn {
-  grid-area: dislike-btn;
   font-size: 60px;
   background: none;
   border: none;
@@ -245,7 +249,6 @@ export default {
 }
 
 .like-btn {
-  grid-area: like-btn;
   font-size: 60px;
   background: none;
   border: none;
@@ -263,7 +266,7 @@ export default {
   height: auto;
   padding-top: 8px;
   padding-bottom: 8px;
-  text-align: center;
+  text-align: center;  
 }
 
 .rating {
@@ -278,7 +281,6 @@ export default {
   padding: 2px;
   padding-bottom: 6px;
   text-align: center;
-  margin-top: 0;
 }
 
 .price {
@@ -294,5 +296,59 @@ export default {
   padding-top: 4px;
   padding-bottom: 6px;
   text-align: center;
+  
+}
+
+#etj-round-sixers {
+  grid-area: etj-round-sixers;
+  background: none;
+  box-shadow: none;
+  display: inline-block;
+  margin-left: 132px;  
+  margin-bottom: 0;
+}
+
+/********************* TABLET *********************/
+@media (min-width: 768px) {
+
+  .dislike-btn,
+  .like-btn {
+    font-size: 80px;
+  }
+
+  .rest-name {
+    width: 50%;
+    margin-left: 180px;
+  }
+
+  .rating {
+    width: 50%;
+    margin-left: 180px;
+  }
+
+  .price {
+    width: 50%;
+    margin-left: 180px;
+  }
+
+  #etj-round-sixers {
+    margin-left: 320px;
+  }
+}
+
+/********************* DESKTOP *********************/
+@media (min-width: 1024px) {
+
+  .rest-name {
+
+  }
+
+  .rating {
+
+  }
+
+  .price {
+    
+  }
 }
 </style>

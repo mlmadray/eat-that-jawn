@@ -62,7 +62,7 @@ export default {
 </script>
 
 <style>
-.featureimg {
+/* .featureimg {
   width: 200px;
-}
+} */
 </style>

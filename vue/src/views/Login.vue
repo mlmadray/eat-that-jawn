@@ -235,7 +235,7 @@ input {
 }
 
 #forgot-pass:hover {
-  border: black solid 5px;
+  border: #006bb6 solid 5px;
 }
 
 .alert {
@@ -275,7 +275,7 @@ input {
 }
 
 #sign-up:hover {
-  border: black solid 5px;
+  border: #006bb6 solid 5px;
 }
 
 /********************* TABLET *********************/
