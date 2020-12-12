@@ -89,11 +89,10 @@ public class UserSqlDAO implements UserDAO {
     @Override
     public void update(String username, String password) {
         //boolean userUpdated = false;
-
         // update user
         String updateUser = "UPDATE users SET password_hash = ? WHERE username = ?;";
         String password_hash = new BCryptPasswordEncoder().encode(password);
-        //String ssRole = "ROLE_" + role.toUpperCase();
+        
 
         jdbcTemplate.update(updateUser, password_hash, username);
 
