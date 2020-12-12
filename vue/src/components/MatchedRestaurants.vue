@@ -29,8 +29,8 @@
         
         <img
             class="featured-image"
-            v-if="restaurant.featured_image != ''"
-            v-bind:src="restaurant.featured_image"
+            v-if="restaurant.restaurant.featured_image != ''"
+            v-bind:src="restaurant.restaurant.featured_image"
           />
           <img v-else src="../assets/img/etj-round-sixers.png" />
         
@@ -110,7 +110,7 @@ export default {
           restaurant: {
             id: "",
             name: "",
-            featured_image: "",
+            featured_image: '',
             user_rating: {
               aggregate_rating: "",
             },
