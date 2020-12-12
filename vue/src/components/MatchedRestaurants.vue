@@ -10,44 +10,92 @@
       <img src="../assets/img/etj-round-sixers.png" alt="Eat That Jawn?" />
     </header>
     <span>
-    <router-link id="fav-nav" v-bind:to="{ name: 'liked' }">My Favorites</router-link>
+      <router-link id="fav-nav" v-bind:to="{ name: 'liked' }"
+        >My Favorites</router-link
+      >
     </span>
     <div>
-    <button class="like-btn" v-on:click="like">💙</button>
-    <button class="dislike-btn" v-on:click="dislike">👎</button>
+      <button class="like-btn" v-on:click="like">💙</button>
+      <button class="dislike-btn" v-on:click="dislike">👎</button>
     </div>
-    <transition-group name="matches_list" tag="p" >
-        <div class = "matchesDetails" 
-          v-for="restaurant in restaurants"
-          v-bind:key="restaurant.restaurant.id"
-          v-show="restaurant === restaurants[index]"          
-          >
-            <p class="rest-name" >{{restaurant.restaurant.name }}</p>
-          
-            <p class="featured-image">{{restaurant.restaurant.featured_image}}</p>
-          
-            <!-- <p class="rating">Average Rating: {{restaurant.restaurant.user_rating.aggregate_rating}}</p> -->
-            <p class="rating" v-if="restaurant.restaurant.user_rating.aggregate_rating > 0 && restaurant.restaurant.user_rating.aggregate_rating <= 1.5">⭐</p>
-            <p class="rating" v-if="restaurant.restaurant.user_rating.aggregate_rating > 1.5 && restaurant.restaurant.user_rating.aggregate_rating <= 2.5">⭐⭐</p>
-            <p class="rating" v-if="restaurant.restaurant.user_rating.aggregate_rating > 2.5 && restaurant.restaurant.user_rating.aggregate_rating <= 3.5">⭐⭐⭐</p>
-            <p class="rating" v-if="restaurant.restaurant.user_rating.aggregate_rating > 3.5 && restaurant.restaurant.user_rating.aggregate_rating <= 4.5">⭐⭐⭐⭐</p>
-            <p class="rating" v-if="restaurant.restaurant.user_rating.aggregate_rating >= 4.6">⭐⭐⭐⭐⭐</p>
+    <transition-group name="matches_list" tag="p">
+      <div
+        class="matchesDetails"
+        v-for="restaurant in restaurants"
+        v-bind:key="restaurant.restaurant.id"
+        v-show="restaurant === restaurants[index]"
+      >
+        <p class="rest-name">{{ restaurant.restaurant.name }}</p>
+        <img
+          class="featureimg"
+          v-if="restaurant.featured_image != ''"
+          v-bind:src="restaurant.featured_image"
+        />
+        <img v-else src="../assets/img/etj-round-sixers.png" />
 
-            <!-- <p class="price">Price: {{restaurant.restaurant.price_range}}</p> -->
-            <p class="price" v-if="restaurant.restaurant.price_range === 1">$</p>
-            <p class="price" v-else-if="restaurant.restaurant.price_range === 2">$$</p>
-            <p class="price" v-else-if="restaurant.restaurant.price_range === 3">$$$</p>
-            <p class="price" v-else-if="restaurant.restaurant.price_range === 4">$$$$</p>
-            <p class="price" v-else>$$$$$</p>
+        <!-- <p class="rating">Average Rating: {{restaurant.restaurant.user_rating.aggregate_rating}}</p> -->
+        <p
+          class="rating"
+          v-if="
+            restaurant.restaurant.user_rating.aggregate_rating > 0 &&
+            restaurant.restaurant.user_rating.aggregate_rating <= 1.5
+          "
+        >
+          ⭐
+        </p>
+        <p
+          class="rating"
+          v-if="
+            restaurant.restaurant.user_rating.aggregate_rating > 1.5 &&
+            restaurant.restaurant.user_rating.aggregate_rating <= 2.5
+          "
+        >
+          ⭐⭐
+        </p>
+        <p
+          class="rating"
+          v-if="
+            restaurant.restaurant.user_rating.aggregate_rating > 2.5 &&
+            restaurant.restaurant.user_rating.aggregate_rating <= 3.5
+          "
+        >
+          ⭐⭐⭐
+        </p>
+        <p
+          class="rating"
+          v-if="
+            restaurant.restaurant.user_rating.aggregate_rating > 3.5 &&
+            restaurant.restaurant.user_rating.aggregate_rating <= 4.5
+          "
+        >
+          ⭐⭐⭐⭐
+        </p>
+        <p
+          class="rating"
+          v-if="restaurant.restaurant.user_rating.aggregate_rating >= 4.6"
+        >
+          ⭐⭐⭐⭐⭐
+        </p>
 
-
+        <!-- <p class="price">Price: {{restaurant.restaurant.price_range}}</p> -->
+        <p class="price" v-if="restaurant.restaurant.price_range === 1">$</p>
+        <p class="price" v-else-if="restaurant.restaurant.price_range === 2">
+          $$
+        </p>
+        <p class="price" v-else-if="restaurant.restaurant.price_range === 3">
+          $$$
+        </p>
+        <p class="price" v-else-if="restaurant.restaurant.price_range === 4">
+          $$$$
+        </p>
+        <p class="price" v-else>$$$$$</p>
       </div>
-   </transition-group>
+    </transition-group>
   </body>
 </template>
 
 <script>
-import PreferencesService from '../services/PreferencesService';
+import PreferencesService from "../services/PreferencesService";
 //import preferenceService from '../services/PreferencesService';
 import restService from "../services/RestServices";
 export default {
@@ -56,50 +104,57 @@ export default {
     return {
       cuisine_ids: [],
       restaurants: [
-                  { 
-                    restaurant: {
-                      id: '',
-                      name: '',
-                      featured_image: '',
-                      user_rating:{
-                        aggregate_rating: ''
-                      },
-                      price_range: ''
-                    },  
-                  }
-                  ],
+        {
+          restaurant: {
+            id: "",
+            name: "",
+            featured_image: "",
+            user_rating: {
+              aggregate_rating: "",
+            },
+            price_range: "",
+          },
+        },
+      ],
       index: 19,
-      
+
       liked_restaurants: {
         restaurantId: "",
         restaurantName: "",
-        userId: this.$store.state.user.id
+        userId: this.$store.state.user.id,
       },
-      
     };
   },
-   methods: {
+  methods: {
     like: function () {
-        
-        this.liked_restaurants.restaurantId = this.restaurants[this.index].restaurant.id;
-        this.liked_restaurants.restaurantName = this.restaurants[this.index].restaurant.name;
-        this.restaurants.splice(this.index, 1);
-        this.index = this.index - 1;
-        PreferencesService.addFavorite(this.$store.state.user.id, this.liked_restaurants)
-        .catch((error) => {
-          if(error.status === 500) {
-            alert(error.message)
-          }
-        });
+      this.liked_restaurants.restaurantId = this.restaurants[
+        this.index
+      ].restaurant.id;
+      this.liked_restaurants.restaurantName = this.restaurants[
+        this.index
+      ].restaurant.name;
+      this.restaurants.splice(this.index, 1);
+      this.index = this.index - 1;
+      PreferencesService.addFavorite(
+        this.$store.state.user.id,
+        this.liked_restaurants
+      ).catch((error) => {
+        if (error.status === 500) {
+          alert(error.message);
+        }
+      });
     },
     dislike: function () {
-      this.restaurants.splice(this.index, 1)
-      this.index = this.index - 1
+      this.restaurants.splice(this.index, 1);
+      this.index = this.index - 1;
     },
 
     saveFavorite() {
-      PreferencesService.addFavorite(this.$store.state.user.user_id, this.liked_restaurants)
-    }
+      PreferencesService.addFavorite(
+        this.$store.state.user.user_id,
+        this.liked_restaurants
+      );
+    },
   },
   created() {
     restService
@@ -119,19 +174,19 @@ export default {
 <style>
 .matchedBody {
   /* background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.49) 100%); */
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-weight: bold;
   color: white;
   grid-template-columns: 1fr;
   grid-template-areas:
-    "etj-round-sixers" 
+    "etj-round-sixers"
     "fav-nav"
     "featured-image"
     "rest-name"
     "rating"
     "price"
-    "dislike-btn" 
-    "like-btn"
+    "dislike-btn"
+    "like-btn";
 }
 
 #etj-round-sixers {
@@ -157,16 +212,19 @@ export default {
   display: flex;
 }
 
-.matches_list-enter-active, .matches_list-leave-active {
+.matches_list-enter-active,
+.matches_list-leave-active {
   transition: all 1s;
 }
-.matches_list-enter, .matches_list-leave-to  {
+.matches_list-enter,
+.matches_list-leave-to {
   opacity: 0;
   transform: translateY(30px);
 }
 
 .featured-image {
   grid-area: featured-image;
+  width: 75%;
 }
 
 .dislike-btn {
@@ -175,7 +233,6 @@ export default {
   background: none;
   border: none;
   cursor: pointer;
-
 }
 
 .like-btn {
@@ -184,7 +241,6 @@ export default {
   background: none;
   border: none;
   cursor: pointer;
-  
 }
 
 .rest-name {
@@ -198,7 +254,7 @@ export default {
   height: auto;
   padding-top: 8px;
   padding-bottom: 8px;
-  text-align: center;  
+  text-align: center;
 }
 
 .rating {
@@ -212,7 +268,7 @@ export default {
   height: auto;
   padding: 2px;
   padding-bottom: 6px;
-  text-align: center;  
+  text-align: center;
 }
 
 .price {

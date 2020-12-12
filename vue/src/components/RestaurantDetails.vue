@@ -1,43 +1,50 @@
 <template>
-<div>
-  <div class="details" v-for="rest in restaurant" v-bind:key="rest.id">
-    <h3 class="restaurant">{{ rest.name }}</h3>
-    <p class="image">{{ rest.featured_image }}</p>
-    <p class="rating">
-      Average Rating: {{ rest.user_rating.aggregate_rating }}
-    </p>
-    <p class="rating-text">
-      Average Rating: {{rest.user_rating.rating_text }}
-    </p>
-    <p class="rating-votes">Average Rating: {{ rest.user_rating.votes }}</p>
-    <p class="price">Price: {{ rest.price_range }}</p>
-    <p class="website">Website: {{ rest.url }}</p>
-    <p class="address">address: {{rest.location.address }}</p>
-    <p class="phone">phone_number: {{ rest.phone_numbers }}</p>
-    <p class="cuisine">{{ rest.cuisines }}</p>
+  <div>
+    <div class="details">
+      <h3 class="restaurant">{{ details.name }}</h3>
+      <img
+        class="featureimg"
+        v-if="restaurant.featured_image != ''"
+        v-bind:src="restaurant.featured_image"
+      />
+      <img v-else src="../assets/img/etj-round-sixers.png" />
+      <p class="rating">
+        Average Rating: {{ details.user_rating.aggregate_rating }}
+      </p>
+      <p class="rating-text">
+        Average Rating: {{ details.user_rating.rating_text }}
+      </p>
+      <p class="rating-votes">
+        Average Rating: {{ details.user_rating.votes }}
+      </p>
+      <p class="price">Price: {{ details.price_range }}</p>
+      <p class="website">Website: {{ details.url }}</p>
+      <p class="address">address: {{ details.location.address }}</p>
+      <p class="phone">phone_number: {{ details.phone_numbers }}</p>
+      <p class="cuisine">{{ details.cuisines }}</p>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
+import restService from "../services/RestServices";
 
 export default {
   name: "restaurant-details",
-  components: {
-    
-  },
+  components: {},
   data() {
     return {
-      
+      details: [],
+      rId: this.$store.state.resId,
     };
   },
-  //props:['details'],
-  computed: {
-    restaurant(){
-      return this.$store.state.restaurantDetails;
-    }
-  },
+  computed: {},
   methods: {},
+  created() {
+    restService.getFavoritesDetails(this.rId).then((response) => {
+      this.details = response.data;
+    });
+  },
 };
 </script>
 
