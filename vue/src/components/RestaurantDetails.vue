@@ -1,36 +1,42 @@
 <template>
-  <div class="details">
-    <h3 class="restaurant">{{ details.name }}</h3>
-    <p class="image">{{ details.featured_image }}</p>
+<div>
+  <div class="details" v-for="rest in restaurant" v-bind:key="rest.id">
+    <h3 class="restaurant">{{ rest.name }}</h3>
+    <p class="image">{{ rest.featured_image }}</p>
     <p class="rating">
-      Average Rating: {{ details.user_rating.aggregate_rating }}
+      Average Rating: {{ rest.user_rating.aggregate_rating }}
     </p>
     <p class="rating-text">
-      Average Rating: {{ details.user_rating.rating_text }}
+      Average Rating: {{rest.user_rating.rating_text }}
     </p>
-    <p class="rating-votes">Average Rating: {{ details.user_rating.votes }}</p>
-    <p class="price">Price: {{ details.price_range }}</p>
-    <p class="website">Website: {{ details.url }}</p>
-    <p class="address">address: {{ details.location.address }}</p>
-    <p class="phone">phone_number: {{ details.phone_numbers }}</p>
-    <p class="cuisine">{{ details.cuisines }}</p>
+    <p class="rating-votes">Average Rating: {{ rest.user_rating.votes }}</p>
+    <p class="price">Price: {{ rest.price_range }}</p>
+    <p class="website">Website: {{ rest.url }}</p>
+    <p class="address">address: {{rest.location.address }}</p>
+    <p class="phone">phone_number: {{ rest.phone_numbers }}</p>
+    <p class="cuisine">{{ rest.cuisines }}</p>
   </div>
+</div>
 </template>
 
 <script>
-import LikedRestaurants from "../components/LikedRestaurants";
+
 export default {
   name: "restaurant-details",
   components: {
-    LikedRestaurants,
+    
   },
   data() {
-    return {};
+    return {
+      
+    };
   },
-  props: {
-    details: Object,
+  //props:['details'],
+  computed: {
+    restaurant(){
+      return this.$store.state.restaurantDetails;
+    }
   },
-  computed: {},
   methods: {},
 };
 </script>

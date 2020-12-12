@@ -26,7 +26,7 @@ export default new Vuex.Store({
       category: "",
       // serviceOption: ""
     },
-    matchedRestaurants: []
+    restaurantDetails: {}
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -51,7 +51,11 @@ export default new Vuex.Store({
         state.Answers.cuisine = Answers.cuisine,
         state.Answers.category = Answers.category
         // state.Answers.serviceOption = Answers.serviceOption
-      }
+      },
+
+    SET_RESTAURANT(state,restaurantDetails){
+      state.restaurantDetails = restaurantDetails;
+    }
     
   }
 })

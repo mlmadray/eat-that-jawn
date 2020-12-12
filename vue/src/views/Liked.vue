@@ -11,7 +11,7 @@ import LikedRestaurants from '../components/LikedRestaurants.vue'
 //import RestaurantDetails from '../components/RestaurantDetails.vue';
 export default {
   components: { LikedRestaurants,
-                //RestaurantDetails 
+               // RestaurantDetails 
               },
 
 }
