@@ -34,7 +34,23 @@ export default {
   components: {},
   data() {
     return {
-      details: [],
+      details: {
+        name: "",
+        featured_image: "",
+        user_rating: {
+          aggregate_rating: "",
+          rating_text: "",
+          rating_votes: "",
+        },
+        price_range: "",
+        url: "",
+        location: {
+          address: ""
+        },
+        phone_numbers: "",
+        cuisines: "",
+
+      },
       rId: this.$store.state.resId,
     };
   },

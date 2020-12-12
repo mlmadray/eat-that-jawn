@@ -6,10 +6,11 @@
       class="matches"
       v-for="restaurant in details"
       v-bind:key="restaurant.id"
+
     >
       <router-link
         v-bind:to="{ name: 'restaurant', params: { id: restaurant.id } }"
-        v-bind:value="setRestaurant(restaurant.id)"
+              v-bind:value="setRestaurant(restaurant.id)"
       >
         <p class="restaurant">{{ restaurant.name }}</p>
         <img
