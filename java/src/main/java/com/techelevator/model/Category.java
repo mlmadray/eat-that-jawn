@@ -5,6 +5,13 @@ public class Category {
 	private int zomatoCategoryId;
 	private String categoryName;
 	
+	public Category() {}
+	
+	public Category(int id, String name) {
+		this.categoryName = name;
+		this.zomatoCategoryId = id;
+	}
+	
 	public int getZomatoCategoryId() {
 		return zomatoCategoryId;
 	}

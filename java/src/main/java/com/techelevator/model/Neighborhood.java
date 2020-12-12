@@ -5,6 +5,11 @@ public class Neighborhood {
 	private int localitySubzoneId;
 	private String localitySubzoneName;
 	
+	public Neighborhood() {}
+	public Neighborhood(int id, String name) {
+		this.localitySubzoneId = id;
+		this.localitySubzoneName = name;
+	}
 	public int getLocalitySubzoneId() {
 		return localitySubzoneId;
 	}

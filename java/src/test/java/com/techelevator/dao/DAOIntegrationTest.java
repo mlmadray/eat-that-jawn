@@ -8,7 +8,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.springframework.jdbc.datasource.SingleConnectionDataSource;
-
+ 
 public abstract class DAOIntegrationTest {
 
     /* Using this particular implementation of DataSource so that
@@ -20,9 +20,9 @@ public abstract class DAOIntegrationTest {
     @BeforeClass
     public static void setupDataSource() {
         dataSource = new SingleConnectionDataSource();
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/final_capstone");
-        dataSource.setUsername("final_capstone_appuser");
-        dataSource.setPassword("finalcapstone");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/rest_tinder");
+        dataSource.setUsername("postgres");
+        dataSource.setPassword("postgres1");
         /* The following line disables autocommit for connections
          * returned by this DataSource. This allows us to rollback
          * any changes after each test */

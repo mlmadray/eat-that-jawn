@@ -17,16 +17,16 @@ public class CuisineSqlDAO implements CuisineDAO {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-	@Override
-	public Cuisine getSingleCuisine(String name) {
-		Cuisine cuis = new Cuisine();
-		String sql = "SELECT zomato_cuisine_id, cuisine_type FROM cuisine WHERE cuisine_type = ?;";
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, name);
-		if(results.next()) {
-			cuis = mapRowToCuisine(results);
-		}
-		return cuis;
-	}
+//	@Override
+//	public Cuisine getSingleCuisine(String name) {
+//		Cuisine cuis = new Cuisine();
+//		String sql = "SELECT zomato_cuisine_id, cuisine_type FROM cuisine WHERE cuisine_type = ?;";
+//		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, name);
+//		if(results.next()) {
+//			cuis = mapRowToCuisine(results);
+//		}
+//		return cuis;
+//	}
 	
 	@Override
 	public List<Cuisine> getAllCuisine() {

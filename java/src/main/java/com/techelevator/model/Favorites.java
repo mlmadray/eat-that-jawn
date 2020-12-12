@@ -6,6 +6,14 @@ public class Favorites {
 	private int restaurantId;
 	private String restaurantName;
 	
+	public Favorites() {}
+	
+	public Favorites(int userId, int restaurantId, String restuarantName) {
+		this.userId = userId;
+		this.restaurantId = restaurantId;
+		this.restaurantName = restuarantName;
+	}
+	
 	public int getUserId() {
 		return userId;
 	}

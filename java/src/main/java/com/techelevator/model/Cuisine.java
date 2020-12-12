@@ -5,6 +5,13 @@ public class Cuisine {
 	private int zomatoCuisineId;
 	private String cuisineType;
 	
+	public Cuisine() {}
+	
+	public Cuisine(int id, String type) {
+		this.zomatoCuisineId = id;
+		this.cuisineType = type;
+	}
+	
 	public int getZomatoCuisineId() {
 		return zomatoCuisineId;
 	}
