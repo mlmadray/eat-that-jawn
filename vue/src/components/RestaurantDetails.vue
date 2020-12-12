@@ -4,8 +4,8 @@
       <h3 class="restaurant">{{ details.name }}</h3>
       <img
         class="featureimg"
-        v-if="restaurant.featured_image != ''"
-        v-bind:src="restaurant.featured_image"
+        v-if="details.featured_image != ''"
+        v-bind:src="details.featured_image"
       />
       <img v-else src="../assets/img/etj-round-sixers.png" />
       <p class="rating">
