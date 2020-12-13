@@ -8,11 +8,11 @@
       v-bind:key="restaurant.id"
 
     >
-      <router-link
+      <router-link class="restaurant"
         v-bind:to="{ name: 'restaurant', params: { id: restaurant.id } }"
               v-bind:value="setRestaurant(restaurant.id)"
       >
-        <p class="restaurant">{{ restaurant.name }}</p>
+        <p>{{ restaurant.name }}</p>
         <img
           class="featureimg"
           v-if="restaurant.featured_image != ''"
@@ -62,7 +62,13 @@ export default {
 </script>
 
 <style>
-/* .featureimg {
-  width: 200px;
-} */
+.featureimg {
+  width: 50%;
+}
+
+.restaurant {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
 </style>

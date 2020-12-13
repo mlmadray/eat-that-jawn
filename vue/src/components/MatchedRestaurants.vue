@@ -340,15 +340,21 @@ export default {
 @media (min-width: 1024px) {
 
   .rest-name {
-
+    width: 30%;
+    height: 30px;
+    font-size: 24px;
   }
 
   .rating {
-
+    width: 30%;
+    height: 30px;
+    font-size: 24px;
   }
 
   .price {
-    
+    width: 30%;
+    height: 30px;
+    font-size: 24px;
   }
 }
 </style>
