@@ -11,7 +11,7 @@
       <router-link id="fav-nav" v-bind:to="{ name: 'liked' }">My Favorites</router-link>
     </div>
     <transition-group name="matches_list" tag="p"  >
-      <div v-if="index < 0" v-bind="getMoreRestaurants()" v-bind:key="restaurant.restaurant.id"></div>
+      <div v-if="index < 0" v-bind="getMoreRestaurants()"></div>
       
       <div
         class="matchesDetails"
