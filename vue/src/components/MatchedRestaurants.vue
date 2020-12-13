@@ -22,7 +22,7 @@
             v-if="restaurant.restaurant.featured_image != ''"
             v-bind:src="restaurant.restaurant.featured_image"
           />
-          <img v-else src="../assets/img/sorry-no-image.png" />
+          <img class="featured-image-alt" v-else src="../assets/img/sorry-no-image.png" />
     <div class="decisions">
       <button class="like-btn" v-on:click="like">💙</button>
       <button class="dislike-btn" v-on:click="dislike">👎</button>
@@ -181,9 +181,16 @@ export default {
   opacity: 0;
   transform: translateY(30px);
 }
-
+body {
+  
+}
 .matchedBody {
-  /* background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.49) 100%); */
+  /* background: rgb(255,255,255);
+background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rgba(255,255,255,0.5270483193277311) 100%); */
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   font-family: "Montserrat";
   font-weight: bold;
   color: white;
@@ -222,7 +229,6 @@ export default {
   text-decoration: none;
   width: 7em;
   text-align: center;
-  margin-left: 120px;
 }
 
 .featured-image {
@@ -231,7 +237,15 @@ export default {
   height: 95%;
   border-radius: 15px; 
   border: #006bb6 ridge 6px;  
-  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.featured-image-alt {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
 }
 
 .decisions {

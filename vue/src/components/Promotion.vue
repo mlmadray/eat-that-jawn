@@ -88,8 +88,10 @@ export default {
   background: linear-gradient(90deg, rgba(237,23,76,0.8183648459383753) 100%, rgba(255,255,255,0.7035189075630253) 100%);
   box-shadow: 2px 2px 20px 1px;
   border-radius: 15px;
-  width: 80%;
-  margin-left: 27px;
+  width: 300px;
+  height: 680px;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 10px;
   padding-right: 10px;
   grid-template-columns: 1fr;
@@ -130,11 +132,12 @@ export default {
 }
 .boot-saddle {
   grid-area: boot-saddle;
-  width: 70%;
-  height: 70%;
+  width: 210px;
+  height: 140px;
   border-radius: 15px;
   display: block;
-  margin-left: 45px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 5px;
   cursor: pointer;
   box-shadow: 0px 30px 30px rgba(0, 0, 0, 0.25);
@@ -161,11 +164,12 @@ export default {
 
 .heated-outdoor-dining {
   grid-area: heated-outdoor-dining;
-  width: 70%;
-  height: 70%;
+  width: 210px;
+  height: 150px;
   border-radius: 15px;
   display: block;
-  margin-left: 45px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 5px;
   cursor: pointer;
   box-shadow: 0px 30px 30px rgba(0, 0, 0, 0.25);
@@ -193,13 +197,13 @@ export default {
   color: white;
   font-weight: bold;
   margin-top: 20px;
-  margin-left: 200px;
+  margin-left: 209px;
   padding-bottom: 10px;
   cursor: pointer;
 }
 
 .close-btn {
-  font-size: 20px;
+  font-size: 18px;
   background: none;
   border: none;
   font-family: "Montserrat";
@@ -215,18 +219,23 @@ export default {
 /********************* TABLET *********************/
 @media (min-width: 768px) {
   .modal { 
-    height: 70%;
-    margin-left: 65px;
+    height: 710px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   #ETJ-sixers-stacked {
-    margin-left: 80px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .boot-saddle {
     margin-left: 0;
-    width: 50%;
-    height: 50%;
+    width: 310px;
+    height: 205px;
   }
 
   #closure-link {
@@ -236,8 +245,8 @@ export default {
 
   .heated-outdoor-dining {
     margin-left: 0;
-    width: 50%;
-    height: 50%;
+    width: 307px;
+    height: 230px;
   }
 
   #heated-link {
@@ -246,7 +255,8 @@ export default {
   }
 
   .close-btn {
-    margin-left: 315px;
+    margin-left: 291px;
+    font-size: 20px;
   }
 }
 
@@ -254,7 +264,12 @@ export default {
 @media (min-width: 1024px) {
 
   .modal { 
-    height: 73%;
+    height: 812px;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   #header-text {
@@ -262,9 +277,9 @@ export default {
   }
 
   .boot-saddle {
-    width: 40%;
-    height: 40%;
-    margin-left: 15px;
+    width: 380px;
+    height: 250px;
+    margin-left: auto;
   }
 
   #closure-link {
@@ -274,9 +289,10 @@ export default {
 
   .heated-outdoor-dining {
     margin-left: 0;
-    width: 40%;
-    height: 40%;
-    margin-left: 15px;
+    width: 380px;
+    height: 270px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   #heated-link {
@@ -285,7 +301,7 @@ export default {
   }
 
   .close-btn {
-    margin-left: 633px;
+    margin-left: 591px;
   }
 }
 </style>

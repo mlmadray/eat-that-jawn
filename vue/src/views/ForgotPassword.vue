@@ -30,7 +30,7 @@
           type="password"
           id="password"
           class="form-control"
-          placeholder="Password"
+          placeholder="New Password"
           v-model="user.password"
           required
         />
@@ -38,7 +38,7 @@
           type="password"
           id="confirmPassword"
           class="form-control"
-          placeholder="Confirm Password"
+          placeholder="Confirm New Password"
           v-model="user.confirmPassword"
           required
         />
@@ -47,7 +47,7 @@
           id="create-account-btn"
           type="submit"
         >
-          Save New Password
+          Reset Password
         </button>
         <router-link :to="{ name: 'login' }" id="registered"
           >Back to Login</router-link
