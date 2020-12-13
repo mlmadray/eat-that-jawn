@@ -5,6 +5,13 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
     />
+    <header>
+      <img
+        id="header-img"
+        src="../assets/img/ETJ-76ers-blue-white.png"
+        alt="Eat That Jawn?"
+      />
+    </header>
     <div id="register" class="text-center">
       <h1 class="sign-up">Forgot Password</h1>
       <form class="form-register" @submit.prevent="newPassword">

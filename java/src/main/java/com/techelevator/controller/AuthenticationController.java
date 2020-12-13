@@ -49,7 +49,7 @@ public class AuthenticationController {
 
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
-        return new ResponseEntity<>(new LoginResponse(jwt, user), httpHeaders, HttpStatus.OK);
+        return new ResponseEntity<>(new LoginResponse(jwt, user), httpHeaders, HttpStatus.OK); 
     }
 
     @ResponseStatus(HttpStatus.CREATED)

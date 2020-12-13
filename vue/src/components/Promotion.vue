@@ -18,21 +18,24 @@ export default {
   <div class="modal-backdrop" v-show="isVisible">
     <div class="modal">
       <header class="modal-header">
-        <slot name="header"> Weekly Promotion </slot>
+        <slot name="header"> Philly Restaurant News! </slot>
       </header>
       <section class="modal-body">
         <a
           href="https://philly.eater.com/2020/5/18/21262156/philadelphia-restaurants-bars-closed-permanently-coronavirus-covid-19"
         >
-          Website
+        Restaurants and Bars Closed due to Covid-19
+        </a>
+        <a href="https://philly.eater.com/maps/20-philly-restaurants-heated-patios-winter">
+        20 Philly Restaurants With Top-Notch Heated Patios for the Winter
         </a>
       </section>
       <footer class="modal-footer">
         <slot name="footer">
-          I'm the default footer!
+          Close
 
           <button type="button" class="btn-green" @click="close">
-            Close me!
+            X
           </button>
         </slot>
       </footer>

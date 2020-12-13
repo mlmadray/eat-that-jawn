@@ -13,7 +13,7 @@
       />
     </header>
 
-    <promotion class="promo" v-show="isModalVisible" @click="closeModal" />
+    <!-- <promotion class="promo" v-show="isModalVisible" @click="closeModal" /> -->
    
     <div id="login" class="text-center">
       <h1 class="welcome">Welcome</h1>
@@ -69,16 +69,16 @@
 
 <script>
 import authService from "../services/AuthService";
-import promotion from "../components/Promotion"
+//import promotion from "../components/Promotion"
 
 export default {
   name: "login",
   components: {
-    promotion
+    //promotion
   },
   data() {
     return {
-      isModalVisible: true,
+     // isModalVisible: true,
       user: {
         username: "",
         password: "",
@@ -105,9 +105,9 @@ export default {
           }
         });
     },
-    closeModal() {
-      this.isModalVisible = false;
-    }
+    // closeModal() {
+    //   this.isModalVisible = false;
+    // }
   },
 };
 </script>

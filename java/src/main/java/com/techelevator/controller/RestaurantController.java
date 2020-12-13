@@ -42,7 +42,7 @@ public class RestaurantController {
 		this.neighborhoodDAO = neighborhoodDAO;
 		this.categoryDAO = categoryDAO;
 		//this.serviceOptionDAO = serviceOptionDAO;
-		this.favoritesDAO = favoritesDAO; 
+		this.favoritesDAO = favoritesDAO;  
 	}
 	
 	//MAKE SURE TO ADD USER ID BACK INTO THE VALUE AND AUTHENTICATE
