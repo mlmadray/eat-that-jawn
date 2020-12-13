@@ -12,6 +12,8 @@
         alt="Eat That Jawn?"
       />
     </header>
+
+    <promotion class="promo" v-show="isModalVisible" @click="closeModal" />
    
     <div id="login" class="text-center">
       <h1 class="welcome">Welcome</h1>
@@ -67,12 +69,16 @@
 
 <script>
 import authService from "../services/AuthService";
+import promotion from "../components/Promotion"
 
 export default {
   name: "login",
-  components: {},
+  components: {
+    promotion
+  },
   data() {
     return {
+      isModalVisible: true,
       user: {
         username: "",
         password: "",
@@ -99,6 +105,9 @@ export default {
           }
         });
     },
+    closeModal() {
+      this.isModalVisible = false;
+    }
   },
 };
 </script>
