@@ -10,12 +10,15 @@
       <router-link id="logout-nav" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
       <router-link id="fav-nav" v-bind:to="{ name: 'liked' }">My Favorites</router-link>
     </div>
-    <transition-group name="matches_list" tag="p">
+    <transition-group name="matches_list" tag="p"  >
+      <div v-if="index < 0" v-bind="getMoreRestaurants()" v-bind:key="restaurant.restaurant.id"></div>
+      
       <div
         class="matchesDetails"
         v-for="restaurant in restaurants"
         v-bind:key="restaurant.restaurant.id"
         v-show="restaurant === restaurants[index]"
+        v-else
       >        
         <img
             class="featured-image"
@@ -86,6 +89,7 @@
         </p>
         <p class="price" v-else>$$$$$</p>
       </div>
+      
     </transition-group>
     <footer id="etj-round-sixers">
       <img src="../assets/img/etj-round-sixers.png" alt="Eat That Jawn?" />
@@ -116,7 +120,7 @@ export default {
         },
       ],
       index: 19,
-
+      start_count: 0,
       liked_restaurants: {
         restaurantId: "",
         restaurantName: "",
@@ -146,6 +150,7 @@ export default {
     dislike: function () {
       this.restaurants.splice(this.index, 1);
       this.index = this.index - 1;
+      
     },
 
     saveFavorite() {
@@ -154,6 +159,18 @@ export default {
         this.liked_restaurants
       );
     },
+
+    getMoreRestaurants(){
+      this.start_count = this.start_count + 20;
+      this.index = 19;
+      restService.getMoreRestaurants( 
+        this.$store.state.Answers.neighborhood,
+        this.$store.state.Answers.cuisine,
+        this.$store.state.Answers.category,
+        this.start_count).then((response =>{
+          this.restaurants = response.data.restaurants;
+        }));
+    }
   },
   created() {
     restService

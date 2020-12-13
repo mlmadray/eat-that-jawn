@@ -74,6 +74,9 @@ export default {
 </template>
 
 <style>
+div.modal-backdrop {
+  overflow-y: scroll;
+}
 .modal-backdrop {
   position: fixed;
   top: 0;
