@@ -123,24 +123,16 @@ body {
     "confirm-password"
     "create-account-btn"
     "registered";
-  gap: 15px;
 }
 
-header {
+body header {
   background-color: #ed174c;
   border-radius: 20px;
   margin-bottom: 40px;
-  margin-top: 80px;
+  margin-top: 140px;
+  margin-left: 10px;
+  margin-right: 10px;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
-}
-
-#header-image {
-  grid-area: etj-round-and-text;
-  width: 85%;
-  display: block;
-  margin: auto;
-  padding-top: 40px;
-  padding-bottom: 30px;
 }
 
 .sign-up {

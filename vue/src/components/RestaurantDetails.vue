@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="details">
-      <h3 class="restaurant">{{ details.name }}</h3>
+      <h3 class="restaurantDetails">{{ details.name }}</h3>
       <img
         class="featured-image"
         v-if="details.featured_image != ''"
@@ -110,8 +110,8 @@ export default {
 .details {
   grid-template-columns: 1fr;
   grid-template-areas:
-    "navs-details"
-    "restaurant"
+    "navs"
+    "restaurantDetails"
     "rating-avg"
     "rating-text"
     "rating-votes"
@@ -122,8 +122,8 @@ export default {
     "cuisine"
 }
 
-.restaurant {
-  grid-area: restaurant;
+.restaurantDetails {
+  grid-area: restaurantDetails;
   background-color: #ed174c;
   height: 32px;
   left: 103px;

@@ -17,9 +17,11 @@
 .navs {
   grid-area: navs;
   display: flex;
-  justify-content: space-between;  
+  justify-content: space-evenly;  
   text-align: center;
   position: fixed;
+  width: 100%;
+  background-color: #006bb6;
 }
 
 #home-nav,
@@ -31,11 +33,29 @@
   font-size: 14px;
   font-weight: bold;
   color: #ffffff;
-  padding: 5px 10px 5px 10px;
-  width: 100%;
+  /* padding: 5px 10px 5px 10px; */
+  /* padding-left: 100%;
+  padding-right: 100%; */
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  /* margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0; */
+  width: auto;
   text-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
   text-decoration: none;
+}
+
+#logout-nav {
+  /* padding-bottom: 10px; */
+}
+
+#app {
+  margin-top: 0;
 }
 
 #home-nav:hover, 
@@ -48,7 +68,7 @@
 
 /********************* TABLET *********************/
 @media (min-width: 768px) {
-
+  
 }
 
 /********************* DESKTOP *********************/

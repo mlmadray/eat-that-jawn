@@ -128,14 +128,15 @@ body {
     "login-btn"
     "forgot-pass"
     "sign-up";
-  gap: 15px;
 }
 
-header {
+body header {
   background-color: #ed174c;
   border-radius: 20px;
   margin-bottom: 40px;
-  margin-top: 80px;
+  margin-top: 140px;
+  margin-left: 10px;
+  margin-right: 10px;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 

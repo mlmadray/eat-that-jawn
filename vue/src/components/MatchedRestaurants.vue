@@ -199,10 +199,7 @@ export default {
 .matchedBody {
   /* background: rgb(255,255,255);
 background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rgba(255,255,255,0.5270483193277311) 100%); */
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  margin-top: 80px;
   font-family: "Montserrat";
   font-weight: bold;
   color: white;
@@ -217,19 +214,12 @@ background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rg
     "etj-round-sixers";
 }
 
-.navs {
-  grid-area: navs;
-
-  margin-bottom: 80px;
-  justify-content: space-between;
-}
-
 .featured-image-matched {
   grid-area: featured-image-matched;
   width: 95%;
   height: 95%;
   border-radius: 15px; 
-  border: #006bb6 ridge 6px;  
+  border: white ridge 6px;  
   margin-left: auto;
   margin-right: auto;
   display: flex;

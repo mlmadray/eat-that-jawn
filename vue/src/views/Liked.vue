@@ -20,22 +20,4 @@ export default {
 </script>
 
 <style>
-/* .navs-liked {
-  grid-area: navs-liked;
-  display: flex;
-  justify-content: space-between;  
-}
-
-#home-nav {
-  justify-content: flex-end;
-}
-
-/********************* DESKTOP *********************/
-/* @media (min-width: 1024px) {
-  #logout-nav,
-  #home-nav {
-    font-size: 24px;
-  }
-} */ 
-
 </style>

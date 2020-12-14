@@ -1,8 +1,10 @@
 <!-- TODO: filter list of matches based of status of liked -->
 <template>
-  <body class ="matches">
-  <div>
+  <body>  
+  <div class ="matches">
+    <div class="favorites-block">
     <h1 class="favorites">Favorites</h1>
+    </div>
     <div      
       v-for="restaurant in details"
       v-bind:key="restaurant.id"
@@ -11,7 +13,7 @@
       <router-link class="restaurant"
         v-bind:to="{ name: 'restaurant', params: { id: restaurant.id } }"
               v-bind:value="setRestaurant(restaurant.id)"
-      >
+      ><div class="rest-box">
         <p>{{ restaurant.name }}</p>
         <img
           class="feature-img"
@@ -19,6 +21,7 @@
           v-bind:src="restaurant.featured_image"
         />
         <img class="feature-img-alt" v-else src="../assets/img/sorry-no-image.png" />
+      </div>
       </router-link>
     </div>
   </div>
@@ -63,19 +66,26 @@ export default {
 </script>
 
 <style>
+
+body {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
 .matches {
-  background: rgb(237,23,76);
-  background: radial-gradient(circle, rgba(237,23,76,1) 0%, rgba(237,23,76,0.6222864145658263) 81%);
+  /* background: rgb(237,23,76);
+  background: radial-gradient(circle, rgba(237,23,76,1) 0%, rgba(237,23,76,0.6222864145658263) 81%); */
   border-radius: 10px;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 80px;
   padding-bottom: 10px;
   padding-top: 1px;
   margin-bottom: 10px;
   grid-template-columns: 1fr;
   grid-template-areas: 
-    "navs-liked"
+    "navs"
     "favorites"
     "restaurant"
     "feature-img"
@@ -100,15 +110,27 @@ export default {
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
+.favorites-block {
+  background: rgb(237,23,76);
+  background: radial-gradient(circle, rgba(237,23,76,1) 0%, rgba(237,23,76,0.6222864145658263) 81%);
+  border-radius: 10px;
+  height: 50px;
+  padding-top: 5px;
+  padding-bottom: 40px;
+  margin-bottom: auto;
+  margin-top: 20px;
+}
+
 .feature-img {
   grid-area: feature-img;
   display: flex;
   width: 70%;
   height: 70%;
   margin-left: auto;
-  margin-right: auto;  
+  margin-right: auto;
   border-radius: 10px;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  border: white solid 5px;
 }
 
 .feature-img-alt {
@@ -124,13 +146,20 @@ export default {
   grid-area: restaurant;
   text-decoration: none;
   color: white;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+}
+
+.rest-box {
+  border-radius: 10px;
+  padding-bottom: 15px;
+  background: rgb(237,23,76);
+  background: radial-gradient(circle, rgba(237,23,76,1) 0%, rgba(237,23,76,0.6222864145658263) 81%);
 }
 
 .feature-img:hover {
