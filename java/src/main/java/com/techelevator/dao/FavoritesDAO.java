@@ -9,5 +9,6 @@ public interface FavoritesDAO {
 	public List<Favorites> getAllByUserId(int userId);
 	public void addFavorite(Favorites fave);
 	public boolean exists(Favorites fav);
+	public void delete(int userId, int resaurantId);
 
 }

@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class FavoritesTest {
-	Favorites fav;
+	private Favorites fav;
 	
 	@Before
 	public void setup() {

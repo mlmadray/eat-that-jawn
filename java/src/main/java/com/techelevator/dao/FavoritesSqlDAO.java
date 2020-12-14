@@ -42,6 +42,13 @@ public class FavoritesSqlDAO implements FavoritesDAO {
 	}
 	
 	@Override
+	public void delete(int userId, int restaurantId) {
+		String sql = "Delete FROM favorites WHERE user_id =? AND restaurant_id = ?;";
+		jdbcTemplate.update(sql, userId, restaurantId);
+		
+	}
+	
+	@Override
 	public boolean exists(Favorites fav) {
 		String sql = "SELECT COUNT(*) FROM favorites " +
 				"WHERE (user_id = ?) AND (restaurant_id = ?);";
