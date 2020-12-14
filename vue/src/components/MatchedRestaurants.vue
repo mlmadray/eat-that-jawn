@@ -92,7 +92,7 @@
       
     </transition-group>
     <footer id="etj-round-sixers">
-      <img src="../assets/img/etj-round-sixers.png" alt="Eat That Jawn?" />
+      <img class="etj-round-sixers" src="../assets/img/etj-round-sixers.png" alt="Eat That Jawn?" />
     </footer>
   </body>
 </template>
@@ -189,6 +189,7 @@ export default {
 
 <style>
 
+
 .matches_list-enter-active,
 .matches_list-leave-active {
   transition: all 1s;
@@ -198,9 +199,7 @@ export default {
   opacity: 0;
   transform: translateY(30px);
 }
-body {
-  
-}
+
 .matchedBody {
   /* background: rgb(255,255,255);
 background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rgba(255,255,255,0.5270483193277311) 100%); */
@@ -241,10 +240,9 @@ background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rg
   font-weight: bold;
   color: #ffffff;
   padding: 5px 10px 5px 10px;
-  text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
   text-decoration: none;
-  width: 7em;
   text-align: center;
 }
 
@@ -257,6 +255,7 @@ background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rg
   margin-left: auto;
   margin-right: auto;
   display: flex;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
 .featured-image-alt {
@@ -271,12 +270,15 @@ background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rg
   flex-direction: row-reverse;
   justify-content: space-between;
   margin-bottom: 40px;
+
 }
 .dislike-btn {
   font-size: 60px;
   background: none;
   border: none;
   cursor: pointer;
+  text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  
 }
 
 .like-btn {
@@ -284,6 +286,7 @@ background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rg
   background: none;
   border: none;
   cursor: pointer;
+  text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
 .rest-name {
@@ -297,7 +300,11 @@ background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rg
   height: auto;
   padding-top: 8px;
   padding-bottom: 8px;
-  text-align: center;  
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
 .rating {
@@ -312,6 +319,10 @@ background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rg
   padding: 2px;
   padding-bottom: 6px;
   text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
 .price {
@@ -327,16 +338,24 @@ background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rg
   padding-top: 4px;
   padding-bottom: 6px;
   text-align: center;
-  
+  margin-right: auto;
+  margin-left: auto;
+  text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
-#etj-round-sixers {
+footer img {
   grid-area: etj-round-sixers;
-  background: none;
-  box-shadow: none;
-  display: inline-block;
-  margin-left: 132px;  
+  text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  margin-right: auto;
+  margin-left: auto; 
+  margin-top: 40px;
   margin-bottom: 0;
+  background: none;
+  width: 100px;
+  height: 100px;
+  display: flex;
+
 }
 
 /********************* TABLET *********************/
@@ -349,26 +368,44 @@ background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rg
 
   .rest-name {
     width: 50%;
-    margin-left: 180px;
   }
 
   .rating {
     width: 50%;
-    margin-left: 180px;
   }
 
   .price {
     width: 50%;
-    margin-left: 180px;
   }
 
-  #etj-round-sixers {
-    margin-left: 320px;
+  footer img {
+    width: 150px;
+    height: 150px;
   }
 }
 
 /********************* DESKTOP *********************/
 @media (min-width: 1024px) {
+
+  #fav-nav {
+    font-size: 20px;
+  }
+
+  .featured-image {
+    width: 80%;
+    max-width: 1200px;
+    height: 80%;
+    max-height: 800px;
+  }
+
+  .featured-image-alt {
+    width: 570px;
+    height: 256px;
+  }
+
+  .decisions {
+    justify-content: space-around;
+  }
 
   .rest-name {
     width: 30%;
@@ -378,7 +415,7 @@ background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rg
 
   .rating {
     width: 30%;
-    height: 30px;
+    height: 35px;
     font-size: 24px;
   }
 
@@ -386,6 +423,8 @@ background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rg
     width: 30%;
     height: 30px;
     font-size: 24px;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 }
 </style>

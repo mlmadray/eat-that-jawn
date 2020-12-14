@@ -7,10 +7,6 @@
       rel="stylesheet"
     />
     <div id="app">
-      <div id="nav">
-        <!-- <router-link id="home-nav" v-bind:to="{ name: 'home' }">Home</router-link>&nbsp; -->
-        <!-- <router-link id="logout-nav" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> -->
-      </div>
       <router-view />
     </div>
   </body>
@@ -28,13 +24,6 @@
   text-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
   text-decoration: none;
-  width: 3em;
-}
-
-#logout-nav {
-  width: 4em;
-  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
-
 }
 
 #home-nav:hover, 
@@ -45,9 +34,10 @@
 
 /********************* TABLET *********************/
 @media (min-width: 768px) {
-#logout-nav {
-  margin-left: 0px;
-}
+
+  /* #logout-nav {
+    margin-left: 0px;
+  } */
 }
 
 /********************* DESKTOP *********************/
@@ -56,8 +46,6 @@
   #home-nav,
   #logout-nav {
     font-size: 20px;
-    width: 80px;
-
   }
 }
 </style>

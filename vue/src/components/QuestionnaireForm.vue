@@ -259,7 +259,7 @@ header {
     padding-bottom: 40px;
   }
 
-    .filter-results {
+  .filter-results {
     width: 250px;
     font-size: 24px;
     padding-bottom: 8px;

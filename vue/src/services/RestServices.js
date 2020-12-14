@@ -13,7 +13,7 @@ export default {
     getFavoritesDetails(restaurantId) {
         return http.get(`/restaurant?res_id=${restaurantId}&apikey=${apiKey}`);
     },
-    getMoreRestaurants(neighborhood, cuisineId, categoryId,start_count) {
+    getMoreRestaurants(neighborhood, cuisineId, categoryId, start_count) {
         return http.get(`/search?entity_id=${neighborhood}&entity_type=subzone&cuisines=${cuisineId}&category=${categoryId}&apikey=${apiKey}&start=${start_count}`);
     }
 }

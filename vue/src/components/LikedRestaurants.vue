@@ -1,7 +1,7 @@
 <!-- TODO: filter list of matches based of status of liked -->
 <template>
   <div>
-    <!-- <restaurant-details v-bind:details="details"></restaurant-details> -->
+    <h1 class="favorites">Favorites</h1>
     <div
       class="matches"
       v-for="restaurant in details"
@@ -14,11 +14,11 @@
       >
         <p>{{ restaurant.name }}</p>
         <img
-          class="featureimg"
+          class="feature-img"
           v-if="restaurant.featured_image != ''"
           v-bind:src="restaurant.featured_image"
         />
-        <img v-else src="../assets/img/etj-round-sixers.png" />
+        <img class="feature-img-alt" v-else src="../assets/img/sorry-no-image.png" />
       </router-link>
     </div>
   </div>
@@ -62,13 +62,96 @@ export default {
 </script>
 
 <style>
-.featureimg {
+.matches {
+  background: rgb(237,23,76);
+  background: radial-gradient(circle, rgba(237,23,76,1) 0%, rgba(237,23,76,0.6222864145658263) 81%);
+  border-radius: 10px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+  padding-top: 1px;
+  margin-bottom: 10px;
+}
+
+.favorites {
+  background-color: #006bb6;
+  width: 170px;
+  height: 32px;
+  left: 103px;
+  top: 264px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-top: 10px;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+}
+
+.feature-img {
+  display: flex;
+  width: 70%;
+  height: 70%;
+  margin-left: auto;
+  margin-right: auto;  
+  border-radius: 10px;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+}
+
+.feature-img-alt {
+  display: flex;
   width: 50%;
+  height: 50%;
+  margin-left: auto;
+  margin-right: auto;  
+  padding-bottom: 10px;
 }
 
 .restaurant {
   text-decoration: none;
   color: white;
+  font-size: 20px;
   font-weight: bold;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+}
+
+.feature-img:hover {
+  filter: blur(2px);
+}
+
+.restaurant:hover {
+  text-decoration: underline;
+}
+
+/********************* DESKTOP *********************/
+@media (min-width: 1024px) {
+  
+  .favorites {
+    width: 200px;
+    height: 40px;
+    font-size: 24px;
+  }
+  .matches {
+    width: 70%;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .feature-img {
+    width: 60%;
+    height: 60%;
+  }
+
+  .restaurant {
+    font-size: 30px;
+  }
 }
 </style>
