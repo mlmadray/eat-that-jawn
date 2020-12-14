@@ -77,6 +77,7 @@ export default {
 div.modal-backdrop {
   overflow-y: scroll;
 }
+
 .modal-backdrop {
   position: fixed;
   top: 0;

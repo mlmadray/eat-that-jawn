@@ -1,9 +1,9 @@
 <!-- TODO: filter list of matches based of status of liked -->
 <template>
+  <body class ="matches">
   <div>
     <h1 class="favorites">Favorites</h1>
-    <div
-      class="matches"
+    <div      
       v-for="restaurant in details"
       v-bind:key="restaurant.id"
 
@@ -22,6 +22,7 @@
       </router-link>
     </div>
   </div>
+  </body>
 </template>
 
 <script>
@@ -72,10 +73,17 @@ export default {
   padding-bottom: 10px;
   padding-top: 1px;
   margin-bottom: 10px;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+    "navs-liked"
+    "favorites"
+    "restaurant"
+    "feature-img"
 }
 
 .favorites {
-  background-color: #006bb6;
+  grid-area: favorites;
+  background-color: #ed174c;
   width: 170px;
   height: 32px;
   left: 103px;
@@ -93,6 +101,7 @@ export default {
 }
 
 .feature-img {
+  grid-area: feature-img;
   display: flex;
   width: 70%;
   height: 70%;
@@ -112,6 +121,7 @@ export default {
 }
 
 .restaurant {
+  grid-area: restaurant;
   text-decoration: none;
   color: white;
   font-size: 20px;

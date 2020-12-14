@@ -124,7 +124,7 @@ export default {
 
 .restaurant {
   grid-area: restaurant;
-  background-color: #006bb6;
+  background-color: #ed174c;
   height: 32px;
   left: 103px;
   top: 264px;
@@ -133,16 +133,22 @@ export default {
   font-weight: bold;
   color: #ffffff;
   text-align: center;
-  grid-area: welcome;
   margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
   padding-top: 10px;
-  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
 }
 
 .featured-image {
   width: 50%;
+  border-radius: 15px; 
+  border: #006bb6 ridge 6px;  
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
 .rating-avg,
@@ -165,8 +171,8 @@ export default {
   text-align: center;
   margin-right: auto;
   margin-left: auto;
-  text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.25);
   word-wrap: break-word;
 }
 

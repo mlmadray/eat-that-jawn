@@ -49,16 +49,6 @@
             {{ category.categoryName }}
           </option>
         </select>
-        <!-- <select id="statusFilter" v-model="Questionnaire.serviceOption">
-          <option value="" disabled selected>Service Options</option>
-          <option
-            v-for="service_option in serviceOptions"
-            v-bind:key="service_option.zomatoCategoryId"
-            v-bind:value="neighborhood.zomatoCategoryId"
-          >
-            {{ service_option.categoryName }}
-          </option>
-        </select> -->
         <div>
           <button type="submit" id="submit-btn">Submit</button>
         </div>
@@ -76,12 +66,10 @@ export default {
       cuisines: [],
       neighborhoods: [],
       categories: [],
-      // serviceOptions: [],
       Questionnaire: {
         neighborhood: "",
         cuisine: "",
         category: "",
-        // serviceOption: "",
       },
     };
   },

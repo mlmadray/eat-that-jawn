@@ -6,10 +6,6 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
     />
-    <div class="navs">
-      <router-link id="logout-nav" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-      <router-link id="fav-nav" v-bind:to="{ name: 'liked' }">My Favorites</router-link>
-    </div>
     <transition-group name="matches_list" tag="p"  >
       <div v-if="index < 0" v-bind="getMoreRestaurants()"></div>
       
@@ -21,7 +17,7 @@
         v-else
       >        
         <img
-            class="featured-image"
+            class="featured-image-matched"
             v-if="restaurant.restaurant.featured_image != ''"
             v-bind:src="restaurant.restaurant.featured_image"
           />
@@ -213,7 +209,7 @@ background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rg
   grid-template-columns: 1fr;
   grid-template-areas:
     "navs"
-    "featured-image"
+    "featured-image-matched"
     "decisions"
     "rest-name"
     "rating"
@@ -223,31 +219,13 @@ background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rg
 
 .navs {
   grid-area: navs;
-  display: flex;
+
   margin-bottom: 80px;
   justify-content: space-between;
 }
 
-#logout-nav {
-  grid-area: logout-nav;
-}
-
-#fav-nav {
-  grid-area: fav-nav;
-  background-color: #006bb6;
-  border-radius: 20px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #ffffff;
-  padding: 5px 10px 5px 10px;
-  text-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
-  text-decoration: none;
-  text-align: center;
-}
-
-.featured-image {
-  grid-area: featured-image;
+.featured-image-matched {
+  grid-area: featured-image-matched;
   width: 95%;
   height: 95%;
   border-radius: 15px; 
@@ -366,16 +344,11 @@ footer img {
     font-size: 80px;
   }
 
-  .rest-name {
-    width: 50%;
-  }
-
-  .rating {
-    width: 50%;
-  }
-
+  .rest-name,
+  .rating,
   .price {
-    width: 50%;
+    width: auto;
+    max-width: 600px;
   }
 
   footer img {
@@ -386,10 +359,6 @@ footer img {
 
 /********************* DESKTOP *********************/
 @media (min-width: 1024px) {
-
-  #fav-nav {
-    font-size: 20px;
-  }
 
   .featured-image {
     width: 80%;
@@ -408,20 +377,23 @@ footer img {
   }
 
   .rest-name {
-    width: 30%;
+    width: auto;
     height: 30px;
+    max-width: 600px;
     font-size: 24px;
   }
 
   .rating {
-    width: 30%;
+    width: auto;
     height: 35px;
+    max-width: 600px;
     font-size: 24px;
   }
 
   .price {
-    width: 30%;
+    width: auto;
     height: 30px;
+    max-width: 600px;
     font-size: 24px;
     padding-top: 8px;
     padding-bottom: 8px;

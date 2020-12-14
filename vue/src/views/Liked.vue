@@ -1,9 +1,10 @@
 <!-- show only liked restaurants --> 
 <template>
 <div>
-  <div class="navs-liked">
+  <div class="navs">
     <router-link id="logout-nav" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-    <router-link id="home-nav" v-bind:to="{ name: 'home' }">Back to Search</router-link>
+    <router-link id="home-nav" v-bind:to="{ name: 'home' }">Find Restaurants</router-link>
+    <router-link id="quest-nav" v-bind:to="{ name: 'questionnaire' }">Filter That Jawn</router-link>
   </div>
   <liked-restaurants/>
 </div>
@@ -19,7 +20,8 @@ export default {
 </script>
 
 <style>
-.navs-liked {
+/* .navs-liked {
+  grid-area: navs-liked;
   display: flex;
   justify-content: space-between;  
 }
@@ -29,11 +31,11 @@ export default {
 }
 
 /********************* DESKTOP *********************/
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   #logout-nav,
   #home-nav {
     font-size: 24px;
   }
-}
+} */ 
 
 </style>
