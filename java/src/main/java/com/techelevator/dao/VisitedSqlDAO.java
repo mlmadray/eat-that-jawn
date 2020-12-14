@@ -31,7 +31,7 @@ public class VisitedSqlDAO implements VisitedDAO {
 	}
 
 	@Override
-	public void addFavorite(Visited visit) {
+	public void addVisit(Visited visit) {
 		String sql = "INSERT INTO visited (user_id, restaurant_id, restaurant_name)" + 
 				" VALUES (?, ?, ?);";
 		jdbcTemplate.update(sql, visit.getUserId(), visit.getRestaurantId(), visit.getRestaurantName());

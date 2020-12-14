@@ -82,7 +82,7 @@ public class RestaurantController {
 	
 	@RequestMapping(value = "/visited/{userId}", method = RequestMethod.POST)
 	public void addVistiedRestaurant(@RequestBody Visited visit) {
-		visitedDAO.addFavorite(visit);
+		visitedDAO.addVisit(visit);
 	}
 	
 	@RequestMapping(value = "/visited/{userId}/{restuarantId}", method = RequestMethod.DELETE)

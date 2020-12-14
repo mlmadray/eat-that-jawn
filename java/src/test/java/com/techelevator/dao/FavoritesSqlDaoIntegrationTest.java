@@ -46,4 +46,14 @@ private FavoritesDAO dao;
 		boolean doesExist = dao.exists(fave);
 		Assert.assertTrue(doesExist);
 	}
+	
+	@Test
+	public void deleteFavorite() {
+		Favorites fave = new Favorites(1,120,"Test");
+		dao.addFavorite(fave);
+		
+		dao.delete(1, 120);
+		
+		Assert.assertFalse(dao.exists(fave));
+	}
 }
