@@ -23,6 +23,9 @@
         <img class="feature-img-alt" v-else src="../assets/img/sorry-no-image.png" />
       </div>
       </router-link>
+      
+      <button type="add" id="addVisit" v-on:click="addVisit(restaurant)">I Have Not Been</button>
+     
     </div>
   </div>
   </body>
@@ -40,6 +43,11 @@ export default {
       favorites: [],
       details: [],
       featuredImage: "",
+      visited: {
+        restaurantId: "",
+        restaurantName:"",
+        userId: this.$store.state.user.id
+      }
     };
   },
   methods: {
@@ -53,6 +61,11 @@ export default {
     setRestaurant(resId) {
       this.$store.commit("SET_RESTAURANT", resId);
     },
+    addVisit(restaurant){
+      this.visited.restaurantId = restaurant.id;
+      this.visited.restaurantName = restaurant.name;
+      preferenceService.addVisit(this.$store.state.user.id, this.visited);
+    }
   },
   created() {
     preferenceService
@@ -62,6 +75,7 @@ export default {
         this.getDetails();
       });
   },
+  preferenceService.getVisited()
 };
 </script>
 

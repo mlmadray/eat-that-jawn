@@ -70,10 +70,10 @@ public class RestaurantController {
 		favoritesDAO.addFavorite(fave);
 	}
 	
-	@RequestMapping(value = "/favorties/{userId}/{restuarantId}", method = RequestMethod.DELETE)
-	public void deleteFavorite(@PathVariable int userId, @PathVariable int restaurantId) {
-		visitedDAO.delete(userId, restaurantId);
-	}
+//	@RequestMapping(value = "/favorties/{userId}", method = RequestMethod.DELETE)
+//	public void deleteFavorite(@PathVariable int userId, @RequestBody Favorites fav) {
+//		visitedDAO.delete(userId, fav.getRestaurantId());
+//	}
 	
 	@RequestMapping(value = "/visited/{userId}", method = RequestMethod.GET)
 	public List<Visited> getAllVisitedByUserId(@PathVariable int userId) {
@@ -85,7 +85,7 @@ public class RestaurantController {
 		visitedDAO.addVisit(visit);
 	}
 	
-	@RequestMapping(value = "/visited/{userId}/{restuarantId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/visited/{userId}", method = RequestMethod.DELETE)
 	public void deleteVisited(@PathVariable int userId, @PathVariable int restaurantId) {
 		visitedDAO.delete(userId, restaurantId);
 	}

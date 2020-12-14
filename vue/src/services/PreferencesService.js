@@ -20,6 +20,9 @@ addFavorite(user_id, favRestaurant) {
 
 getFavorites(user_id) {
   return axios.get(`/favorites/${user_id}`);
+},
+
+addVisit(user_id, visitedRestaurant){
+  return axios.post(`/visited/${user_id}`, visitedRestaurant);
 }
 
-}

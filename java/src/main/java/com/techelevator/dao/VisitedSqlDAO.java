@@ -44,7 +44,7 @@ public class VisitedSqlDAO implements VisitedDAO {
 		
 	}
 	
-	private Visited mapRowToVisited(SqlRowSet result) {
+	private Visited mapRowToVisited(SqlRowSet result) { 
 		Visited visit = new Visited();
 		visit.setUserId(result.getInt("user_id"));
 		visit.setRestaurantId(result.getInt("restaurant_id"));

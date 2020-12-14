@@ -66,12 +66,12 @@
       <p class="phone"> {{ details.phone_numbers }}</p>
       <p class="cuisine">{{ details.cuisines }}</p>
     </div>
+   
   </div>
 </template>
 
 <script>
 import restService from "../services/RestServices";
-
 export default {
   name: "restaurant-details",
   components: {},
@@ -97,7 +97,8 @@ export default {
     };
   },
   computed: {},
-  methods: {},
+  methods: {
+  },
   created() {
     restService.getFavoritesDetails(this.rId).then((response) => {
       this.details = response.data;
