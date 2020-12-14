@@ -16,6 +16,7 @@
         v-show="restaurant === restaurants[index]"
         v-else
       >        
+        <p class="rest-name">{{ restaurant.restaurant.name }}</p>
         <img
             class="featured-image-matched"
             v-if="restaurant.restaurant.featured_image != ''"
@@ -27,7 +28,6 @@
       <button class="dislike-btn" v-on:click="dislike">👎</button>
     </div>
         
-        <p class="rest-name">{{ restaurant.restaurant.name }}</p>
         <!-- <p class="rating">Average Rating: {{restaurant.restaurant.user_rating.aggregate_rating}}</p> -->
         <p
           class="rating"
@@ -197,8 +197,6 @@ export default {
 }
 
 .matchedBody {
-  /* background: rgb(255,255,255);
-background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rgba(255,255,255,0.5270483193277311) 100%); */
   margin-top: 80px;
   font-family: "Montserrat";
   font-weight: bold;
@@ -206,12 +204,15 @@ background: radial-gradient(circle, rgba(255,255,255,0.3561799719887955) 81%, rg
   grid-template-columns: 1fr;
   grid-template-areas:
     "navs"
+    "rest-name"
     "featured-image-matched"
     "decisions"
-    "rest-name"
     "rating"
     "price"
     "etj-round-sixers";
+  background: rgb(237,23,76);
+  background: radial-gradient(circle, rgba(237,23,76,1) 0%, rgba(237,23,76,0.6222864145658263) 81%);
+  border-radius: 10px;
 }
 
 .featured-image-matched {

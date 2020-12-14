@@ -7,7 +7,7 @@
     />
     <header>
       <img
-        id="header-img"
+        id="header-image"
         src="../assets/img/ETJ-76ers-blue-white.png"
         alt="Eat That Jawn?"
       />
@@ -125,7 +125,7 @@ body {
     "registered";
 }
 
-body header {
+/* body header {
   background-color: #ed174c;
   border-radius: 20px;
   margin-bottom: 40px;
@@ -133,7 +133,7 @@ body header {
   margin-left: 10px;
   margin-right: 10px;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
-}
+} */
 
 .sign-up {
   background-color: #006bb6;

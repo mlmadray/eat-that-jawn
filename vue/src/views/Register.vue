@@ -7,7 +7,7 @@
     />
     <header>
       <img
-        id="header-img"
+        id="header-image"
         src="../assets/img/ETJ-76ers-blue-white.png"
         alt="Eat That Jawn?"
       />
@@ -132,13 +132,24 @@ body {
 }
 
 body header {
-  background-color: #ed174c;
+  background: rgb(237,23,76);
+  background: radial-gradient(circle, rgba(237,23,76,1) 0%, rgba(237,23,76,0.8379726890756303) 81%);
   border-radius: 20px;
   margin-bottom: 40px;
   margin-top: 140px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+}
+
+#header-image {
+  grid-area: etj-round-and-text;
+  width: 85%;
+  display: block;
+  margin: auto;
+  padding-top: 40px;
+  padding-bottom: 30px;
 }
 
 .sign-up {

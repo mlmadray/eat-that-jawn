@@ -131,12 +131,13 @@ body {
 }
 
 body header {
-  background-color: #ed174c;
-  border-radius: 20px;
+  background: rgb(237,23,76);
+  background: radial-gradient(circle, rgba(237,23,76,1) 0%, rgba(237,23,76,0.8379726890756303) 81%);
   margin-bottom: 40px;
   margin-top: 140px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
@@ -249,11 +250,12 @@ input {
 }
 
 .alert {
-  width: 400px;
+  width: 90%;
   height: 30px;
   left: 49px;
   top: 462px;
-  background-color: #ed174c;
+  background: rgb(237,23,76);
+  background: radial-gradient(circle, rgba(237,23,76,1) 0%, rgba(237,23,76,0.8379726890756303) 81%);
   color: #ffffff;
   font-weight: bold;
   font-family: "Montserrat";
@@ -262,8 +264,9 @@ input {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   display: block;
-  margin: auto;
   margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
   cursor: pointer;
   padding-top: 10px;
 }
@@ -294,10 +297,14 @@ input {
     background-position: 49% 70%;
   }
 
-  header {
+  .alert {
+    width: 50%;
+  }
+  body header {
     width: 75%;
     display: block;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 180px;
     margin-bottom: 80px;
   }
