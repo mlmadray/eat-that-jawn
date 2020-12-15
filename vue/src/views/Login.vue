@@ -314,6 +314,7 @@ input {
 @media (min-width: 1024px) {
   header {
     width: 50%;
+    max-width: 1000px;
   }
 
   #header-image {

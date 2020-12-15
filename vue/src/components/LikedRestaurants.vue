@@ -1,33 +1,35 @@
 <!-- TODO: filter list of matches based of status of liked -->
 <template>
-  <body>  
-  <div class ="matches">
-    <div class="favorites-block">
-    <h1 class="favorites">Favorites</h1>
-    </div>
-    <div      
-      v-for="restaurant in details"
-      v-bind:key="restaurant.id"
-
-    >
-      <router-link class="restaurant"
-        v-bind:to="{ name: 'restaurant', params: { id: restaurant.id } }"
-              v-bind:value="setRestaurant(restaurant.id)"
-      ><div class="rest-box">
-        <p>{{ restaurant.name }}</p>
-        <img
-          class="feature-img"
-          v-if="restaurant.featured_image != ''"
-          v-bind:src="restaurant.featured_image"
-        />
-        <img class="feature-img-alt" v-else src="../assets/img/sorry-no-image.png" />
+  <body>
+    <div class="matches">
+      <div class="favorites-block">
+        <h1 class="favorites">Favorites</h1>
       </div>
-      </router-link>
-      
-      <button type="add" id="addVisit" v-on:click="addVisit(restaurant)">I Have Not Been</button>
-     
+      <div v-for="restaurant in details" v-bind:key="restaurant.id">
+        <router-link
+          class="restaurant"
+          v-bind:to="{ name: 'restaurant', params: { id: restaurant.id } }"
+          v-bind:value="setRestaurant(restaurant.id)"
+          ><div class="rest-box">
+            <p>{{ restaurant.name }}</p>
+            <img
+              class="feature-img"
+              v-if="restaurant.featured_image != ''"
+              v-bind:src="restaurant.featured_image"
+            />
+            <img
+              class="feature-img-alt"
+              v-else
+              src="../assets/img/sorry-no-image.png"
+            />
+          </div>
+        </router-link>
+
+        <button type="add" id="addVisit" v-on:click="addVisit(restaurant)">
+          I Have Not Been
+        </button>
+      </div>
     </div>
-  </div>
   </body>
 </template>
 
@@ -45,9 +47,9 @@ export default {
       featuredImage: "",
       visited: {
         restaurantId: "",
-        restaurantName:"",
-        userId: this.$store.state.user.id
-      }
+        restaurantName: "",
+        userId: this.$store.state.user.id,
+      },
     };
   },
   methods: {
@@ -61,11 +63,11 @@ export default {
     setRestaurant(resId) {
       this.$store.commit("SET_RESTAURANT", resId);
     },
-    addVisit(restaurant){
+    addVisit(restaurant) {
       this.visited.restaurantId = restaurant.id;
       this.visited.restaurantName = restaurant.name;
       preferenceService.addVisit(this.$store.state.user.id, this.visited);
-    }
+    },
   },
   created() {
     preferenceService
@@ -75,20 +77,17 @@ export default {
         this.getDetails();
       });
   },
-  preferenceService.getVisited()
+  // preferenceService.getVisited()
 };
 </script>
 
 <style>
-
 body {
   margin-top: 0;
   margin-left: 0;
   margin-right: 0;
 }
 .matches {
-  /* background: rgb(237,23,76);
-  background: radial-gradient(circle, rgba(237,23,76,1) 0%, rgba(237,23,76,0.6222864145658263) 81%); */
   border-radius: 10px;
   width: 90%;
   margin-left: auto;
@@ -98,11 +97,11 @@ body {
   padding-top: 1px;
   margin-bottom: 10px;
   grid-template-columns: 1fr;
-  grid-template-areas: 
+  grid-template-areas:
     "navs"
     "favorites"
     "restaurant"
-    "feature-img"
+    "feature-img";
 }
 
 .favorites {
@@ -120,19 +119,24 @@ body {
   margin: auto;
   margin-bottom: 20px;
   margin-top: 20px;
-  padding-top: 10px;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
 .favorites-block {
-  background: rgb(237,23,76);
-  background: radial-gradient(circle, rgba(237,23,76,1) 0%, rgba(237,23,76,0.6222864145658263) 81%);
+  background: rgb(237, 23, 76);
+  background: radial-gradient(
+    circle,
+    rgba(237, 23, 76, 1) 0%,
+    rgba(237, 23, 76, 0.6222864145658263) 81%
+  );
   border-radius: 10px;
   height: 50px;
   padding-top: 5px;
   padding-bottom: 40px;
   margin-bottom: auto;
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .feature-img {
@@ -152,7 +156,7 @@ body {
   width: 50%;
   height: 50%;
   margin-left: auto;
-  margin-right: auto;  
+  margin-right: auto;
   padding-bottom: 10px;
 }
 
@@ -172,8 +176,12 @@ body {
 .rest-box {
   border-radius: 10px;
   padding-bottom: 15px;
-  background: rgb(237,23,76);
-  background: radial-gradient(circle, rgba(237,23,76,1) 0%, rgba(237,23,76,0.6222864145658263) 81%);
+  background: rgb(237, 23, 76);
+  background: radial-gradient(
+    circle,
+    rgba(237, 23, 76, 1) 0%,
+    rgba(237, 23, 76, 0.6222864145658263) 81%
+  );
 }
 
 .feature-img:hover {
@@ -181,23 +189,51 @@ body {
 }
 
 .restaurant:hover {
-  text-decoration: underline;
+  color: #bb9754;
+}
+
+#addVisit {
+  width: 279px;
+  height: 41px;
+  left: 49px;
+  top: 462px;
+  background-color: #006bb6;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: "Montserrat";
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 0;
+  border-radius: 20px;
+  display: block;
+  margin: auto;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#addVisit:hover {
+  color: #bb9754;
 }
 
 /********************* DESKTOP *********************/
 @media (min-width: 1024px) {
-  
   .favorites {
-    width: 200px;
-    height: 40px;
-    font-size: 24px;
+    width: 40%;
+    height: auto;
+    font-size: 32px;
   }
+
+  .favorites-block {
+    width: 50%;
+  }
+
   .matches {
     width: 70%;
     padding-bottom: 20px;
     margin-bottom: 20px;
   }
-  
+
   .feature-img {
     width: 60%;
     height: 60%;

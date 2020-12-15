@@ -210,9 +210,16 @@ export default {
     "rating"
     "price"
     "etj-round-sixers";
+}
+
+.matchesDetails {
   background: rgb(237,23,76);
   background: radial-gradient(circle, rgba(237,23,76,1) 0%, rgba(237,23,76,0.6222864145658263) 81%);
+  padding: 10px;
   border-radius: 10px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .featured-image-matched {
@@ -238,7 +245,7 @@ export default {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 
 }
 .dislike-btn {
@@ -246,8 +253,7 @@ export default {
   background: none;
   border: none;
   cursor: pointer;
-  text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
-  
+  text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);  
 }
 
 .like-btn {
@@ -262,7 +268,7 @@ export default {
   grid-area: rest-name;
   color: white;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 24px;
   background-color: #ed174c;
   border-radius: 20px;
   width: auto;
@@ -324,7 +330,6 @@ footer img {
   width: 100px;
   height: 100px;
   display: flex;
-
 }
 
 /********************* TABLET *********************/
@@ -340,18 +345,24 @@ footer img {
   .price {
     width: auto;
     max-width: 600px;
+    font-size: 36px;
+    margin-top: 0px;
   }
 
   footer img {
     width: 150px;
     height: 150px;
+    margin-top: 0px;
   }
 }
 
 /********************* DESKTOP *********************/
 @media (min-width: 1024px) {
 
-  .featured-image {
+  .matchesDetails {
+    width: 80%;
+  }
+  .featured-image-matched {
     width: 80%;
     max-width: 1200px;
     height: 80%;
@@ -368,10 +379,8 @@ footer img {
   }
 
   .rest-name {
-    width: auto;
-    height: 30px;
     max-width: 600px;
-    font-size: 24px;
+    font-size: 40px;
   }
 
   .rating {
@@ -389,5 +398,6 @@ footer img {
     padding-top: 8px;
     padding-bottom: 8px;
   }
+
 }
 </style>

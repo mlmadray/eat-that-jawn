@@ -25,4 +25,5 @@ getFavorites(user_id) {
 addVisit(user_id, visitedRestaurant){
   return axios.post(`/visited/${user_id}`, visitedRestaurant);
 }
+}
 

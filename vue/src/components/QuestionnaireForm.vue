@@ -6,7 +6,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
     />
-    <header>
+    <header class="quest-header">
       <img
         id="header-image"
         src="../assets/img/ETJ-76ers-blue-white.png"
@@ -113,16 +113,6 @@ body {
     "submit-btn";  
 }
 
-/* body header {
-  background-color: #ed174c;
-  border-radius: 20px;
-  margin-bottom: 40px;
-  margin-top: 140px;
-  margin-left: 10px;
-  margin-right: 10px;
-  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
-} */
-
 .filter-results {
   grid-area: filter-results;
   background-color: #006bb6;
@@ -217,27 +207,16 @@ body {
     background-position: 49% 70%;
   }
 
-  header {
-    width: 75%;
-    display: block;
-    margin: auto;
-    margin-top: 180px;
-    margin-bottom: 80px;
+  .quest-header {
+    margin-top: 200px;
   }
 }
 
 /********************* DESKTOP *********************/
 @media (min-width: 1024px) {
 
-  header {
-    width: 50%;
-  }
-
-  #header-image {
-    display: block;
-    margin: auto;
-    padding-top: 40px;
-    padding-bottom: 40px;
+  .quest-header {
+  margin-top: 200px;
   }
 
   .filter-results {

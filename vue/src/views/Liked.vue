@@ -3,8 +3,8 @@
 <div>
   <div class="navs">
     <router-link id="logout-nav" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-    <router-link id="home-nav" v-bind:to="{ name: 'home' }">Find Restaurants</router-link>
-    <router-link id="quest-nav" v-bind:to="{ name: 'questionnaire' }">Filter That Jawn</router-link>
+    <router-link id="home-nav" v-bind:to="{ name: 'home' }">Find</router-link>
+    <router-link id="quest-nav" v-bind:to="{ name: 'questionnaire' }">Filter</router-link>
   </div>
   <liked-restaurants/>
 </div>
@@ -14,8 +14,7 @@
 import LikedRestaurants from '../components/LikedRestaurants.vue'
 
 export default {
-  components: { LikedRestaurants },
-
+  components: { LikedRestaurants }
 }
 </script>
 

@@ -244,28 +244,10 @@ body header {
     background-position: 49% 70%;
   }
 
-  header {
-    width: 75%;
-    display: block;
-    margin: auto;
-    margin-top: 180px;
-    margin-bottom: 80px;
-  }
 }
 
 /********************* DESKTOP *********************/
 @media (min-width: 1024px) {
-
-  header {
-    width: 50%;
-  }
-
-  #header-image {
-    display: block;
-    margin: auto;
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
 
   .sign-up {
     width: 250px;

@@ -17,7 +17,7 @@
 .navs {
   grid-area: navs;
   display: flex;
-  justify-content: space-evenly;  
+  justify-content: space-between;  
   text-align: center;
   position: fixed;
   width: 100%;
@@ -29,29 +29,19 @@
 #fav-nav,
 #quest-nav {
   background-color: #006bb6;
-  /* border-radius: 20px; */
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
   color: #ffffff;
-  /* padding: 5px 10px 5px 10px; */
-  /* padding-left: 100%;
-  padding-right: 100%; */
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
-  /* margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  margin-bottom: 0; */
   width: auto;
+  margin-top: auto;
+  margin-bottom: auto;
   text-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
   text-decoration: none;
-}
-
-#logout-nav {
-  /* padding-bottom: 10px; */
 }
 
 #app {
@@ -62,13 +52,17 @@
 #logout-nav:hover,
 #fav-nav:hover,
 #quest-nav:hover {
-  background-color: #006bb6;
-  border: #ed147c solid 5px;
+color: #BB9754;
 }
 
 /********************* TABLET *********************/
 @media (min-width: 768px) {
-  
+  #home-nav,
+  #logout-nav,
+  #fav-nav,
+  #quest-nav {
+    font-size: 20px
+  }
 }
 
 /********************* DESKTOP *********************/

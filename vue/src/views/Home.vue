@@ -10,8 +10,8 @@
     />
     <div class="navs">
       <router-link id="logout-nav" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-      <router-link id="fav-nav" v-bind:to="{ name: 'liked' }">My Favorites</router-link>
-      <router-link id="quest-nav" v-bind:to="{ name: 'questionnaire' }">Filter That Jawn</router-link>
+      <router-link id="fav-nav" v-bind:to="{ name: 'liked' }">Favorites</router-link>
+      <router-link id="quest-nav" v-bind:to="{ name: 'questionnaire' }">Filter</router-link>
     </div>
     <div class="home">
           <matched-restaurants />

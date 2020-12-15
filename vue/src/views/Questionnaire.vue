@@ -5,7 +5,7 @@
       <promotion class="promo" v-show="isModalVisible" @click="closeModal" />
       <div class="navs">
         <router-link id="logout-nav" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-        <router-link id="fav-nav" v-bind:to="{ name: 'liked' }">My Favorites</router-link>
+        <router-link id="fav-nav" v-bind:to="{ name: 'liked' }">Favorites</router-link>
       </div>
       <questionnaire-form />
     </div>

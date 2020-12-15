@@ -125,16 +125,6 @@ body {
     "registered";
 }
 
-/* body header {
-  background-color: #ed174c;
-  border-radius: 20px;
-  margin-bottom: 40px;
-  margin-top: 140px;
-  margin-left: 10px;
-  margin-right: 10px;
-  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
-} */
-
 .sign-up {
   background-color: #006bb6;
   width: 170px;
