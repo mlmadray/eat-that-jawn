@@ -9,7 +9,6 @@
 
     <transition-group name="matches_list" tag="p">
       <div v-if="index < 0" v-bind="getMoreRestaurants()"></div>
-      <div v-else-if="this.restaurants.length == 0">NO MORE RESULTS</div>
       <div
         class="matchesDetails"
         v-for="restaurant in restaurants"
@@ -165,7 +164,7 @@ export default {
 
     getMoreRestaurants() {
       this.start_count = this.start_count + this.restaurants.length;
-      this.index = this.restaurants.length - 1;
+
       restService
         .getMoreRestaurants(
           this.$store.state.Answers.neighborhood,
@@ -175,6 +174,7 @@ export default {
         )
         .then((response) => {
           this.restaurants = response.data.restaurants;
+          this.index = this.restaurants.length - 1;
         });
     },
   },
@@ -187,9 +187,8 @@ export default {
         // this.$store.state.Answers.serviceOption
       )
       .then((response) => {
-
         this.restaurants = response.data.restaurants;
-                this.index = this.restaurants.length - 1;
+        this.index = this.restaurants.length - 1;
       });
   },
 };
