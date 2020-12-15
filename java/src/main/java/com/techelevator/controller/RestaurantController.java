@@ -70,23 +70,29 @@ public class RestaurantController {
 		favoritesDAO.addFavorite(fave);
 	}
 	
+	@RequestMapping(value = "/favorites/{userId}", method = RequestMethod.PUT)
+	public void updateFavorite(@RequestBody Favorites fave) {
+		favoritesDAO.updateFavorite(fave);
+	}
+	
 	@RequestMapping(value = "/favorites/{userId}", method = RequestMethod.DELETE)
 	public void deleteFavorite(@PathVariable int userId, @RequestBody Favorites fav) {
 		favoritesDAO.delete(userId, fav);
 	}
 	
-	@RequestMapping(value = "/visited/{userId}", method = RequestMethod.GET)
-	public List<Visited> getAllVisitedByUserId(@PathVariable int userId) {
-		return visitedDAO.getAllByUserId(userId);
-	}
 	
-	@RequestMapping(value = "/visited/{userId}", method = RequestMethod.POST)
-	public void addVistiedRestaurant(@RequestBody Visited visit) {
-		visitedDAO.addVisit(visit);
-	}
-	
-	@RequestMapping(value = "/visited/{userId}", method = RequestMethod.DELETE)
-	public void deleteVisited(@PathVariable int userId, @PathVariable int restaurantId) {
-		visitedDAO.delete(userId, restaurantId);
-	}
+//	@RequestMapping(value = "/visited/{userId}", method = RequestMethod.GET)
+//	public List<Visited> getAllVisitedByUserId(@PathVariable int userId) {
+//		return visitedDAO.getAllByUserId(userId);
+//	}
+//	
+//	@RequestMapping(value = "/visited/{userId}", method = RequestMethod.POST)
+//	public void addVistiedRestaurant(@RequestBody Visited visit) {
+//		visitedDAO.addVisit(visit);
+//	}
+//	
+//	@RequestMapping(value = "/visited/{userId}", method = RequestMethod.DELETE)
+//	public void deleteVisited(@PathVariable int userId, @PathVariable int restaurantId) {
+//		visitedDAO.delete(userId, restaurantId);
+//	}
 }

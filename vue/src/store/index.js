@@ -24,9 +24,8 @@ export default new Vuex.Store({
       neighborhood: "",
       cuisine: "",
       category: "",
-      // serviceOption: ""
     },
-    resId: "",
+   // resId: "",
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -50,12 +49,11 @@ export default new Vuex.Store({
       state.Answers.neighborhood = Answers.neighborhood,
         state.Answers.cuisine = Answers.cuisine,
         state.Answers.category = Answers.category
-      // state.Answers.serviceOption = Answers.serviceOption
     },
 
-    SET_RESTAURANT(state, resId) {
-      state.resId = resId;
-    }
+    // SET_RESTAURANT(state, resId) {
+    //   state.resId = resId;
+    // }
 
   }
 })

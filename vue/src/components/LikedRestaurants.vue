@@ -1,4 +1,4 @@
-<!-- TODO: filter list of matches based of status of liked -->
+
 <template>
   <body>
     <div class="matches">
@@ -9,7 +9,7 @@
         <router-link
           class="restaurant"
           v-bind:to="{ name: 'restaurant', params: { id: restaurant.id } }"
-          v-bind:value="setRestaurant(restaurant.id)"
+          
           ><div class="rest-box">
             <p>{{ restaurant.name }}</p>
             <img
@@ -20,21 +20,27 @@
             <img
               class="feature-img-alt"
               v-else
-              src="../assets/img/sorry-no-image.png"
-            />
+              v-bind:src= "'../assets/img' + restaurant.locality + '.jpg'"
+              />
           </div>
         </router-link>
-<button class="deleteFavorite" type="button" @click="deleteFavorite(restaurant)">Remove Favorite</button>
-        <button type="add" id="addVisit" v-on:click="addVisit(restaurant)">
-          I Have Not Been
-        </button>
+        <div class = "buttons" v-for="fav in favorites" v-bind:key="fav.restaurantId">
+          <div v-if=" fav.restaurantId == restaurant.id">
+            <button type="add" id="addVisit" v-if="fav.wasVisited == false " v-on:click="updateFavorite(fav)">
+              I Have Not Been
+            </button>
+            <button type="add" id="addVisit" v-else v-on:click="updateFavorite(fav)">
+              I Have Been
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>
 </template>
 
 <script>
-import preferencesService from "../services/PreferencesService";
+import preferenceService from "../services/PreferencesService";
 import restService from "../services/RestServices";
 
 export default {
@@ -50,11 +56,7 @@ export default {
         restaurantName: "",
         userId: this.$store.state.user.id,
       },
-      deleteFav: {
-        restaurantId: "",
-        restaurantName: "",
-        userId: this.$store.state.user.id
-      },
+      
     };
   },
   methods: {
@@ -65,30 +67,28 @@ export default {
         });
       });
     },
-    setRestaurant(resId) {
-      this.$store.commit("SET_RESTAURANT", resId);
-    },
-    deleteFavorite(restaurant) {
-      this.deleteFav.restaurantId = restaurant.id;
-      this.deleteFav.restaurantName = restaurant.name;
-      preferencesService.deleteFavorite(this.$store.state.user.id, this.deleteFav);
-      this.$router.go();
-    },
-    addVisit(restaurant) {
-      this.visited.restaurantId = restaurant.id;
-      this.visited.restaurantName = restaurant.name;
-      preferencesService.addVisit(this.$store.state.user.id, this.visited);
-    },
+    updateFavorite(restaurant){
+      preferenceService.updateFavorite(this.$store.state.user.id, restaurant)
+    }
   },
   created() {
-    preferencesService
+    preferenceService
       .getFavorites(this.$store.state.user.id)
       .then((response) => {
         this.favorites = response.data;
         this.getDetails();
       });
+      
   },
-  // preferenceService.getVisited()
+  updated(){
+        preferenceService
+      .getFavorites(this.$store.state.user.id)
+      .then((response) => {
+        this.favorites = response.data;
+      })
+     
+  }
+  
 };
 </script>
 

@@ -1,4 +1,4 @@
-<!-- TODO: filter restuarants based off matching preferences-->
+
 <template>
   <body class="matchedBody">
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -95,8 +95,8 @@
 
 <script>
 import PreferencesService from "../services/PreferencesService";
-//import preferenceService from '../services/PreferencesService';
 import restService from "../services/RestServices";
+
 export default {
   name: "matched-restaurants",
   data() {

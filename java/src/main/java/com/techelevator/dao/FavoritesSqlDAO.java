@@ -22,7 +22,7 @@ public class FavoritesSqlDAO implements FavoritesDAO {
 	@Override
 	public List<Favorites> getAllByUserId(int userId) {
 		List<Favorites> faves = new ArrayList<Favorites>();
-		String sql = "SELECT user_id, restaurant_id, restaurant_name FROM favorites " +
+		String sql = "SELECT user_id, restaurant_id, restaurant_name, wasvisited FROM favorites " +
 					"WHERE user_id = ?;";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
 		while (results.next()) {
@@ -42,10 +42,16 @@ public class FavoritesSqlDAO implements FavoritesDAO {
 	}
 	
 	@Override
+	public void updateFavorite(Favorites fav) {
+		String sql = "UPDATE favorites SET wasvisited = NOT wasvisited WHERE user_id = ? AND restaurant_id = ?;";
+		jdbcTemplate.update(sql, fav.getUserId(), fav.getRestaurantId());
+		
+	}
+	
+	@Override
 	public void delete(int userId, Favorites fav) {
 		String sql = "Delete FROM favorites WHERE user_id =? AND restaurant_id = ?;";
 		jdbcTemplate.update(sql, userId, fav.getRestaurantId());
-		
 	}
 	
 	@Override
@@ -61,7 +67,10 @@ public class FavoritesSqlDAO implements FavoritesDAO {
 		fave.setUserId(result.getInt("user_id"));
 		fave.setRestaurantId(result.getInt("restaurant_id"));
 		fave.setRestaurantName(result.getString("restaurant_name"));
+		fave.setWasVisited(result.getBoolean("wasvisited"));
 		return  fave;
 	}
+
+	
 
 }

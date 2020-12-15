@@ -18,6 +18,7 @@
         <!-- <p class="rating">
         Average Rating: {{ details.user_rating.aggregate_rating }}
       </p> -->
+      <h4 class = "rating-title">Average Rating</h4>
         <p
           class="rating-avg"
           v-if="
@@ -60,20 +61,24 @@
         >
           ⭐⭐⭐⭐⭐
         </p>
-        <p class="rating-text">{{ details.user_rating.rating_text }}</p>
+        <!-- <p class="rating-text">{{ details.user_rating.rating_text }}</p> -->
         <p class="rating-votes">Reviews: {{ details.user_rating.votes }}</p>
         <!-- <p class="price">Price: {{ details.price_range }}</p> -->
+        <h4 class = "price-title">Pricing Info</h4>
         <p class="price-details" v-if="details.price_range === 1">$</p>
         <p class="price-details" v-else-if="details.price_range === 2">$$</p>
         <p class="price-details" v-else-if="details.price_range === 3">$$$</p>
         <p class="price-details" v-else-if="details.price_range === 4">$$$$</p>
         <p class="price-details" v-else>$$$$$</p>
-
-        <a href="" class="rest-url" target="_blank"
+         <p class="price"> Average Price for two ${{ details.average_cost_for_two }}</p>
+        <!-- <a href="" class="rest-url" target="_blank"
           ><p class="website">{{ details.url }}</p></a
-        >
+        > -->
+        <h4 class = "address-title">Address</h4>
         <p class="address">{{ details.location.address }}</p>
+        <h4 class = "phone-title">Phone Number</h4>
         <p class="phone">{{ details.phone_numbers }}</p>
+         <h4 class = "phone-title">Cuisine</h4>
         <p class="cuisine">{{ details.cuisines }}</p>
       </div>
     </div>
@@ -103,13 +108,13 @@ export default {
         phone_numbers: "",
         cuisines: "",
       },
-      rId: this.$store.state.resId,
+      
     };
   },
   computed: {},
   methods: {},
   created() {
-    restService.getFavoritesDetails(this.rId).then((response) => {
+    restService.getFavoritesDetails(this.$route.params.id).then((response) => {
       this.details = response.data;
     });
   },
@@ -124,12 +129,15 @@ export default {
     "navs"
     "restaurant-name"
     "featured-image-details"
+    "rating-title"
     "rating-avg"
-    "rating-text"
+    /* "rating-text" */
     "rating-votes"
     "price-details"
-    "website"
+    /* "website" */
+    "address-title"
     "address"
+    "phone-title"
     "phone"
     "cuisine";
   width: 90%;
@@ -154,12 +162,12 @@ export default {
 }
 .restaurant-name {
   grid-area: restaurant-name;
-  background-color: #ed174c;
+  background-color: #006bb6;
   height: 32px;
   left: 103px;
   top: 264px;
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 25px;
   font-weight: bold;
   color: #ffffff;
   text-align: center;
@@ -167,7 +175,7 @@ export default {
   margin-top: 20px;
   margin-bottom: 20px;
   width: 50%;
-  padding-top: 10px;
+  padding: 10px;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
 }
@@ -180,6 +188,7 @@ export default {
     rgba(237, 23, 76, 0.6222864145658263) 81%
   );
   border-radius: 10px;
+  padding-bottom: 20px;
 }
 
 .featured-image-details {
@@ -193,9 +202,19 @@ export default {
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
   border: white solid 5px;
 }
+.rating-title,
+.address-title,
+.phone-title,
+.price-title{
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 0px;
+}
 
 .rating-avg,
-.rating-text,
+.price,
 .rating-votes,
 .price-details,
 .website,
@@ -216,6 +235,7 @@ export default {
   text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.25);
   word-wrap: break-word;
+  margin-top: 1px;
 }
 
 .rating-avg {

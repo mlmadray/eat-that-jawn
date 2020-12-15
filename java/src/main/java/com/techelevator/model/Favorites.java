@@ -5,13 +5,15 @@ public class Favorites {
 	private int userId;
 	private int restaurantId;
 	private String restaurantName;
+	private boolean wasVisited;
 	
 	public Favorites() {}
 	
-	public Favorites(int userId, int restaurantId, String restaurantName) {
+	public Favorites(int userId, int restaurantId, String restaurantName, boolean wasVisited) {
 		this.userId = userId;
 		this.restaurantId = restaurantId;
 		this.restaurantName = restaurantName;
+		this.wasVisited = wasVisited;
 	}
 	
 	public int getUserId() {
@@ -31,6 +33,14 @@ public class Favorites {
 	}
 	public void setRestaurantName(String restaurantName) {
 		this.restaurantName = restaurantName;
+	}
+
+	public boolean isWasVisited() {
+		return wasVisited;
+	}
+
+	public void setWasVisited(boolean wasVisited) {
+		this.wasVisited = wasVisited;
 	}
 
 }
