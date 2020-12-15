@@ -3,7 +3,9 @@
     <div class="details-page">
       <div class="restaurant-name-block">
         <h3 class="restaurant-name">{{ details.name }}</h3>
+
       </div>
+              <h4 class="restaurant-name">{{ details.location.locality }}</h4>
       <div class="details-block">
         <img
           class="featured-image-details"
@@ -13,7 +15,7 @@
         <img
           class="featured-image-details-alt"
           v-else
-          src="../assets/img/sorry-no-image.png"
+          src="../assets/img/Fishtown.jpg"
         />
         <!-- <p class="rating">
         Average Rating: {{ details.user_rating.aggregate_rating }}
@@ -202,6 +204,15 @@ export default {
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
   border: white solid 5px;
 }
+.featured-image-details-alt {
+  display: flex;
+  width: 50%;
+  height: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+}
+
 .rating-title,
 .address-title,
 .phone-title,

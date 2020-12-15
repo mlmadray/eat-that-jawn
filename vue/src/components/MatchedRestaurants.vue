@@ -6,28 +6,33 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
     />
-    <transition-group name="matches_list" tag="p"  >
+
+    <transition-group name="matches_list" tag="p">
       <div v-if="index < 0" v-bind="getMoreRestaurants()"></div>
-      
+      <div v-else-if="this.restaurants.length == 0">NO MORE RESULTS</div>
       <div
         class="matchesDetails"
         v-for="restaurant in restaurants"
         v-bind:key="restaurant.restaurant.id"
         v-show="restaurant === restaurants[index]"
         v-else
-      >        
+      >
         <p class="rest-name">{{ restaurant.restaurant.name }}</p>
         <img
-            class="featured-image-matched"
-            v-if="restaurant.restaurant.featured_image != ''"
-            v-bind:src="restaurant.restaurant.featured_image"
-          />
-          <img class="featured-image-alt" v-else src="../assets/img/sorry-no-image.png" />
-    <div class="decisions">
-      <button class="like-btn" v-on:click="like">💙</button>
-      <button class="dislike-btn" v-on:click="dislike">👎</button>
-    </div>
-        
+          class="featured-image-matched"
+          v-if="restaurant.restaurant.featured_image != ''"
+          v-bind:src="restaurant.restaurant.featured_image"
+        />
+        <img
+          class="featured-image-alt"
+          v-else
+          src="../assets/img/Fishtown.jpg"
+        />
+        <div class="decisions">
+          <button class="like-btn" v-on:click="like">💙</button>
+          <button class="dislike-btn" v-on:click="dislike">👎</button>
+        </div>
+
         <!-- <p class="rating">Average Rating: {{restaurant.restaurant.user_rating.aggregate_rating}}</p> -->
         <p
           class="rating"
@@ -85,10 +90,13 @@
         </p>
         <p class="price" v-else>$$$$$</p>
       </div>
-      
     </transition-group>
     <footer id="etj-round-sixers">
-      <img class="etj-round-sixers" src="../assets/img/etj-round-sixers.png" alt="Eat That Jawn?" />
+      <img
+        class="etj-round-sixers"
+        src="../assets/img/etj-round-sixers.png"
+        alt="Eat That Jawn?"
+      />
     </footer>
   </body>
 </template>
@@ -107,7 +115,7 @@ export default {
           restaurant: {
             id: "",
             name: "",
-            featured_image: '',
+            featured_image: "",
             user_rating: {
               aggregate_rating: "",
             },
@@ -115,7 +123,7 @@ export default {
           },
         },
       ],
-      index: 19,
+      index: "",
       start_count: 0,
       liked_restaurants: {
         restaurantId: "",
@@ -146,7 +154,6 @@ export default {
     dislike: function () {
       this.restaurants.splice(this.index, 1);
       this.index = this.index - 1;
-      
     },
 
     saveFavorite() {
@@ -156,17 +163,20 @@ export default {
       );
     },
 
-    getMoreRestaurants(){
-      this.start_count = this.start_count + 20;
-      this.index = 19;
-      restService.getMoreRestaurants( 
-        this.$store.state.Answers.neighborhood,
-        this.$store.state.Answers.cuisine,
-        this.$store.state.Answers.category,
-        this.start_count).then((response =>{
+    getMoreRestaurants() {
+      this.start_count = this.start_count + this.restaurants.length;
+      this.index = this.restaurants.length - 1;
+      restService
+        .getMoreRestaurants(
+          this.$store.state.Answers.neighborhood,
+          this.$store.state.Answers.cuisine,
+          this.$store.state.Answers.category,
+          this.start_count
+        )
+        .then((response) => {
           this.restaurants = response.data.restaurants;
-        }));
-    }
+        });
+    },
   },
   created() {
     restService
@@ -177,15 +187,15 @@ export default {
         // this.$store.state.Answers.serviceOption
       )
       .then((response) => {
+
         this.restaurants = response.data.restaurants;
+                this.index = this.restaurants.length - 1;
       });
   },
 };
 </script>
 
 <style>
-
-
 .matches_list-enter-active,
 .matches_list-leave-active {
   transition: all 1s;
@@ -213,8 +223,12 @@ export default {
 }
 
 .matchesDetails {
-  background: rgb(237,23,76);
-  background: radial-gradient(circle, rgba(237,23,76,1) 0%, rgba(237,23,76,0.6222864145658263) 81%);
+  background: rgb(237, 23, 76);
+  background: radial-gradient(
+    circle,
+    rgba(237, 23, 76, 1) 0%,
+    rgba(237, 23, 76, 0.6222864145658263) 81%
+  );
   padding: 10px;
   border-radius: 10px;
   width: 90%;
@@ -226,8 +240,8 @@ export default {
   grid-area: featured-image-matched;
   width: 95%;
   height: 95%;
-  border-radius: 15px; 
-  border: white ridge 6px;  
+  border-radius: 15px;
+  border: white ridge 6px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -246,14 +260,13 @@ export default {
   flex-direction: row-reverse;
   justify-content: space-between;
   margin-bottom: 10px;
-
 }
 .dislike-btn {
   font-size: 60px;
   background: none;
   border: none;
   cursor: pointer;
-  text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);  
+  text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
 .like-btn {
@@ -323,7 +336,7 @@ footer img {
   grid-area: etj-round-sixers;
   text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
   margin-right: auto;
-  margin-left: auto; 
+  margin-left: auto;
   margin-top: 40px;
   margin-bottom: 0;
   background: none;
@@ -334,7 +347,6 @@ footer img {
 
 /********************* TABLET *********************/
 @media (min-width: 768px) {
-
   .dislike-btn,
   .like-btn {
     font-size: 80px;
@@ -358,7 +370,6 @@ footer img {
 
 /********************* DESKTOP *********************/
 @media (min-width: 1024px) {
-
   .matchesDetails {
     width: 80%;
   }
@@ -398,6 +409,5 @@ footer img {
     padding-top: 8px;
     padding-bottom: 8px;
   }
-
 }
 </style>

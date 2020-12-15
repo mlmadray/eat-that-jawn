@@ -20,7 +20,7 @@
             <img
               class="feature-img-alt"
               v-else
-              v-bind:src= "'../assets/img' + restaurant.locality + '.jpg'"
+              src="../assets/img/Fishtown.jpg"
               />
           </div>
         </router-link>
