@@ -163,8 +163,8 @@ export default {
     },
 
     getMoreRestaurants() {
-      this.start_count = this.start_count + this.restaurants.length;
-
+      this.start_count = this.start_count + 20;
+      
       restService
         .getMoreRestaurants(
           this.$store.state.Answers.neighborhood,
@@ -174,8 +174,9 @@ export default {
         )
         .then((response) => {
           this.restaurants = response.data.restaurants;
-          this.index = this.restaurants.length - 1;
+          
         });
+      this.index = this.restaurants.length - 1;
     },
   },
   created() {
