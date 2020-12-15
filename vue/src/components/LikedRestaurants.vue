@@ -24,7 +24,7 @@
             />
           </div>
         </router-link>
-
+<button class="deleteFavorite" type="button" @click="deleteFavorite(restaurant)">Remove Favorite</button>
         <button type="add" id="addVisit" v-on:click="addVisit(restaurant)">
           I Have Not Been
         </button>
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import preferenceService from "../services/PreferencesService";
+import preferencesService from "../services/PreferencesService";
 import restService from "../services/RestServices";
 
 export default {
@@ -50,6 +50,11 @@ export default {
         restaurantName: "",
         userId: this.$store.state.user.id,
       },
+      deleteFav: {
+        restaurantId: "",
+        restaurantName: "",
+        userId: this.$store.state.user.id
+      },
     };
   },
   methods: {
@@ -63,14 +68,20 @@ export default {
     setRestaurant(resId) {
       this.$store.commit("SET_RESTAURANT", resId);
     },
+    deleteFavorite(restaurant) {
+      this.deleteFav.restaurantId = restaurant.id;
+      this.deleteFav.restaurantName = restaurant.name;
+      preferencesService.deleteFavorite(this.$store.state.user.id, this.deleteFav);
+      this.$router.go();
+    },
     addVisit(restaurant) {
       this.visited.restaurantId = restaurant.id;
       this.visited.restaurantName = restaurant.name;
-      preferenceService.addVisit(this.$store.state.user.id, this.visited);
+      preferencesService.addVisit(this.$store.state.user.id, this.visited);
     },
   },
   created() {
-    preferenceService
+    preferencesService
       .getFavorites(this.$store.state.user.id)
       .then((response) => {
         this.favorites = response.data;

@@ -22,8 +22,13 @@ getFavorites(user_id) {
   return axios.get(`/favorites/${user_id}`);
 },
 
+deleteFavorite(user_id, restaurant) {
+  return axios.delete(`/favorites/${user_id}`, { data: restaurant })
+},
+
 addVisit(user_id, visitedRestaurant){
   return axios.post(`/visited/${user_id}`, visitedRestaurant);
-}
+},
+
 }
 

@@ -8,10 +8,10 @@ public class Favorites {
 	
 	public Favorites() {}
 	
-	public Favorites(int userId, int restaurantId, String restuarantName) {
+	public Favorites(int userId, int restaurantId, String restaurantName) {
 		this.userId = userId;
 		this.restaurantId = restaurantId;
-		this.restaurantName = restuarantName;
+		this.restaurantName = restaurantName;
 	}
 	
 	public int getUserId() {

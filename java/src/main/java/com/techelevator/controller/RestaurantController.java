@@ -70,10 +70,10 @@ public class RestaurantController {
 		favoritesDAO.addFavorite(fave);
 	}
 	
-//	@RequestMapping(value = "/favorties/{userId}", method = RequestMethod.DELETE)
-//	public void deleteFavorite(@PathVariable int userId, @RequestBody Favorites fav) {
-//		visitedDAO.delete(userId, fav.getRestaurantId());
-//	}
+	@RequestMapping(value = "/favorites/{userId}", method = RequestMethod.DELETE)
+	public void deleteFavorite(@PathVariable int userId, @RequestBody Favorites fav) {
+		favoritesDAO.delete(userId, fav);
+	}
 	
 	@RequestMapping(value = "/visited/{userId}", method = RequestMethod.GET)
 	public List<Visited> getAllVisitedByUserId(@PathVariable int userId) {
