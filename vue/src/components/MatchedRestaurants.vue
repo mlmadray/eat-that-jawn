@@ -268,19 +268,47 @@ export default {
   margin-bottom: 10px;
 }
 .dislike-btn {
-  font-size: 60px;
+  font-size: 40px;
   background: none;
   border: none;
   cursor: pointer;
   text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  background-color: #002B5C;
+  border: none;
+  border-radius: 100%;
+  box-shadow: 0 8px #C4CED4;
+}
+
+.dislike-btn:hover {
+  background-color: #006bb6;
+}
+
+.dislike-btn:active {
+  background-color: #006bb6;
+  box-shadow: 0 5px #C4CED4;
+  transform: translateY(4px);
 }
 
 .like-btn {
-  font-size: 60px;
+  font-size: 40px;
   background: none;
   border: none;
   cursor: pointer;
   text-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  background-color: #002B5C;
+  border: none;
+  border-radius: 100%;
+  box-shadow: 0 8px #C4CED4;
+}
+
+.like-btn:hover {
+  background-color: #006bb6;
+}
+
+.like-btn:active {
+  background-color: #006bb6;
+  box-shadow: 0 5px #C4CED4;
+  transform: translateY(4px);
 }
 
 .rest-name {
@@ -355,7 +383,9 @@ footer img {
 @media (min-width: 768px) {
   .dislike-btn,
   .like-btn {
-    font-size: 80px;
+    font-size: 60px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .rest-name,
@@ -377,19 +407,19 @@ footer img {
 /********************* DESKTOP *********************/
 @media (min-width: 1024px) {
   .matchesDetails {
-    width: 80%;
+    width: 40%;
   }
   .featured-image-matched {
-    width: 80%;
+    width: 60%;
     max-width: 1200px;
-    height: 80%;
+    height: 60%;
     max-height: 800px;
   }
 
   .featured-image-alt {
-    width: 80%;
+    width: 60%;
     max-width: 1200px;
-    height: 80%;
+    height: 60%;
     max-height: 800px;
   }
 
