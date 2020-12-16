@@ -63,15 +63,15 @@ export default new Vuex.Store({
         state.Answers.category = Answers.category
     },
 
-    SET_RESTAURANTS(state, restaurant) {
-      restaurant.forEach(res => {
-        state.restaurants.restaurant.id = res.id,
-        state.restaurants.restaurant.name = res.name,
-        state.restaurants.restaurant.featured_image = res.featured_image,
-        state.restaurants.restaurant.user_rating.aggregate_rating = res.user_rating.aggregate_rating,
-        state.restaurants.restaurant.price_range = res.price_range
-      })
-    }
+    // SET_RESTAURANTS(state, restaurant) {
+    //   restaurant.forEach(res => {
+    //     state.restaurants.restaurant.id = res.id,
+    //     state.restaurants.restaurant.name = res.name,
+    //     state.restaurants.restaurant.featured_image = res.featured_image,
+    //     state.restaurants.restaurant.user_rating.aggregate_rating = res.user_rating.aggregate_rating,
+    //     state.restaurants.restaurant.price_range = res.price_range
+    //   })
+    // }
 
   }
 })

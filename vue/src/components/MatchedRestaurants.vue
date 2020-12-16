@@ -10,30 +10,29 @@
       
       <div
         class="matchesDetails"
-        v-for="restaurant in store_restaurants"
-        v-bind:key="restaurant.id"
-        v-show="restaurant == restaurant[index]"
+        v-for="restaurant in restaurants"
+        v-bind:key="restaurant.restaurant.id"
+        v-show="restaurant === restaurants[index]"
         v-else
-      > 
-      <!-- <div v-for="restaurant in restaurants" v-bind:key="restaurant.restaurant.id">       -->
-        <p class="rest-name" v-bind:key="restaurant.name">{{ restaurant.name }}</p>
+      >        
+        <p class="rest-name">{{ restaurant.restaurant.name }}</p>
         <img
             class="featured-image-matched"
-            v-if="restaurant.featured_image != ''"
-            v-bind:src="restaurant.featured_image"
+            v-if="restaurant.restaurant.featured_image != ''"
+            v-bind:src="restaurant.restaurant.featured_image"
           />
-          <img class="featured-image-alt" v-else src="../assets/img/Fishtown.jpg" />
+          <img class="featured-image-alt" v-else src="../assets/img/sorry-no-image.png" />
     <div class="decisions">
       <button class="like-btn" v-on:click="like">💙</button>
       <button class="dislike-btn" v-on:click="dislike">👎</button>
     </div>
         
         <!-- <p class="rating">Average Rating: {{restaurant.restaurant.user_rating.aggregate_rating}}</p> -->
-        <!-- <p
+        <p
           class="rating"
           v-if="
-            restaurant.user_rating.aggregate_rating >= 0 &&
-            restaurant.user_rating.aggregate_rating <= 1.5
+            restaurant.restaurant.user_rating.aggregate_rating >= 0 &&
+            restaurant.restaurant.user_rating.aggregate_rating <= 1.5
           "
         >
           ⭐
@@ -41,8 +40,8 @@
         <p
           class="rating"
           v-if="
-            restaurant.user_rating.aggregate_rating > 1.5 &&
-            restaurant.user_rating.aggregate_rating <= 2.5
+            restaurant.restaurant.user_rating.aggregate_rating > 1.5 &&
+            restaurant.restaurant.user_rating.aggregate_rating <= 2.5
           "
         >
           ⭐⭐
@@ -50,8 +49,8 @@
         <p
           class="rating"
           v-if="
-            restaurant.user_rating.aggregate_rating > 2.5 &&
-            restaurant.user_rating.aggregate_rating <= 3.5
+            restaurant.restaurant.user_rating.aggregate_rating > 2.5 &&
+            restaurant.restaurant.user_rating.aggregate_rating <= 3.5
           "
         >
           ⭐⭐⭐
@@ -59,33 +58,33 @@
         <p
           class="rating"
           v-if="
-            restaurant.user_rating.aggregate_rating > 3.5 &&
-            restaurant.user_rating.aggregate_rating <= 4.5
+            restaurant.restaurant.user_rating.aggregate_rating > 3.5 &&
+            restaurant.restaurant.user_rating.aggregate_rating <= 4.5
           "
         >
           ⭐⭐⭐⭐
         </p>
         <p
           class="rating"
-          v-if="restaurant.user_rating.aggregate_rating >= 4.6"
+          v-if="restaurant.restaurant.user_rating.aggregate_rating >= 4.6"
         >
           ⭐⭐⭐⭐⭐
-        </p> -->
+        </p>
 
         <!-- <p class="price">Price: {{restaurant.restaurant.price_range}}</p> -->
-        <p class="price" v-if="restaurant.price_range === 1">$</p>
-        <p class="price" v-else-if="restaurant.price_range === 2">
+        <p class="price" v-if="restaurant.restaurant.price_range === 1">$</p>
+        <p class="price" v-else-if="restaurant.restaurant.price_range === 2">
           $$
         </p>
-        <p class="price" v-else-if="restaurant.price_range === 3">
+        <p class="price" v-else-if="restaurant.restaurant.price_range === 3">
           $$$
         </p>
-        <p class="price" v-else-if="restaurant.price_range === 4">
+        <p class="price" v-else-if="restaurant.restaurant.price_range === 4">
           $$$$
         </p>
         <p class="price" v-else>$$$$$</p>
-      <!-- </div> -->
       </div>
+      
     </transition-group>
     <footer id="etj-round-sixers">
       <img class="etj-round-sixers" src="../assets/img/etj-round-sixers.png" alt="Eat That Jawn?" />
@@ -101,19 +100,19 @@ export default {
   name: "matched-restaurants",
   data() {
     return {
-     // cuisine_ids: [],
+      cuisine_ids: [],
       restaurants: [
-      //   {
-      //     restaurant: {
-      //       id: "",
-      //       name: "",
-      //       featured_image: '',
-      //       user_rating: {
-      //         aggregate_rating: "",
-      //       },
-      //       price_range: "",
-      //     },
-      //   },
+        {
+          restaurant: {
+            id: "",
+            name: "",
+            featured_image: '',
+            user_rating: {
+              aggregate_rating: "",
+            },
+            price_range: "",
+          },
+        },
       ],
       index: 19,
       start_count: 0,
@@ -123,11 +122,6 @@ export default {
         userId: this.$store.state.user.id,
       },
     };
-  },
-  computed: {
-    store_restaurants () {
-      return this.$store.state.restaurants
-    }
   },
   methods: {
     like: function () {
@@ -169,8 +163,7 @@ export default {
         this.$store.state.Answers.cuisine,
         this.$store.state.Answers.category,
         this.start_count).then((response =>{
-          this.$store.commit("SET_RESTAURANTS", response.data.restaurants)
-          //this.restaurants = response.data.restaurants;
+          this.restaurants = response.data.restaurants;
         }));
     }
   },
@@ -180,10 +173,11 @@ export default {
         this.$store.state.Answers.neighborhood,
         this.$store.state.Answers.cuisine,
         this.$store.state.Answers.category
+        // this.$store.state.Answers.serviceOption
       )
       .then((response) => {
-        this.$store.commit("SET_RESTAURANTS", response.data);
-        //this.$store.state.restaurants = response.data.restaurants;
+
+        this.restaurants = response.data.restaurants;
       });
   },
 };

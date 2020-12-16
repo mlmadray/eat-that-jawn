@@ -81,14 +81,14 @@ export default {
       });
       
   },
-  // updated(){
-  //       preferenceService
-  //     .getFavorites(this.$store.state.user.id)
-  //     .then((response) => {
-  //       this.favorites = response.data;
-  //     })
+  updated(){
+        preferenceService
+      .getFavorites(this.$store.state.user.id)
+      .then((response) => {
+        this.favorites = response.data;
+      })
      
-  // }
+  }
   
 };
 </script>
