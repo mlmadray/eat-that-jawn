@@ -410,9 +410,9 @@ footer img {
     width: 40%;
   }
   .featured-image-matched {
-    width: 60%;
+    width: 80%;
     max-width: 1200px;
-    height: 60%;
+    height: 80%;
     max-height: 800px;
   }
 

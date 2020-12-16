@@ -25,27 +25,27 @@
         </router-link>
         <!-- <div class = "buttons" v-for="fav in favorites" v-bind:key="fav.restaurantId">
           <div v-if=" fav.restaurantId == restaurant.restaurant.id"> -->
-        <button type="delete" id="delete" v-on:click="remove(restaurant)">
-          Remove Favorite
-        </button>
-        <button
-          type="add"
-          id="addVisit"
-          v-if="restaurant.wasVisited == false"
-          v-on:click="updateFavorite(restaurant)"
-        >
-          I Have Not Been
-        </button>
-        <button
-          type="add"
-          id="addVisit"
-          v-else
-          v-on:click="updateFavorite(restaurant)"
-        >
-          I Have Been
-        </button>
-        <!-- </div>
-        </div> -->
+        <div class="button-block">
+          <button type="delete" id="delete" v-on:click="remove(restaurant)">
+            Remove Favorite
+          </button>
+          <button
+            type="add"
+            id="addVisit"
+            v-if="restaurant.wasVisited == false"
+            v-on:click="updateFavorite(restaurant)"
+          >
+            I Have Not Been
+          </button>
+          <button
+            type="add"
+            id="addVisit"
+            v-else
+            v-on:click="updateFavorite(restaurant)"
+          >
+            I Have Been
+          </button>
+        </div>
       </div>
     </div>
   </body>
@@ -130,7 +130,9 @@ body {
     "navs"
     "favorites"
     "restaurant"
-    "feature-img";
+    "feature-img"
+    "addVisit"
+    "delete";
 }
 
 .favorites {
@@ -223,6 +225,14 @@ body {
   color: #bb9754;
 }
 
+#addVisit {
+  grid-area: addVisit;
+}
+
+#delete {
+  grid-area: delete;
+}
+
 #addVisit,
 #delete {
   width: 279px;
@@ -233,7 +243,7 @@ body {
   color: #ffffff;
   font-weight: bold;
   font-family: "Montserrat";
-  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 0;
   border-radius: 20px;
@@ -243,12 +253,21 @@ body {
   margin-top: 10px;
   cursor: pointer;
 }
+
 #delete:hover {
   color: #bb9754;
 }
 
 #addVisit:hover {
   color: #bb9754;
+}
+
+/********************* TABLET *********************/
+@media (min-width: 768px) {
+
+.button-block {
+  display: flex;
+}
 }
 
 /********************* DESKTOP *********************/
