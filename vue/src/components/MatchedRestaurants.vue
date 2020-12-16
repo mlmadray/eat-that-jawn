@@ -21,11 +21,7 @@
           v-if="restaurant.restaurant.featured_image != ''"
           v-bind:src="restaurant.restaurant.featured_image"
         />
-        <img
-          class="featured-image-alt"
-          v-else
-          src="../assets/img/Fishtown.jpg"
-        />
+        <img class="featured-image-alt" v-else src="img/Gritty.png" />
         <div class="decisions">
           <button class="like-btn" v-on:click="like">💙</button>
           <button class="dislike-btn" v-on:click="dislike">👎</button>
@@ -118,6 +114,9 @@ export default {
               aggregate_rating: "",
             },
             price_range: "",
+            location: {
+              locality: "",
+            },
           },
         },
       ],
@@ -388,8 +387,10 @@ footer img {
   }
 
   .featured-image-alt {
-    width: 570px;
-    height: 256px;
+    width: 80%;
+    max-width: 1200px;
+    height: 80%;
+    max-height: 800px;
   }
 
   .decisions {

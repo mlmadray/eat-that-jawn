@@ -5,22 +5,18 @@
         <h3 class="restaurant-name">{{ details.name }}</h3>
         <h4 class="restaurant-location">{{ details.location.locality }}</h4>
       </div>
-     
+
       <div class="details-block">
         <img
           class="featured-image-details"
           v-if="details.featured_image != ''"
           v-bind:src="details.featured_image"
         />
-        <img
-          class="featured-image-details-alt"
-          v-else
-          src="../assets/img/Fishtown.jpg"
-        />
+        <img class="featured-image-alt" v-else src="img/Gritty.png" />
         <!-- <p class="rating">
         Average Rating: {{ details.user_rating.aggregate_rating }}
       </p> -->
-      <h4 class = "rating-title">Average Rating</h4>
+        <h4 class="rating-title">Average Rating</h4>
         <p
           class="rating-avg"
           v-if="
@@ -66,21 +62,23 @@
         <!-- <p class="rating-text">{{ details.user_rating.rating_text }}</p> -->
         <p class="rating-votes">Reviews: {{ details.user_rating.votes }}</p>
         <!-- <p class="price">Price: {{ details.price_range }}</p> -->
-        <h4 class = "price-title">Pricing Info</h4>
+        <h4 class="price-title">Pricing Info</h4>
         <p class="price-details" v-if="details.price_range === 1">$</p>
         <p class="price-details" v-else-if="details.price_range === 2">$$</p>
         <p class="price-details" v-else-if="details.price_range === 3">$$$</p>
         <p class="price-details" v-else-if="details.price_range === 4">$$$$</p>
         <p class="price-details" v-else>$$$$$</p>
-         <p class="price"> Average Price for two ${{ details.average_cost_for_two }}</p>
+        <p class="price">
+          Average Price for two ${{ details.average_cost_for_two }}
+        </p>
         <!-- <a href="" class="rest-url" target="_blank"
           ><p class="website">{{ details.url }}</p></a
         > -->
-        <h4 class = "address-title">Address</h4>
+        <h4 class="address-title">Address</h4>
         <p class="address">{{ details.location.address }}</p>
-        <h4 class = "phone-title">Phone Number</h4>
+        <h4 class="phone-title">Phone Number</h4>
         <p class="phone">{{ details.phone_numbers }}</p>
-         <h4 class = "phone-title">Cuisine</h4>
+        <h4 class="phone-title">Cuisine</h4>
         <p class="cuisine">{{ details.cuisines }}</p>
       </div>
     </div>
@@ -110,7 +108,6 @@ export default {
         phone_numbers: "",
         cuisines: "",
       },
-      
     };
   },
   computed: {},
@@ -124,7 +121,6 @@ export default {
 </script>
 
 <style>
-
 .details-page {
   grid-template-columns: 1fr;
   grid-template-areas:
@@ -161,7 +157,7 @@ export default {
   padding-top: 5px;
   padding-bottom: 40px;
   margin-bottom: auto;
-  margin-top: 20px; 
+  margin-top: 20px;
 }
 .restaurant-name {
   grid-area: restaurant-name;
@@ -182,7 +178,7 @@ export default {
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
 }
-.restaurant-location{
+.restaurant-location {
   grid-area: restaurant-location;
   background-color: #006bb6;
   font-weight: bold;
@@ -229,7 +225,7 @@ export default {
 .rating-title,
 .address-title,
 .phone-title,
-.price-title{
+.price-title {
   color: black;
   font-weight: bold;
   font-size: 20px;

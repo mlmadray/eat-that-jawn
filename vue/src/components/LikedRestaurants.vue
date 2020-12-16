@@ -8,33 +8,43 @@
       <div v-for="restaurant in favorites" v-bind:key="restaurant.restaurantId">
         <router-link
           class="restaurant"
-          v-bind:to="{ name: 'restaurant', params: { id: restaurant.restaurantId } }"
-          
-          >
+          v-bind:to="{
+            name: 'restaurant',
+            params: { id: restaurant.restaurantId },
+          }"
+        >
           <div class="rest-box">
             <p>{{ restaurant.restaurantName }}</p>
             <img
               class="feature-img"
               v-if="restaurant.featuredImage != ''"
-              v-bind:src = restaurant.featuredImage
+              v-bind:src="restaurant.featuredImage"
             />
-            <img
-              class="feature-img-alt"
-              v-else
-              src="../assets/img/Fishtown.jpg"
-              />
+            <img class="featured-image-alt" v-else src="img/Gritty.png" />
           </div>
         </router-link>
         <!-- <div class = "buttons" v-for="fav in favorites" v-bind:key="fav.restaurantId">
           <div v-if=" fav.restaurantId == restaurant.restaurant.id"> -->
-            <button type="delete" id="delete" v-on:click="remove(restaurant)">Remove Favorite</button>
-            <button type="add" id="addVisit" v-if="restaurant.wasVisited == false " v-on:click="updateFavorite(restaurant)">
-              I Have Not Been
-            </button>
-            <button type="add" id="addVisit" v-else v-on:click="updateFavorite(restaurant)">
-              I Have Been
-            </button>
-          <!-- </div>
+        <button type="delete" id="delete" v-on:click="remove(restaurant)">
+          Remove Favorite
+        </button>
+        <button
+          type="add"
+          id="addVisit"
+          v-if="restaurant.wasVisited == false"
+          v-on:click="updateFavorite(restaurant)"
+        >
+          I Have Not Been
+        </button>
+        <button
+          type="add"
+          id="addVisit"
+          v-else
+          v-on:click="updateFavorite(restaurant)"
+        >
+          I Have Been
+        </button>
+        <!-- </div>
         </div> -->
       </div>
     </div>
@@ -51,7 +61,7 @@ export default {
   data() {
     return {
       favorites: [],
-     // details: this.$store.state.restaurants,
+      // details: this.$store.state.restaurants,
       visited: {
         restaurantId: "",
         restaurantName: "",
@@ -61,8 +71,7 @@ export default {
         restaurantId: "",
         restaurantName: "",
         userId: this.$store.state.user.id,
-      }
-      
+      },
     };
   },
   methods: {
@@ -73,15 +82,15 @@ export default {
     //     });
     //   });
     // },
-    updateFavorite(restaurant){
+    updateFavorite(restaurant) {
       this.deleted.restaurantId = restaurant.restaurantId;
       this.deleted.name = restaurant.name;
       preferenceService.updateFavorite(this.$store.state.user.id, this.deleted);
     },
 
-    remove(restaurant){
-      preferenceService.deleteFavorite(this.$store.state.user.id, restaurant)
-    }
+    remove(restaurant) {
+      preferenceService.deleteFavorite(this.$store.state.user.id, restaurant);
+    },
   },
   created() {
     preferenceService
@@ -90,18 +99,14 @@ export default {
         this.favorites = response.data;
         //this.getDetails();
       });
-      
   },
-  updated(){
-        preferenceService
+  updated() {
+    preferenceService
       .getFavorites(this.$store.state.user.id)
       .then((response) => {
         this.favorites = response.data;
-      })
-     
+      });
   },
-  
-  
 };
 </script>
 
@@ -238,7 +243,7 @@ body {
   margin-top: 10px;
   cursor: pointer;
 }
-#delete:hover{
+#delete:hover {
   color: #bb9754;
 }
 

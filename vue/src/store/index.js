@@ -38,6 +38,7 @@ export default new Vuex.Store({
         },
       },
     ],
+    resName: ""
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -62,6 +63,10 @@ export default new Vuex.Store({
         state.Answers.cuisine = Answers.cuisine,
         state.Answers.category = Answers.category
     },
+
+    SET_RESNAME(state, res) {
+      state.resName = res;
+    }
 
     // SET_RESTAURANTS(state, restaurant) {
     //   restaurant.forEach(res => {
