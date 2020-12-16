@@ -102,7 +102,7 @@ export default {
   data() {
     return {
      // cuisine_ids: [],
-      // restaurants: [
+      restaurants: [
       //   {
       //     restaurant: {
       //       id: "",
@@ -114,7 +114,7 @@ export default {
       //       price_range: "",
       //     },
       //   },
-      // ],
+      ],
       index: 19,
       start_count: 0,
       liked_restaurants: {

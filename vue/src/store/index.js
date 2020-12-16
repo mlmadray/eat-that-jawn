@@ -26,17 +26,17 @@ export default new Vuex.Store({
       category: "",
     },
     restaurants: [
-      // {
-      //   restaurant: {
-      //     id: "",
-      //     name: "",
-      //     featured_image: '',
-      //     user_rating: {
-      //       aggregate_rating: "",
-      //     },
-      //     price_range: "",
-      //   },
-      // },
+      {
+        restaurant: {
+          id: "",
+          name: "",
+          featured_image: '',
+          user_rating: {
+            aggregate_rating: "",
+          },
+          price_range: "",
+        },
+      },
     ],
   },
   mutations: {
@@ -64,7 +64,13 @@ export default new Vuex.Store({
     },
 
     SET_RESTAURANTS(state, restaurant) {
-      state.restaurants= restaurant;
+      restaurant.forEach(res => {
+        state.restaurants.restaurant.id = res.id,
+        state.restaurants.restaurant.name = res.name,
+        state.restaurants.restaurant.featured_image = res.featured_image,
+        state.restaurants.restaurant.user_rating.aggregate_rating = res.user_rating.aggregate_rating,
+        state.restaurants.restaurant.price_range = res.price_range
+      })
     }
 
   }

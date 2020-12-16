@@ -8,7 +8,7 @@
       <div v-for="restaurant in favorites" v-bind:key="restaurant.restaurantId">
         <router-link
           class="restaurant"
-          v-bind:to="{ name: 'restaurant', params: { id: resaurant.restaurantId } }"
+          v-bind:to="{ name: 'restaurant', params: { id: restaurant.restaurantId } }"
           
           >
           <div class="rest-box">
@@ -27,10 +27,10 @@
         </router-link>
         <!-- <div class = "buttons" v-for="fav in favorites" v-bind:key="fav.restaurantId">
           <div v-if=" fav.restaurantId == restaurant.restaurant.id"> -->
-            <button type="add" id="addVisit" v-if="resaurant.wasVisited == false " v-on:click="updateFavorite(resaurant)">
+            <button type="add" id="addVisit" v-if="restaurant.wasVisited == false " v-on:click="updateFavorite(restaurant)">
               I Have Not Been
             </button>
-            <button type="add" id="addVisit" v-else v-on:click="updateFavorite(resaurant)">
+            <button type="add" id="addVisit" v-else v-on:click="updateFavorite(restaurant)">
               I Have Been
             </button>
           <!-- </div>
@@ -81,14 +81,14 @@ export default {
       });
       
   },
-  updated(){
-        preferenceService
-      .getFavorites(this.$store.state.user.id)
-      .then((response) => {
-        this.favorites = response.data;
-      })
+  // updated(){
+  //       preferenceService
+  //     .getFavorites(this.$store.state.user.id)
+  //     .then((response) => {
+  //       this.favorites = response.data;
+  //     })
      
-  }
+  // }
   
 };
 </script>
