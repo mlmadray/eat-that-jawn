@@ -36,7 +36,7 @@ public class FavoritesSqlDAO implements FavoritesDAO {
 	public void addFavorite(Favorites fave) {
 		if(!exists(fave)) {
 		String sql = "INSERT INTO favorites (user_id, restaurant_id, restaurant_name, featured_image)" + 
-						" VALUES (?, ?, ?, ?);";
+						" VALUES (?, ?, ?, ?) ORDER BY false;";
 		jdbcTemplate.update(sql, fave.getUserId(), fave.getRestaurantId(), fave.getRestaurantName(), fave.getFeaturedImage());
 		}
 	}

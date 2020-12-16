@@ -27,6 +27,7 @@
         </router-link>
         <!-- <div class = "buttons" v-for="fav in favorites" v-bind:key="fav.restaurantId">
           <div v-if=" fav.restaurantId == restaurant.restaurant.id"> -->
+            <button type="delete" id="delete" v-on:click="remove(restaurant)">Remove Favorite</button>
             <button type="add" id="addVisit" v-if="restaurant.wasVisited == false " v-on:click="updateFavorite(restaurant)">
               I Have Not Been
             </button>
@@ -69,6 +70,10 @@ export default {
     // },
     updateFavorite(restaurant){
       preferenceService.updateFavorite(this.$store.state.user.id, restaurant)
+    },
+
+    remove(restaurant){
+      preferenceService.deleteFavorite(this.$store.state.user.id, restaurant)
     }
   },
   created() {
@@ -87,7 +92,8 @@ export default {
         this.favorites = response.data;
       })
      
-  }
+  },
+  
   
 };
 </script>
@@ -164,11 +170,13 @@ body {
 
 .feature-img-alt {
   display: flex;
-  width: 50%;
-  height: 50%;
+  width: 60%;
+  height: 60%;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  border: white solid 5px;
 }
 
 .restaurant {

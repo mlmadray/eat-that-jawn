@@ -24,7 +24,7 @@
         <img
           class="featured-image-alt"
           v-else
-          src="../assets/img/sorry-no-image.png"
+          src="../assets/img/Fishtown.jpg"
         />
         <div class="decisions">
           <button class="like-btn" v-on:click="like">💙</button>
@@ -216,6 +216,7 @@ export default {
     "navs"
     "rest-name"
     "featured-image-matched"
+    "featured-image-alt"
     "decisions"
     "rating"
     "price"
@@ -249,9 +250,15 @@ export default {
 }
 
 .featured-image-alt {
+  grid-area: featured-image-alt;
   margin-left: auto;
   margin-right: auto;
   display: flex;
+  width: 95%;
+  height: 95%;
+  border-radius: 15px;
+  border: white ridge 6px;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
 .decisions {

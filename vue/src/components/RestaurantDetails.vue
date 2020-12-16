@@ -3,9 +3,9 @@
     <div class="details-page">
       <div class="restaurant-name-block">
         <h3 class="restaurant-name">{{ details.name }}</h3>
-
+        <h4 class="restaurant-location">{{ details.location.locality }}</h4>
       </div>
-              <h4 class="restaurant-name">{{ details.location.locality }}</h4>
+     
       <div class="details-block">
         <img
           class="featured-image-details"
@@ -130,6 +130,7 @@ export default {
   grid-template-areas:
     "navs"
     "restaurant-name"
+    "restaurant-location"
     "featured-image-details"
     "rating-title"
     "rating-avg"
@@ -181,6 +182,15 @@ export default {
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
 }
+.restaurant-location{
+  grid-area: restaurant-location;
+  background-color: #006bb6;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 10px;
+}
 
 .details-block {
   background: rgb(237, 23, 76);
@@ -191,6 +201,7 @@ export default {
   );
   border-radius: 10px;
   padding-bottom: 20px;
+  margin-top: 23px;
 }
 
 .featured-image-details {
@@ -206,11 +217,13 @@ export default {
 }
 .featured-image-details-alt {
   display: flex;
-  width: 50%;
-  height: 50%;
+  width: 70%;
+  height: 70%;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  border: white solid 5px;
 }
 
 .rating-title,
