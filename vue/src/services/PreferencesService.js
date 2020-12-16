@@ -24,7 +24,8 @@ getFavorites(user_id) {
 
 updateFavorite(user_id, restaurant){
   return axios.put(`/favorites/${user_id}`, restaurant);
-}
+},
+
 
 }
 

@@ -22,7 +22,7 @@ public class FavoritesSqlDAO implements FavoritesDAO {
 	@Override
 	public List<Favorites> getAllByUserId(int userId) {
 		List<Favorites> faves = new ArrayList<Favorites>();
-		String sql = "SELECT user_id, restaurant_id, restaurant_name, wasvisited FROM favorites " +
+		String sql = "SELECT user_id, restaurant_id, restaurant_name, featured_image, wasvisited FROM favorites " +
 					"WHERE user_id = ?;";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
 		while (results.next()) {
@@ -35,9 +35,9 @@ public class FavoritesSqlDAO implements FavoritesDAO {
 	@Override
 	public void addFavorite(Favorites fave) {
 		if(!exists(fave)) {
-		String sql = "INSERT INTO favorites (user_id, restaurant_id, restaurant_name)" + 
-						" VALUES (?, ?, ?);";
-		jdbcTemplate.update(sql, fave.getUserId(), fave.getRestaurantId(), fave.getRestaurantName());
+		String sql = "INSERT INTO favorites (user_id, restaurant_id, restaurant_name, featured_image)" + 
+						" VALUES (?, ?, ?, ?);";
+		jdbcTemplate.update(sql, fave.getUserId(), fave.getRestaurantId(), fave.getRestaurantName(), fave.getFeaturedImage());
 		}
 	}
 	
@@ -67,6 +67,7 @@ public class FavoritesSqlDAO implements FavoritesDAO {
 		fave.setUserId(result.getInt("user_id"));
 		fave.setRestaurantId(result.getInt("restaurant_id"));
 		fave.setRestaurantName(result.getString("restaurant_name"));
+		fave.setFeaturedImage(result.getString("featured_image"));
 		fave.setWasVisited(result.getBoolean("wasvisited"));
 		return  fave;
 	}

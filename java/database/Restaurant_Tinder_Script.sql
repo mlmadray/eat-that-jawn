@@ -13,6 +13,7 @@ CREATE TABLE favorites (
         user_id int NOT NULL,
         restaurant_id int ,
         restaurant_name varchar(50),
+        featured_image varchar(200),
         wasVisited boolean DEFAULT false,
         CONSTRAINT pk_favorites_favorites_id PRIMARY KEY(favorites_id)
         );

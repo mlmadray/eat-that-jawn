@@ -13,16 +13,16 @@
           >
           <div class="rest-box">
             <p>{{ restaurant.restaurantName }}</p>
-            <!-- <img
+            <img
               class="feature-img"
-              v-if="restaurant.restaurant.featured_image != ''"
-              v-bind:src="restaurant.restaurant.featured_image"
+              v-if="restaurant.featuredImage != ''"
+              v-bind:src = restaurant.featuredImage
             />
             <img
               class="feature-img-alt"
               v-else
               src="../assets/img/Fishtown.jpg"
-              /> -->
+              />
           </div>
         </router-link>
         <!-- <div class = "buttons" v-for="fav in favorites" v-bind:key="fav.restaurantId">
@@ -51,7 +51,6 @@ export default {
     return {
       favorites: [],
      // details: this.$store.state.restaurants,
-      featuredImage: "",
       visited: {
         restaurantId: "",
         restaurantName: "",
