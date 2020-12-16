@@ -176,6 +176,7 @@ export default {
         // this.$store.state.Answers.serviceOption
       )
       .then((response) => {
+
         this.restaurants = response.data.restaurants;
       });
   },
