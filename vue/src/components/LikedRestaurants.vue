@@ -57,6 +57,11 @@ export default {
         restaurantName: "",
         userId: this.$store.state.user.id,
       },
+      deleted: {
+        restaurantId: "",
+        restaurantName: "",
+        userId: this.$store.state.user.id,
+      }
       
     };
   },
@@ -69,7 +74,9 @@ export default {
     //   });
     // },
     updateFavorite(restaurant){
-      preferenceService.updateFavorite(this.$store.state.user.id, restaurant)
+      this.deleted.restaurantId = restaurant.restaurantId;
+      this.deleted.name = restaurant.name;
+      preferenceService.updateFavorite(this.$store.state.user.id, this.deleted);
     },
 
     remove(restaurant){
@@ -211,7 +218,8 @@ body {
   color: #bb9754;
 }
 
-#addVisit {
+#addVisit,
+#delete {
   width: 279px;
   height: 41px;
   left: 49px;
@@ -229,6 +237,9 @@ body {
   margin-bottom: 15px;
   margin-top: 10px;
   cursor: pointer;
+}
+#delete:hover{
+  color: #bb9754;
 }
 
 #addVisit:hover {

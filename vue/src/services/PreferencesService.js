@@ -27,7 +27,7 @@ updateFavorite(user_id, restaurant){
 },
 
 deleteFavorite(user_id, restaurant){
-  return axios.delete(`/favorites/${user_id}`, restaurant);
+  return axios.delete(`/favorites/${user_id}`, {data: restaurant});
 }
 
 }
