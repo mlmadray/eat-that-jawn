@@ -5,35 +5,36 @@
       <div class="favorites-block">
         <h1 class="favorites">Favorites</h1>
       </div>
-      <div v-for="restaurant in details" v-bind:key="restaurant.id">
+      <div v-for="restaurant in favorites" v-bind:key="restaurant.restaurantId">
         <router-link
           class="restaurant"
-          v-bind:to="{ name: 'restaurant', params: { id: restaurant.id } }"
+          v-bind:to="{ name: 'restaurant', params: { id: resaurant.restaurantId } }"
           
-          ><div class="rest-box">
-            <p>{{ restaurant.name }}</p>
-            <img
+          >
+          <div class="rest-box">
+            <p>{{ restaurant.restaurantName }}</p>
+            <!-- <img
               class="feature-img"
-              v-if="restaurant.featured_image != ''"
-              v-bind:src="restaurant.featured_image"
+              v-if="restaurant.restaurant.featured_image != ''"
+              v-bind:src="restaurant.restaurant.featured_image"
             />
             <img
               class="feature-img-alt"
               v-else
               src="../assets/img/Fishtown.jpg"
-              />
+              /> -->
           </div>
         </router-link>
-        <div class = "buttons" v-for="fav in favorites" v-bind:key="fav.restaurantId">
-          <div v-if=" fav.restaurantId == restaurant.id">
-            <button type="add" id="addVisit" v-if="fav.wasVisited == false " v-on:click="updateFavorite(fav)">
+        <!-- <div class = "buttons" v-for="fav in favorites" v-bind:key="fav.restaurantId">
+          <div v-if=" fav.restaurantId == restaurant.restaurant.id"> -->
+            <button type="add" id="addVisit" v-if="resaurant.wasVisited == false " v-on:click="updateFavorite(resaurant)">
               I Have Not Been
             </button>
-            <button type="add" id="addVisit" v-else v-on:click="updateFavorite(fav)">
+            <button type="add" id="addVisit" v-else v-on:click="updateFavorite(resaurant)">
               I Have Been
             </button>
-          </div>
-        </div>
+          <!-- </div>
+        </div> -->
       </div>
     </div>
   </body>
@@ -41,7 +42,7 @@
 
 <script>
 import preferenceService from "../services/PreferencesService";
-import restService from "../services/RestServices";
+//import restService from "../services/RestServices";
 
 export default {
   name: "liked-restaurants",
@@ -49,7 +50,7 @@ export default {
   data() {
     return {
       favorites: [],
-      details: [],
+     // details: this.$store.state.restaurants,
       featuredImage: "",
       visited: {
         restaurantId: "",
@@ -60,13 +61,13 @@ export default {
     };
   },
   methods: {
-    getDetails() {
-      this.favorites.forEach((fav) => {
-        restService.getFavoritesDetails(fav.restaurantId).then((response) => {
-          this.details.push(response.data);
-        });
-      });
-    },
+    // getDetails() {
+    //   this.favorites.forEach((fav) => {
+    //     restService.getFavoritesDetails(fav.restaurantId).then((response) => {
+    //       this.details.push(response.data);
+    //     });
+    //   });
+    // },
     updateFavorite(restaurant){
       preferenceService.updateFavorite(this.$store.state.user.id, restaurant)
     }
@@ -76,7 +77,7 @@ export default {
       .getFavorites(this.$store.state.user.id)
       .then((response) => {
         this.favorites = response.data;
-        this.getDetails();
+        //this.getDetails();
       });
       
   },

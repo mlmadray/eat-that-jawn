@@ -25,7 +25,19 @@ export default new Vuex.Store({
       cuisine: "",
       category: "",
     },
-   // resId: "",
+    restaurants: [
+      // {
+      //   restaurant: {
+      //     id: "",
+      //     name: "",
+      //     featured_image: '',
+      //     user_rating: {
+      //       aggregate_rating: "",
+      //     },
+      //     price_range: "",
+      //   },
+      // },
+    ],
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -51,9 +63,9 @@ export default new Vuex.Store({
         state.Answers.category = Answers.category
     },
 
-    // SET_RESTAURANT(state, resId) {
-    //   state.resId = resId;
-    // }
+    SET_RESTAURANTS(state, restaurant) {
+      state.restaurants= restaurant;
+    }
 
   }
 })
