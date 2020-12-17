@@ -27,7 +27,6 @@
           <button class="dislike-btn" v-on:click="dislike">👎</button>
         </div>
 
-        <!-- <p class="rating">Average Rating: {{restaurant.restaurant.user_rating.aggregate_rating}}</p> -->
         <p
           class="rating"
           v-if="
@@ -70,8 +69,6 @@
         >
           ⭐⭐⭐⭐⭐
         </p>
-
-        <!-- <p class="price">Price: {{restaurant.restaurant.price_range}}</p> -->
         <p class="price" v-if="restaurant.restaurant.price_range === 1">$</p>
         <p class="price" v-else-if="restaurant.restaurant.price_range === 2">
           $$
@@ -103,7 +100,6 @@ export default {
   name: "matched-restaurants",
   data() {
     return {
-      cuisine_ids: [],
       restaurants: [
         {
           restaurant: {
@@ -185,7 +181,6 @@ export default {
         this.$store.state.Answers.neighborhood,
         this.$store.state.Answers.cuisine,
         this.$store.state.Answers.category
-        // this.$store.state.Answers.serviceOption
       )
       .then((response) => {
         this.restaurants = response.data.restaurants;

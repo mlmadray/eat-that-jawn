@@ -1,4 +1,4 @@
-<!-- TODO Form for user information --> 
+
 <template>
   <body>
     <link rel="preconnect" href="https://fonts.gstatic.com" />

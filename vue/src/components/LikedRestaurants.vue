@@ -63,18 +63,13 @@ export default {
         restaurantName: "",
         userId: this.$store.state.user.id,
       },
-      deleted: {
-        restaurantId: "",
-        restaurantName: "",
-        userId: this.$store.state.user.id,
-      },
     };
   },
   methods: {
     updateFavorite(restaurant) {
-      this.deleted.restaurantId = restaurant.restaurantId;
-      this.deleted.name = restaurant.name;
-      preferenceService.updateFavorite(this.$store.state.user.id, this.deleted);
+      this.visited.restaurantId = restaurant.restaurantId;
+      this.visited.name = restaurant.name;
+      preferenceService.updateFavorite(this.$store.state.user.id, this.visited);
     },
 
     remove(restaurant) {
