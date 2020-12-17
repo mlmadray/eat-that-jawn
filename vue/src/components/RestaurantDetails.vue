@@ -12,7 +12,7 @@
           v-if="details.featured_image != ''"
           v-bind:src="details.featured_image"
         />
-        <img class="featured-image-alt" v-else src="img/Gritty.png" />
+        <img class="featured-image-details-alt" v-else src="/img/Gritty.png" />
         <!-- <p class="rating">
         Average Rating: {{ details.user_rating.aggregate_rating }}
       </p> -->
