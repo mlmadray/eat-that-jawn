@@ -59,8 +59,8 @@
         >
           ⭐⭐⭐⭐⭐
         </p>
-        <!-- <p class="rating-text">{{ details.user_rating.rating_text }}</p> -->
-        <p class="rating-votes">Reviews: {{ details.user_rating.votes }}</p>
+        <h4 class="review-title">Reviews</h4>
+        <p class="rating-votes">{{ details.user_rating.votes }}</p>
         <!-- <p class="price">Price: {{ details.price_range }}</p> -->
         <h4 class="price-title">Pricing Info</h4>
         <p class="price-details" v-if="details.price_range === 1">$</p>
@@ -68,8 +68,9 @@
         <p class="price-details" v-else-if="details.price_range === 3">$$$</p>
         <p class="price-details" v-else-if="details.price_range === 4">$$$$</p>
         <p class="price-details" v-else>$$$$$</p>
-        <p class="price">
-          Average Price for two ${{ details.average_cost_for_two }}
+        <h4 class="price-for-two-title">Average Price for Two</h4>
+        <p class="price-for-two">
+           ${{ details.average_cost_for_two }}
         </p>
         <!-- <a href="" class="rest-url" target="_blank"
           ><p class="website">{{ details.url }}</p></a
@@ -130,10 +131,8 @@ export default {
     "featured-image-details"
     "rating-title"
     "rating-avg"
-    /* "rating-text" */
     "rating-votes"
     "price-details"
-    /* "website" */
     "address-title"
     "address"
     "phone-title"
@@ -153,18 +152,14 @@ export default {
     rgba(237, 23, 76, 0.6222864145658263) 81%
   );
   border-radius: 10px;
-  height: 50px;
+  height: auto;
   padding-top: 5px;
-  padding-bottom: 40px;
-  margin-bottom: auto;
+  padding-bottom: 5px;
   margin-top: 20px;
 }
 .restaurant-name {
   grid-area: restaurant-name;
   background-color: #006bb6;
-  height: 32px;
-  left: 103px;
-  top: 264px;
   border-radius: 10px;
   font-size: 25px;
   font-weight: bold;
@@ -172,8 +167,8 @@ export default {
   text-align: center;
   margin: auto;
   margin-top: 20px;
-  margin-bottom: 20px;
-  width: 50%;
+  height: auto;
+  width: 80%;
   padding: 10px;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
@@ -184,8 +179,13 @@ export default {
   font-weight: bold;
   color: #ffffff;
   text-align: center;
-  font-size: 15px;
+  font-size: 18px;
   border-radius: 10px;
+  width: 80%;
+  height: auto;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .details-block {
@@ -196,25 +196,16 @@ export default {
     rgba(237, 23, 76, 0.6222864145658263) 81%
   );
   border-radius: 10px;
-  padding-bottom: 20px;
-  margin-top: 23px;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  margin-top: 10px;
 }
 
 .featured-image-details {
   grid-area: featured-image-details;
   display: flex;
-  width: 70%;
-  height: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 10px;
-  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
-  border: white solid 5px;
-}
-.featured-image-details-alt {
-  display: flex;
-  width: 70%;
-  height: 70%;
+  width: 80%;
+  height: 80%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
@@ -222,11 +213,24 @@ export default {
   border: white solid 5px;
 }
 
+.featured-image-details-alt {
+  display: flex;
+  width: 80%;
+  height: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  border: white solid 5px;
+}
+
+.review-title,
+.price-for-two-title,
 .rating-title,
 .address-title,
 .phone-title,
 .price-title {
-  color: black;
+  color: #002B5C;
   font-weight: bold;
   font-size: 20px;
   text-align: center;
@@ -234,7 +238,7 @@ export default {
 }
 
 .rating-avg,
-.price,
+.price-for-two,
 .rating-votes,
 .price-details,
 .website,
@@ -246,7 +250,7 @@ export default {
   font-size: 20px;
   background-color: #ed174c;
   border-radius: 20px;
-  width: 50%;
+  width: 80%;
   padding: 2px;
   padding-bottom: 6px;
   text-align: center;
@@ -264,18 +268,6 @@ export default {
 
 .price-details {
   grid-area: rating-text;
-}
-
-.website {
-  grid-area: website;
-}
-
-.website:hover {
-  text-decoration: underline;
-}
-
-.rest-url {
-  text-decoration: none;
 }
 
 .address {

@@ -7,7 +7,7 @@
       </div>
       <div v-for="restaurant in favorites" v-bind:key="restaurant.restaurantId">
         <router-link
-          class="restaurant"
+          class="restaurant-fav-title"
           v-bind:to="{
             name: 'restaurant',
             params: { id: restaurant.restaurantId },
@@ -23,8 +23,6 @@
             <img class="featured-image-alt" v-else src="img/Gritty.png" />
           </div>
         </router-link>
-        <!-- <div class = "buttons" v-for="fav in favorites" v-bind:key="fav.restaurantId">
-          <div v-if=" fav.restaurantId == restaurant.restaurant.id"> -->
         <div class="button-block">
           <button type="delete" id="delete" v-on:click="remove(restaurant)">
             Remove Favorite
@@ -35,7 +33,7 @@
             v-if="restaurant.wasVisited == false"
             v-on:click="updateFavorite(restaurant)"
           >
-            I Have Not Been
+            Haven't Been Here
           </button>
           <button
             type="add"
@@ -43,7 +41,7 @@
             v-else
             v-on:click="updateFavorite(restaurant)"
           >
-            I Have Been
+            I've Been Here
           </button>
         </div>
       </div>
@@ -53,7 +51,6 @@
 
 <script>
 import preferenceService from "../services/PreferencesService";
-//import restService from "../services/RestServices";
 
 export default {
   name: "liked-restaurants",
@@ -61,7 +58,6 @@ export default {
   data() {
     return {
       favorites: [],
-      // details: this.$store.state.restaurants,
       visited: {
         restaurantId: "",
         restaurantName: "",
@@ -75,13 +71,6 @@ export default {
     };
   },
   methods: {
-    // getDetails() {
-    //   this.favorites.forEach((fav) => {
-    //     restService.getFavoritesDetails(fav.restaurantId).then((response) => {
-    //       this.details.push(response.data);
-    //     });
-    //   });
-    // },
     updateFavorite(restaurant) {
       this.deleted.restaurantId = restaurant.restaurantId;
       this.deleted.name = restaurant.name;
@@ -97,7 +86,6 @@ export default {
       .getFavorites(this.$store.state.user.id)
       .then((response) => {
         this.favorites = response.data;
-        //this.getDetails();
       });
   },
   updated() {
@@ -129,7 +117,7 @@ body {
   grid-template-areas:
     "navs"
     "favorites"
-    "restaurant"
+    "restaurant-fav-title"
     "feature-img"
     "addVisit"
     "delete";
@@ -193,8 +181,8 @@ body {
   border: white solid 5px;
 }
 
-.restaurant {
-  grid-area: restaurant;
+.restaurant-fav-title {
+  grid-area: restaurant-fav-title;
   text-decoration: none;
   color: white;
   font-size: 30px;
