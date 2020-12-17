@@ -28,32 +28,44 @@ private FavoritesDAO dao;
 		Assert.assertNotNull(faves);
 	}
 	
-//	@Test
-//	public void newFavorite() {
-//		List<Favorites> favesBefore = dao.getAllByUserId(1);
-//		Favorites fave = new Favorites(1,120,"Test");
-//		dao.addFavorite(fave);
-//		List<Favorites> favesAfter = dao.getAllByUserId(1);
-//		Assert.assertTrue((favesBefore.size() +1) == favesAfter.size());
-//	
-//	}
-//	
-//	@Test
-//	public void seeIfExists() {
-//		Favorites fave = new Favorites(1,120,"Test");
-//		dao.addFavorite(fave);
-//		
-//		boolean doesExist = dao.exists(fave);
-//		Assert.assertTrue(doesExist);
-//	}
+	@Test
+	public void newFavorite() {
+		List<Favorites> favesBefore = dao.getAllByUserId(1);
+		Favorites fave = new Favorites(1,120,"Test","test_img",true);
+		dao.addFavorite(fave);
+		List<Favorites> favesAfter = dao.getAllByUserId(1);
+		Assert.assertTrue((favesBefore.size() +1) == favesAfter.size());
 	
-//	@Test
-//	public void deleteFavorite() {
-//		Favorites fave = new Favorites(1,120,"Test");
-//		dao.addFavorite(fave);
-//		
-//		dao.delete(1, 120);
-//		
-//		Assert.assertFalse(dao.exists(fave));
-//	}
+	}
+	
+	@Test
+	public void seeIfExists() {
+		Favorites fave = new Favorites(1,120,"Test","test_img",true);
+		dao.addFavorite(fave);
+		
+		boolean doesExist = dao.exists(fave);
+		Assert.assertTrue(doesExist);
+	}
+	
+	@Test
+	public void deleteFavorite() {
+		Favorites fave = new Favorites(1,120,"Test","test_img",true);
+		dao.addFavorite(fave);
+		
+		dao.delete(1,fave);
+		
+		Assert.assertFalse(dao.exists(fave));
+	}
+	@Test
+	public void changeVisitedStatus() {
+		Favorites fave = new Favorites(1,120,"Test","test_img",false);
+		dao.addFavorite(fave);
+		
+		Favorites fav = new Favorites(1,120,"Test");
+		dao.updateFavorite(fav);
+				
+		Assert.assertEquals(false,fav.isWasVisited());
+		
+		
+	}
 }

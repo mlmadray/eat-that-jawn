@@ -16,12 +16,11 @@ import com.techelevator.dao.CuisineDAO;
 import com.techelevator.dao.FavoritesDAO;
 import com.techelevator.dao.NeighborhoodDAO;
 import com.techelevator.dao.UserDAO;
-import com.techelevator.dao.VisitedDAO;
 import com.techelevator.model.Category;
 import com.techelevator.model.Cuisine;
 import com.techelevator.model.Favorites;
 import com.techelevator.model.Neighborhood;
-import com.techelevator.model.Visited;
+
 
 @RestController
 @CrossOrigin
@@ -32,16 +31,16 @@ public class RestaurantController {
 	private NeighborhoodDAO neighborhoodDAO;
 	private CategoryDAO categoryDAO;
 	private FavoritesDAO favoritesDAO;
-	private VisitedDAO visitedDAO;
 	
 	
-	public RestaurantController(UserDAO userDAO, CuisineDAO cuisineDAO, NeighborhoodDAO neighborhoodDAO, CategoryDAO categoryDAO, FavoritesDAO favoritesDAO, VisitedDAO visitedDAO) {
+	
+	public RestaurantController(UserDAO userDAO, CuisineDAO cuisineDAO, NeighborhoodDAO neighborhoodDAO, CategoryDAO categoryDAO, FavoritesDAO favoritesDAO) {
 		this.userDAO = userDAO;
 		this.cuisineDAO = cuisineDAO;
 		this.neighborhoodDAO = neighborhoodDAO;
 		this.categoryDAO = categoryDAO;
 		this.favoritesDAO = favoritesDAO; 
-		this.visitedDAO = visitedDAO;
+		
 	}
 	
 		
@@ -80,19 +79,4 @@ public class RestaurantController {
 		favoritesDAO.delete(userId, fav);
 	}
 	
-	
-//	@RequestMapping(value = "/visited/{userId}", method = RequestMethod.GET)
-//	public List<Visited> getAllVisitedByUserId(@PathVariable int userId) {
-//		return visitedDAO.getAllByUserId(userId);
-//	}
-//	
-//	@RequestMapping(value = "/visited/{userId}", method = RequestMethod.POST)
-//	public void addVistiedRestaurant(@RequestBody Visited visit) {
-//		visitedDAO.addVisit(visit);
-//	}
-//	
-//	@RequestMapping(value = "/visited/{userId}", method = RequestMethod.DELETE)
-//	public void deleteVisited(@PathVariable int userId, @PathVariable int restaurantId) {
-//		visitedDAO.delete(userId, restaurantId);
-//	}
 }

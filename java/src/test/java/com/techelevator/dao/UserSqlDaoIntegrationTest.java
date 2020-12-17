@@ -55,6 +55,7 @@ public class UserSqlDaoIntegrationTest extends DAOIntegrationTest {
     	
     	Assert.assertEquals(user.getUsername(), user2.getUsername());
     } 
+    
    
 
 }

@@ -10,6 +10,12 @@ public class Favorites {
 	
 	public Favorites() {}
 	
+	public Favorites(int userId, int restaurantId, String restaurantName) {
+		this.userId = userId;
+		this.restaurantId = restaurantId;
+		this.restaurantName = restaurantName;
+	}
+	
 	public Favorites(int userId, int restaurantId, String restaurantName, String featuredImage, boolean wasVisited) {
 		this.userId = userId;
 		this.restaurantId = restaurantId;
