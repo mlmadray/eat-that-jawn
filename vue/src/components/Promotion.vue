@@ -163,7 +163,7 @@ div.modal-backdrop {
 }
 
 #closure-link:hover {
-  text-decoration: underline;
+  color: #BB9754;
 }
 
 .heated-outdoor-dining {
@@ -194,7 +194,7 @@ div.modal-backdrop {
 }
 
 #heated-link:hover {
-  text-decoration: underline;
+  color: #BB9754;
 }
 
 .modal-footer {
@@ -217,7 +217,7 @@ div.modal-backdrop {
 }
 
 .close-btn:hover {
-  text-decoration: underline;
+  color: #BB9754;
 }
 
 /********************* TABLET *********************/

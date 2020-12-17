@@ -204,7 +204,7 @@ body {
   filter: blur(2px);
 }
 
-.restaurant:hover {
+.restaurant-fav-title:hover {
   color: #bb9754;
 }
 

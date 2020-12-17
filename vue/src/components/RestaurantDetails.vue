@@ -13,7 +13,6 @@
           v-bind:src="details.featured_image"
         />
         <img class="featured-image-details-alt" v-else src="/img/Gritty.png" />
-        
         <h4 class="rating-title">Average Rating</h4>
         <p
           class="rating-avg"
@@ -59,7 +58,6 @@
         </p>
         <h4 class="review-title">Reviews</h4>
         <p class="rating-votes">{{ details.user_rating.votes }}</p>
-        
         <h4 class="price-title">Pricing Info</h4>
         <p class="price-details" v-if="details.price_range === 1">$</p>
         <p class="price-details" v-else-if="details.price_range === 2">$$</p>
@@ -70,7 +68,6 @@
         <p class="price-for-two">
            ${{ details.average_cost_for_two }}
         </p>
-       
         <h4 class="address-title">Address</h4>
         <p class="address">{{ details.location.address }}</p>
         <h4 class="phone-title">Phone Number</h4>
@@ -280,5 +277,7 @@ export default {
 
 /********************* DESKTOP *********************/
 @media (min-width: 1024px) {
+
+
 }
 </style>
